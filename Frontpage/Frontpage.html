@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Veistoskartta</title>
+    <link rel="stylesheet" href="style.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <div id="blocks">
+        <div class="blue"></div>
+        <div id="white"> 
+            <h1 id="title"></h1>
+            <div id="langcontainer">
+                <span class="language" onclick="changeLanguage('fi')">fi</span>
+                <span style="padding: 0 4px">|</span>
+                <span class="language" onclick="changeLanguage('en')">en</span>
+            </div>
+            <a id="tothemap" href="../Map_page/Map_page.html">
+                <div id="button"> 
+                    <button id="btntext"></button>
+                </div>
+            </a>
+            <div id="chapters"></div>
+            <a id="wikipedia" href="https://fi.wikipedia.org/wiki/Luettelo_Helsingin_julkisista_taideteoksista_ja_muistomerkeistä">Wikipedia, Luettelo Helsingin julkisista taideteoksista ja muistomerkeistä</a>
+            <div id="imagecontainer">
+                <img id="helsinkiphoto" alt="Kuva Helsingistä" style="width: 450px"></img>
+                <div id="phototext"></div>
+                    <div id="photographer"></div>
+                    <a id="photolink" href=""></a>
+            </div>
+        </div>
+        <div class="blue"></div>
+    </div>
+    <script src="textcontent.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
