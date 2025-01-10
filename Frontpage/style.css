@@ -1,126 +1,141 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0 0;
-    background-color: #e4e4e4;
-    overflow-x: hidden;
-    inset: 0; 
-    width: 100vw;
-    height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 0;
+  background-color: #e4e4e4;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
 }
 
-.blue {
-    background-color: rgb(64, 64, 131);  
+.side {
+  background-color: #c7c6ba;
 }
 
 .chaptr {
-    text-align: justify;
-    font-size: large;
-}
-
-button {
-    padding: 8px;
-    border-radius: 6px;
-    background-color: #fcab39d3;
-    font-size: large;
-    cursor: pointer;
+  text-align: justify;
+  font-size: large;
+  color: #373737;
 }
 
 button:hover {
-    background-color: #ffbf67d3;
-    border-color: #9A9A9A;
+  background-color: #f5ebe490;
+  color: #37451e;
 }
 
-h1, h2, #button {
-    text-align: center;
+button {
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: large;
+  border: outset 2px rgb(175, 175, 175);
+  padding: 4px 9px;
+  background-color: #f5ebe4c7;
+  color: rgb(35, 35, 35);
+  margin: 40px auto 30px;
 }
 
-h1 {
-    margin: 0;
+h1,
+h2,
+#btncontainer {
+  text-align: center;
+}
+
+h2 {
+  color: #474747;
+  letter-spacing: 0.5px;
+  font-weight: 100;
+  font-size: 22px;
 }
 
 #langcontainer {
-    text-align: center;
-    font-size: large;
-    margin-top: 30px;
-}
-
-a {
-    display: block;
-    width: fit-content;
-}
-
-#tothemap {
-    margin: 40px auto;
+  text-align: center;
+  font-size: large;
+  margin-top: 30px;
 }
 
 #wikipedia {
-    margin: 10px auto; 
+  text-decoration: none;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+#wikipedia:hover,
+#photolink:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 0, 0.192);
 }
 
 .language {
-    cursor: pointer;
-    padding: 3px 6px;
-    border-radius: 4px;
+  padding: 3px 6px;
+  border-radius: 4px;
 }
 
 .language:hover {
-    background-color: rgb(236, 236, 236);  
+  cursor: pointer;
+  background-color: rgb(236, 236, 236);
 }
 
-#imagecontainer {  
-    text-align: center;
-    padding-bottom: 70px;
-    padding-top: 50px;
+#imagecontainer {
+  text-align: center;
+  padding-bottom: 45px;
+  padding-top: 65px;
 }
 
-#photolink, #photographer {
-    display: inline;
-    font-size: 14px;
+#photolink {
+  font-size: 14px;
+  padding-left: 7px;
+  padding-right: 7px;
 }
 
-@media screen and (max-width: 660px) {
-    #blocks {
-        display: grid;
-        grid-template-columns: 0fr 1fr 0fr;
-        gap: 0;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    img {
-        width: 60%;
-    }
+h1 {
+  margin: 0;
+  color: rgb(86, 86, 86);
+  letter-spacing: 2px;
+  font-weight: 300;
+  font-size: 29px;
 }
 
-@media screen and (min-width: 661px) {
-    #blocks {
-        display: grid;
-        grid-template-columns: 18% auto 18%;
-        gap: 0;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-    } 
+@media screen and (max-width: 760px) {
+  #blocks {
+    display: grid;
+    grid-template-columns: 0fr 1fr 0fr;
+    gap: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #helsinkiphoto {
+    width: 300px;
+    border-radius: 7px;
+  }
 }
 
-@media screen and (min-width: 611px) and (max-width: 900px)  {
-    img {
-       width: 90%;
-   }
+@media screen and (min-width: 761px) {
+  #blocks {
+    display: grid;
+    grid-template-columns: 18% auto 18%;
+    gap: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #helsinkiphoto {
+    width: 400px;
+    border-radius: 7px;
+  }
 }
 
 @media screen and (max-width: 1000px) {
-    #white {
-        padding: 60px 40px 40px;
-        background-color: white; 
-    }
-} 
+  #white {
+    padding: 60px 40px 40px;
+    background-color: white;
+  }
+}
 
 @media screen and (min-width: 1001px) {
-    #white {
-        padding: 60px 80px 40px;
-        background-color: white; 
-    }
-} 
-
+  #white {
+    padding: 60px 90px 40px;
+    background-color: white;
+  }
+}

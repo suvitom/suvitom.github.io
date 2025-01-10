@@ -1,32 +1,27 @@
-let language = localStorage.getItem('kieli') || 'fi';
+let language = localStorage.getItem('language') || 'fi';
 
 const chapters = document.getElementById('chapters');
 const title = document.getElementById('title');
-const btntext = document.getElementById('btntext');
+const btntext = document.getElementById('mapButton');
 const helsinkiphoto = document.getElementById('helsinkiphoto');
 const photolink = document.getElementById('photolink');
-           
+
 const images = {
   aleksanteri: {
-    link: "https://unsplash.com/@malyushev",
-    linkText: "Aleksanteri II, image: Victor Malyushev, unsplash.com",
-    filepath: "images/Aleksanteri.jpg",
+    link: 'https://unsplash.com/@malyushev',
+    linkText: 'Aleksanteri II IMG: Victor Malyushev, unsplash.com',
+    filepath: 'images/Aleksanteri.jpg',
   },
   sibelius: {
-    link: "https://unsplash.com/@satususannas",
-    linkText: "Sibelius Monument, image: Satu Susanna, unsplash.com",
-    filepath: "images/Sibelius.jpg",
-  },
-  railwaystation: {
-    link: "https://unsplash.com/@alkomosh",
-    linkText: "image: Alexander Kovalev, unsplash.com",
-    filepath: "images/Railwaystation.jpg",
+    link: 'https://unsplash.com/@satususannas',
+    linkText: 'Sibelius Monument IMG: Satu Susanna, unsplash.com',
+    filepath: 'images/Sibelius.jpg',
   },
   havisamanda: {
-    link: "https://unsplash.com/@megurine_nimu",
-    linkText: "Havis Amanda, image: nimu, unsplash.com",
-    filepath: "images/HavisAmanda.jpg",
-  }
+    link: 'https://unsplash.com/@megurine_nimu',
+    linkText: 'Havis Amanda IMG: nimu, unsplash.com',
+    filepath: 'images/HavisAmanda.jpg',
+  },
 };
 
 const setImage = () => {
@@ -35,43 +30,50 @@ const setImage = () => {
   const randomKey = keys[randomIndex];
   const randomImage = images[randomKey];
 
-  helsinkiphoto.src = randomImage.filepath || "";
-  photolink.href = randomImage.link || "";
-  photolink.textContent = randomImage.linkText || "";
+  helsinkiphoto.src = randomImage.filepath || '';
+  photolink.href = randomImage.link || '';
+  photolink.textContent = randomImage.linkText || '';
 };
-           
-const setTextContent = (lang) => {
-  const h2_1 = document.createElement('h2');
-  const h2_2 = document.createElement('h2');
-  const div1 = document.createElement('div');
-  const div2 = document.createElement('div');
-  const div3 = document.createElement('div');
+
+const createLink = () => {
+  const a = document.createElement('a');
+  a.id = 'wikipedia';
+  a.href = 'https://fi.wikipedia.org/wiki/Luettelo_Helsingin_julkisista_taideteoksista_ja_muistomerkeistä';
+  a.textContent =
+    language === 'fi'
+      ? 'Wikipedia, Luettelo Helsingin Julkisista Taideteoksista ja Muistomerkeistä'
+      : 'Wikipedia, List of Public Artworks and Monuments in Helsinki';
+  return a;
+};
+
+const create_Element = (tag, text) => {
+  const element = document.createElement(tag);
+  element.textContent = text;
+  return element;
+};
+
+const setTextContent = () => {
+  const fi = language === 'fi';
+
+  const h2_1 = create_Element('h2', fi ? 'Tietoa palvelusta' : 'About the service');
+  const h2_2 = create_Element('h2', fi ? 'Tietoa Helsingin veistoksista' : "About Helsinki's sculptures");
+  const div1 = create_Element('div', fi ? serviceDescr_fi : serviceDescr_en);
+  const div2 = create_Element('div', fi ? history1_fi : history1_en);
+  const div3 = create_Element('div', fi ? history2_fi : history2_en);
   const br1 = document.createElement('br');
   const br2 = document.createElement('br');
+  const titleSpan1 = create_Element('span', fi ? 'Helsingin ' : 'Sculptures ');
+  const titleSpan2 = create_Element('span', fi ? ' veistokset' : ' of Helsinki');
+  const a = createLink();
+  btntext.textContent = fi ? 'siirry kartalle' : 'to the map';
 
   div1.classList.add('chaptr');
   div2.classList.add('chaptr');
   div3.classList.add('chaptr');
 
-  h2_1.textContent =
-    lang === 'fi' ? 'Tietoa palvelusta' : 'Information about the service';
-  h2_2.textContent = lang === 'fi'
-      ? 'Tietoa Helsingin veistoksista'
-      : "Information about Helsinki's sculptures";
-  div1.textContent = lang === 'fi'
-      ? serviceDescr_fi
-      : serviceDescr_en;
-  div2.textContent =
-    lang === 'fi'
-      ? history1_fi
-      : history1_en;
-  div3.textContent =
-    lang === 'fi'
-      ? history2_fi
-      : history2_en;
-  title.textContent = lang === 'fi' ? 'Helsingin veistokset' : 'Sculptures of Helsinki';   
-  btntext.textContent = lang === 'fi' ? 'siirry kartalle' : 'to the map';   
-
+  title.prepend(titleSpan1);
+  title.appendChild(titleSpan2);
+  div3.appendChild(a);
   const elements = [h2_1, div1, br1, h2_2, div2, br2, div3];
   elements.forEach(element => chapters.appendChild(element));
 };
@@ -80,12 +82,18 @@ const changeLanguage = lang => {
   while (chapters.firstChild) {
     chapters.removeChild(chapters.firstChild);
   }
-  localStorage.setItem('kieli', lang);
-  setTextContent(lang);
+  Array.from(title.childNodes).forEach(child => {
+    if (child.nodeName !== 'IMG') {
+      title.removeChild(child);
+    }
+  });
+
+  localStorage.setItem('language', lang);
+  language = lang;
+  setTextContent();
 };
- 
+
 document.addEventListener('DOMContentLoaded', function () {
-  setTextContent(language);
+  setTextContent();
   setImage();
 });
-

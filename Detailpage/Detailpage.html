@@ -1,30 +1,29 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="fi">
+  <head>
     <meta charset="UTF-8" />
-    <title>Veistos</title>
+    <title>Helsingin veistokset</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div id="colorBlocks">
-        <div id="white">
-            <div id="container">
-                <h2 id="h2"></h2>
-                <div id="div1"></div>
-                 </br>
-                <div id="div2"></div>
-                <div>
-                    <a id="imageLink" href=""></a>
-                </div>
-                <a href="../Map_page/Map_page.html">
-                    <button id="btntext"></button> 
-                </a>
-            </div>
+      <div id="white">
+        <div id="textContainer">
+          <h2 id="h2"></h2>
+          <div id="div1"></div>
+          <br id="br" />
+          <div id="div2"></div>
+          <img src="" alt="Kuva veistoksesta" id="sculptImg" />
+          <div id="btncontainer">
+            <button id="btn" type="button" onclick="window.location.href='../Map_page/Map_page.html'">
+              <span id="arrow">❮</span>
+            </button>
+          </div>
         </div>
-        <div id="blue"></div>
+      </div>
+      <div id="gray"></div>
     </div>
-    <script src="../Shared/script.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

@@ -1,36 +1,45 @@
-let language = localStorage.getItem('kieli') || 'fi';
+function getLocalData() {
+  const language = localStorage.getItem('language') || 'fi';
+  let caption = localStorage.getItem('caption') || '';
+  const description = localStorage.getItem('description') || '';
+  const name = localStorage.getItem('name') || '';
+  let url = localStorage.getItem('url') || null;
 
-const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get('id');
-
-const addTextToTheDetailPage = async () => {
-  const sculptures = await fetchSculptures();
-  
-  if (sculptures.length === 0) {
-    const div = document.createElement('div');
-    div.textContent = language === 'fi' ? 'Tietoja ei voitu hakea.' : 'Failed to get information.';
-    h2.appendChild(div);
-    return; 
+  if (caption && caption.toLowerCase().includes('undefined')) {
+    caption = '';
   }
 
-  const sculpt = sculptures.find(scul => scul.id === Number(id));
+  if (url && url.toLowerCase().includes('ei-kuvaa')) {
+    url = null;
+  }
 
+  return {language, caption, description, name, url};
+}
+
+const addTextToDetailPage = async () => {
   const h2 = document.getElementById('h2');
-  const div1 = document.getElementById('div1');
-  const div2 = document.getElementById('div2');
-  const btntext = document.getElementById('btntext');
-  const imageLink = document.getElementById('imageLink');
+  const div1Top = document.getElementById('div1');
+  const br = document.getElementById('br');
+  const div2Bottom = document.getElementById('div2');
+  const img = document.getElementById('sculptImg');
+  const button = document.getElementById('btn');
 
-  const shortened = shortenCaption(sculpt, language, false);
+  const {language, caption, description, name, url} = getLocalData();
 
-  div1.textContent = shortened;
-  imageLink.href = sculpt.picture_url;
-  imageLink.textContent = language === 'fi' ? "Kuva" : "Image";
-  h2.textContent = language === 'fi' ? sculpt.name_fi : sculpt.name_en || '';
-  div2.textContent = language === 'fi' ? sculpt.desc_fi : sculpt.desc_en || '';
-  btntext.textContent = language === 'fi' ? 'takaisin' : 'back';
+  if (!caption) {
+    br.remove();
+  }
+
+  url ? (img.src = url) : img.remove();
+
+  const newText = document.createTextNode(language === 'fi' ? 'takaisin' : 'back');
+  button.appendChild(newText);
+
+  h2.textContent = name;
+  div1Top.textContent = caption;
+  div2Bottom.textContent = description;
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-  addTextToTheDetailPage();
+  addTextToDetailPage();
 });
