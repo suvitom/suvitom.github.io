@@ -86,7 +86,7 @@ body {
 }
 
 #subHeading {
-  font-weight: 100;
+  font-weight: 300;
   font-size: 19px;
   color: #373737;
   letter-spacing: 0.5px;
@@ -197,7 +197,7 @@ label {
 #title {
   color: #373737;
   letter-spacing: 2px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 24px;
   margin-top: 15px;
   margin-bottom: 0px;
