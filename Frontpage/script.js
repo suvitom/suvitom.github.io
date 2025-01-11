@@ -10,17 +10,17 @@ const images = {
   aleksanteri: {
     link: 'https://unsplash.com/@malyushev',
     linkText: 'Aleksanteri II IMG: Victor Malyushev, unsplash.com',
-    filepath: 'images/Aleksanteri.jpg',
+    filepath: 'Frontpage/images/Aleksanteri.jpg',
   },
   sibelius: {
     link: 'https://unsplash.com/@satususannas',
     linkText: 'Sibelius Monument IMG: Satu Susanna, unsplash.com',
-    filepath: 'images/Sibelius.jpg',
+    filepath: 'Frontpage/images/Sibelius.jpg',
   },
   havisamanda: {
     link: 'https://unsplash.com/@megurine_nimu',
     linkText: 'Havis Amanda IMG: nimu, unsplash.com',
-    filepath: 'images/HavisAmanda.jpg',
+    filepath: 'Frontpage/images/HavisAmanda.jpg',
   },
 };
 
