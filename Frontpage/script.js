@@ -62,17 +62,14 @@ const setTextContent = () => {
   const div3 = create_Element('div', fi ? history2_fi : history2_en);
   const br1 = document.createElement('br');
   const br2 = document.createElement('br');
-  const titleSpan1 = create_Element('span', fi ? 'Helsingin ' : 'Sculptures ');
-  const titleSpan2 = create_Element('span', fi ? ' veistokset' : ' of Helsinki');
   const a = createLink();
   btntext.textContent = fi ? 'siirry kartalle' : 'to the map';
+  title.textContent = fi ? 'Helsingin veistokset' : 'Sculptures of Helsinki';
 
   div1.classList.add('chaptr');
   div2.classList.add('chaptr');
   div3.classList.add('chaptr');
 
-  title.prepend(titleSpan1);
-  title.appendChild(titleSpan2);
   div3.appendChild(a);
   const elements = [h2_1, div1, br1, h2_2, div2, br2, div3];
   elements.forEach(element => chapters.appendChild(element));
