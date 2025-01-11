@@ -180,7 +180,7 @@ artistCkbox.addEventListener('change', () => {
   yearLabl.style.background = artistChecked ? 'white' : '';
   yearLabl.style.borderColor = artistChecked ? '#b5b5b5' : '';
   artistLabl.style.color = 'black';
-  searchInput.placeholder = artistChecked ? 'Walter Runeberg' : 'Mare mare';
+  searchInput.placeholder = artistChecked ? 'Walter Runeberg' : '';
 });
 
 yearCkbox.addEventListener('change', () => {
@@ -190,7 +190,7 @@ yearCkbox.addEventListener('change', () => {
   artistLabl.style.background = yearChecked ? 'white' : '';
   artistLabl.style.borderColor = yearChecked ? '#b5b5b5' : '';
   yearLabl.style.color = 'black';
-  searchInput.placeholder = yearChecked ? '1972' : 'Mare mare';
+  searchInput.placeholder = yearChecked ? '1972' : '';
 });
 
 //When the year range checkbox is checked or unchecked the marker group is added to
