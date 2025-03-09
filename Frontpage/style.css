@@ -8,7 +8,20 @@ body {
 }
 
 .side {
-  background-color: #9a9aa3;
+  /* background-color: #9a9aa3; */
+  background-image: url('../Frontpage/images/Circle.jpeg');
+  opacity: 0.85;
+  background-size: 300px 300px;
+  background-repeat: repeat-y;
+  background-color: #00181c;
+}
+
+#sideLeft {
+  background-position: calc(100% + 150px) top;
+}
+
+#sideRight {
+  background-position: calc(0% - 150px) top;
 }
 
 .chaptr {
