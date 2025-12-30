@@ -1,4 +1,4 @@
-// Fetches sculptures and adding them to both the map and the search list
+// Fetches sculptures and adds them to both the map and the search list
 const addSculptures = async () => {
   let sculptures = null;
 
