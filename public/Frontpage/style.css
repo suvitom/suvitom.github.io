@@ -17,11 +17,11 @@ body {
 }
 
 #sideLeft {
-  background-position: calc(100% + 150px) top;
+  background-position: calc(100% + 150px) -100px;
 }
 
 #sideRight {
-  background-position: calc(0% - 150px) top;
+  background-position: calc(0% - 150px) -100px;
 }
 
 .chaptr {

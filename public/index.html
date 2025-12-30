@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html lang="fi">
-<head>
-    <meta charset="UTF-8" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Helsingin veistokset</title>
     <link rel="stylesheet" href="Frontpage/style.css"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-</head>
-<body>
+
+    <!-- update the version number as needed -->
+    <script defer src="https://www.gstatic.com/firebasejs/12.7.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="https://www.gstatic.com/firebasejs/12.7.0/firebase-auth-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <!-- <script defer src="/__/firebase/init.js?useEmulator=false"></script> -->
+    <script defer src="../firebase-config.js"></script>
+  </head>
+  <body>
     <div id="blocks">
         <div class="side" id="sideLeft"></div>
         <div id="white"> 
@@ -31,5 +45,5 @@
     </div>
     <script src="Frontpage/textcontent.js"></script>
     <script src="Frontpage/script.js"></script>
-</body>
+  </body>
 </html>
