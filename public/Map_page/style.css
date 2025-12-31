@@ -188,6 +188,7 @@ label {
   grid-row: 3 / 4;
   grid-column: 1 / 6;
   border-top: none;
+  min-height: 50px;
 }
 
 .tab {
@@ -198,8 +199,8 @@ label {
   bottom: 0;
 }
 
-.createdInTabButton,
-.likedTabButton {
+#createdInTabButton,
+#likedTabButton {
   background-color: white;
   clip-path: polygon(30% 0%, 70% 0%, 78% 6%, 85% 25%, 100% 100%, 0% 100%, 15% 25%, 23% 6%);
   width: 94%;
@@ -213,36 +214,36 @@ label {
 }
 
 .fa-heart {
-  color: #a1a1a1;
+  color: #959595;
 }
 
 .fa-hammer {
   color: olive;
 }
 
-.likedTabButton:hover {
-  background-color: whitesmoke;
+#likedTabButton:hover,
+#createdInTabButton:hover {
   cursor: pointer;
 }
 
-.createdInTabButton {
+#createdInTabButton {
   background-color: white;
 }
 
-.likedTabButton {
-  background-color: #dfdfdf;
+#likedTabButton {
+  background-color: #e2e2e2;
 }
 
 #selectionLine {
   grid-row: 2 / 3;
   grid-column: 1 / 6;
   display: grid;
-  grid-template-columns: 7px 90px 5px 90px auto;
+  grid-template-columns: 10px 84px 11px 84px auto;
+  z-index: 100;
 }
 
 #heartLine {
   background-color: #c1c1c1;
-  z-index: 100;
 }
 
 #check1,
