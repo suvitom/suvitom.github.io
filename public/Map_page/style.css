@@ -183,7 +183,7 @@ label {
   gap: 0px;
 }
 
-.markerSelectionContent {
+#markerSelectionContent {
   border: solid #c1c1c1 2px;
   grid-row: 3 / 4;
   grid-column: 1 / 6;
@@ -221,11 +221,6 @@ label {
   color: olive;
 }
 
-#likedTabButton:hover,
-#createdInTabButton:hover {
-  cursor: pointer;
-}
-
 #createdInTabButton {
   background-color: white;
 }
@@ -244,6 +239,10 @@ label {
 
 #heartLine {
   background-color: #c1c1c1;
+}
+
+#likedContent {
+  display: 'none';
 }
 
 #check1,
