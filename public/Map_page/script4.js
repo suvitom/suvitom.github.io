@@ -51,9 +51,9 @@ const changeDialogStyling = changeTo => {
 };
 
 const onMouseEnterHammer = () => {
-  createdInTabButton.style.backgroundColor = 'rgb(237, 237, 237)';
+  createdInTabButton.style.backgroundColor = 'rgb(240, 240, 240)';
   createdInTabButton.style.cursor = 'pointer';
-  hammer.style.color = 'palevioletred';
+  hammer.style.color = 'darkorange';
 };
 
 const onMouseLeaveHammer = () => {
@@ -63,9 +63,9 @@ const onMouseLeaveHammer = () => {
 };
 
 const onMouseEnterHeart = () => {
-  likedTabButton.style.backgroundColor = 'rgba(237, 237, 237)';
+  likedTabButton.style.backgroundColor = 'rgb(240, 240, 240)';
   likedTabButton.style.cursor = 'pointer';
-  heart.style.color = 'palevioletred';
+  heart.style.color = 'darkorange';
 };
 
 const onMouseLeaveHeart = () => {

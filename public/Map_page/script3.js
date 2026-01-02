@@ -70,7 +70,7 @@ opacitySlider.addEventListener('input', () => {
 });
 
 //opacity: a decimal value from localStorage OR 0.9 (script1.js)
-setOpacitySliderVal = () => {
+const setOpacitySliderVal = () => {
   opacitySlider.value = (opacity * 10).toString();
 };
 
