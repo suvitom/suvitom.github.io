@@ -241,4 +241,5 @@ document.addEventListener('DOMContentLoaded', function () {
   addSculptures();
   addTextToThePage();
   setOpacitySliderVal();
+  initializeFirebase();
 });
