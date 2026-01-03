@@ -188,7 +188,7 @@ label {
   grid-row: 3 / 4;
   grid-column: 1 / 6;
   border-top: none;
-  min-height: 50px;
+  min-height: 100px;
 }
 
 .tab {
@@ -199,13 +199,23 @@ label {
   bottom: 0;
 }
 
+.tabWhite {
+  clip-path: polygon(30% 0%, 70% 0%, 78% 6%, 85% 25%, 100% 100%, 0% 100%, 15% 25%, 23% 6%);
+  background-color: white;
+  bottom: 0;
+  width: 94%;
+  height: 94%;
+  left: 3%;
+  position: absolute;
+}
+
 #createdInTabButton,
 #likedTabButton {
   background-color: white;
   clip-path: polygon(30% 0%, 70% 0%, 78% 6%, 85% 25%, 100% 100%, 0% 100%, 15% 25%, 23% 6%);
-  width: 94%;
-  height: 94%;
-  left: 3%;
+  width: 100%;
+  height: 100%;
+  left: 0;
   bottom: 0;
   position: absolute;
   display: flex;
@@ -242,7 +252,33 @@ label {
 }
 
 #likedContent {
-  display: 'none';
+  display: none;
+  padding: 10px;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+#liked {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+#dialogLoginLink {
+  text-decoration: none;
+}
+
+#dialogLoginLink:hover {
+  color: rgb(106, 0, 255);
 }
 
 #check1,

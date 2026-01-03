@@ -57,6 +57,14 @@ const addTextToThePage = () => {
 
   const opcLabel = document.getElementById('opacityLabl');
   opcLabel.textContent = fi ? 'läpinäkyvyys' : 'transparency';
+
+  const likedDialog = document.getElementById('liked').children[0];
+  likedDialog.textContent = fi
+    ? 'Kirjaudu sisään tai rekisteröidy tallentaaksesi suosikkeja!'
+    : 'Log in or register to save your favorites!';
+
+  const dialogLogin = document.querySelector('#dialogLoginLink > span');
+  dialogLogin.textContent = fi ? 'Kirjaudu / Rekisteröidy' : 'Log in / Register';
 };
 
 //Opacity slider for the background map

@@ -21,7 +21,7 @@ const changeMarkers = changeTo => {
 const changeDialogStyling = changeTo => {
   if (changeTo == 'Liked') {
     createdInDialog.style.display = 'none';
-    likedDialog.style.display = 'block';
+    likedDialog.style.display = 'flex';
     likedTabButton.style.backgroundColor = 'white';
     createdInTabButton.style.backgroundColor = '#e2e2e2';
     heart.style.color = 'olive';
@@ -51,9 +51,9 @@ const changeDialogStyling = changeTo => {
 };
 
 const onMouseEnterHammer = () => {
-  createdInTabButton.style.backgroundColor = 'rgb(240, 240, 240)';
+  createdInTabButton.style.backgroundColor = '#436b7331';
   createdInTabButton.style.cursor = 'pointer';
-  hammer.style.color = 'darkorange';
+  hammer.style.color = '#436B73';
 };
 
 const onMouseLeaveHammer = () => {
@@ -63,9 +63,9 @@ const onMouseLeaveHammer = () => {
 };
 
 const onMouseEnterHeart = () => {
-  likedTabButton.style.backgroundColor = 'rgb(240, 240, 240)';
+  likedTabButton.style.backgroundColor = '#d8709331';
   likedTabButton.style.cursor = 'pointer';
-  heart.style.color = 'darkorange';
+  heart.style.color = 'palevioletred';
 };
 
 const onMouseLeaveHeart = () => {
