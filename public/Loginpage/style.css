@@ -3,4 +3,17 @@ body {
   text-align: center;
   overflow-x: hidden;
   margin: 0px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.firebaseui-title {
+  font-size: x-large;
+  margin: 0;
+}
+
+.firebaseui-label {
+  margin-right: 10px;
 }

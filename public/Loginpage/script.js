@@ -1,4 +1,6 @@
-const signIn = () => {
+let language = localStorage.getItem('language') || 'fi';
+
+const initAuthUI = () => {
   const {auth, db} = initializeFirebase();
   const ui = new firebaseui.auth.AuthUI(auth);
 
@@ -27,6 +29,25 @@ const signIn = () => {
   }
 };
 
-document.addEventListener('DOMContentLoaded', function () {
-  signIn();
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadFirebaseUILanguage(language);
+  initAuthUI();
 });
+
+const loadFirebaseUILanguage = language => {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = `https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth__${language}.js`;
+    script.defer = true;
+
+    script.onload = resolve;
+    script.onerror = reject;
+
+    document.head.appendChild(script);
+  });
+};
+
+const title = document.getElementsByClassName('firebaseui-title')[0];
+const email = document.getElementsByClassName('firebaseui-label')[0];
+const button = document.getElementsByClassName('firebaseui-button')[0];
+const container = document.getElementsByClassName('firebaseui-auth-container')[0];
