@@ -7,6 +7,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: whitesmoke;
 }
 
 .firebaseui-title {
@@ -23,6 +24,7 @@ body {
 .firebaseui-label {
   justify-self: start;
   grid-column: 2 / 3;
+  align-self: center;
 }
 
 .firebaseui-input {
@@ -30,6 +32,19 @@ body {
   grid-column: 3 / 4;
   width: 100%;
   box-sizing: border-box;
+
+  height: 25px;
+  border: 2px solid #a5a5a5;
+  outline: none;
+  padding: 2px 6px 2px;
+  border-radius: 1px;
+  align-self: center;
+}
+
+.firebaseui-input:focus {
+  outline: none;
+  border-color: #838383;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
 }
 
 .firebaseui-button {
@@ -52,4 +67,19 @@ body {
 
 ul {
   list-style: none;
+}
+
+#box {
+  border: solid #c1c1c1 2px;
+  padding: 20px;
+  background-color: white;
+}
+
+.firebaseui-info-bar-message {
+  margin-bottom: 0;
+}
+
+a {
+  color: rgb(190, 108, 0);
+  text-decoration: none;
 }
