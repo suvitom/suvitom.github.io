@@ -65,6 +65,30 @@ const addTextToThePage = () => {
 
   const dialogLogin = document.querySelector('#dialogLoginLink > span');
   dialogLogin.textContent = fi ? 'Kirjaudu / Rekisteröidy' : 'Log in / Register';
+
+  setLoginLogoutBtn(fi);
+};
+
+const setLoginLogoutBtn = async fi => {
+  const loginButton = document.getElementById('logInOrOut');
+
+  const user = await waitForAuth();
+  console.log(user);
+
+  if (user) {
+    loginButton.textContent = fi ? 'Kirjaudu ulos' : 'Sign Out';
+  } else {
+    loginButton.textContent = fi ? 'Kirjaudu' : 'Sign In';
+  }
+};
+
+const waitForAuth = () => {
+  return new Promise(resolve => {
+    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+      unsubscribe();
+      resolve(user);
+    });
+  });
 };
 
 //Opacity slider for the background map
@@ -238,8 +262,8 @@ const showOrHideMarkers = interval => {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
+  initializeFirebase();
   addSculptures();
   addTextToThePage();
   setOpacitySliderVal();
-  initializeFirebase();
 });

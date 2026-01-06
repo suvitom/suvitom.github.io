@@ -93,5 +93,4 @@ const changeLanguage = lang => {
 document.addEventListener('DOMContentLoaded', function () {
   setTextContent();
   setImage();
-  initializeFirebase();
 });

@@ -102,13 +102,27 @@ body {
   background-color: seashell;
 }
 
+#logInOrOut {
+  position: absolute;
+  top: 31px;
+  right: 40px;
+  border: outset 2px rgb(191, 191, 191);
+  padding: 3px 5px;
+  background-color: aliceblue;
+}
+
+#logInOrOut:hover {
+  background-color: rgb(231, 241, 249);
+}
+
 #back:hover,
 #findMebtn:hover {
   background-color: #f5ebe4;
 }
 
 #findMebtn,
-#back {
+#back,
+#logInOrOut {
   border-radius: 3px;
   cursor: pointer;
 }

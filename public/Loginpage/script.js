@@ -29,9 +29,32 @@ const initAuthUI = () => {
   }
 };
 
+const observeEmailInput = callback => {
+  const observer = new MutationObserver(() => {
+    const emailInput = document.querySelector('input[type="email"]');
+    const passwordInput = document.querySelector('input[type="password"]');
+    if (emailInput) {
+      callback(emailInput);
+    }
+    if (passwordInput) {
+      callback(passwordInput);
+    }
+  });
+
+  observer.observe(document.body, {childList: true, subtree: true});
+};
+
+// Sets the inputs as required and disables autocomplete to ensure consistent styling
+const changeInputSettings = input => {
+  input.required = true;
+  console.log('input/inputs set required and autocomplete off');
+  input.setAttribute('autocomplete', 'off');
+};
+
 document.addEventListener('DOMContentLoaded', async () => {
   await loadFirebaseUILanguage(language);
   initAuthUI();
+  observeEmailInput(changeInputSettings);
 });
 
 const loadFirebaseUILanguage = language => {
@@ -46,8 +69,3 @@ const loadFirebaseUILanguage = language => {
     document.head.appendChild(script);
   });
 };
-
-const title = document.getElementsByClassName('firebaseui-title')[0];
-const email = document.getElementsByClassName('firebaseui-label')[0];
-const button = document.getElementsByClassName('firebaseui-button')[0];
-const container = document.getElementsByClassName('firebaseui-auth-container')[0];
