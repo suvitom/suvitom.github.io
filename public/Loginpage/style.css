@@ -12,9 +12,11 @@ body {
 }
 
 .firebaseui-title {
-  font-size: x-large;
+  font-size: large;
   margin: 0;
   margin-bottom: 15px;
+  font-weight: 500;
+  color: #000000;
 }
 
 .firebaseui-textfield {

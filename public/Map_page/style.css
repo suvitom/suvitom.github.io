@@ -49,8 +49,8 @@ body {
 
 #searchContainer {
   display: grid;
-  gap: 7px;
-  grid-template-columns: 50% 50%;
+  gap: 9px;
+  grid-template-columns: 50% calc(50% - 9px);
   width: 100%;
   margin-bottom: 18px;
 }
@@ -106,13 +106,15 @@ body {
   position: absolute;
   top: 31px;
   right: 40px;
-  border: outset 2px rgb(191, 191, 191);
+  border: outset 2px #dae1bb;
   padding: 3px 5px;
-  background-color: aliceblue;
+  background-color: #f8ffdb;
+  letter-spacing: 2px;
+  color: black;
 }
 
 #logInOrOut:hover {
-  background-color: rgb(231, 241, 249);
+  background-color: #efffb7;
 }
 
 #back:hover,
@@ -186,7 +188,6 @@ label {
 #createdIn {
   margin-top: 15px;
   margin-bottom: 10px;
-  margin-left: 10px;
 }
 
 #markerSelection {
@@ -202,7 +203,6 @@ label {
   grid-row: 3 / 4;
   grid-column: 1 / 6;
   border-top: none;
-  min-height: 100px;
 }
 
 .tab {
@@ -276,6 +276,15 @@ label {
   box-sizing: border-box;
 }
 
+#createdInContent {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
 #liked {
   height: 100%;
   width: 100%;
@@ -306,7 +315,6 @@ label {
 }
 
 form {
-  margin-left: 10px;
   margin-bottom: 15px;
 }
 
@@ -331,7 +339,7 @@ form {
 }
 
 #title {
-  color: #373737;
+  color: #101010;
   letter-spacing: 2px;
   font-weight: 400;
   font-size: 24px;
@@ -420,7 +428,6 @@ input[type='checkbox'] {
   }
   #sculptList {
     grid-row: 2 / 3;
-    height: 690px;
     text-align: left;
     margin-left: 15px;
   }
@@ -432,6 +439,10 @@ input[type='checkbox'] {
   }
   #list {
     height: 250px;
+  }
+  #markerSelection {
+    height: 350px;
+    margin-bottom: 40px;
   }
 }
 
@@ -450,14 +461,13 @@ input[type='checkbox'] {
   }
   #sculptList {
     grid-column: 2 / 3;
-    height: calc(100vh - 175px);
+    height: calc(100vh - 172px);
     text-align: left;
     margin-left: 15px;
+    display: grid;
+    grid-template-rows: 6% 7% 43% 44%;
   }
   #map {
     height: calc(100vh - 175px);
-  }
-  #list {
-    height: calc(100vh - 580px);
   }
 }

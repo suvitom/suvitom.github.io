@@ -9,6 +9,8 @@ const hammer = document.getElementsByClassName('fa-hammer')[0];
 const heart = document.getElementsByClassName('fa-heart')[0];
 const heartLine = document.getElementById('heartLine');
 const hammerLine = document.getElementById('hammerLine');
+const createdInTabBorder = document.getElementsByClassName('createdInTabBorder')[0];
+const likedTabBorder = document.getElementsByClassName('likedTabBorder')[0];
 
 // On-click event changeMarkers
 const changeMarkers = changeTo => {
@@ -29,12 +31,13 @@ const changeDialogStyling = changeTo => {
     hammerLine.style.backgroundColor = '#c1c1c1';
     heartLine.style.backgroundColor = 'white';
     likedTabButton.style.cursor = 'default';
+    likedTabBorder.style.backgroundColor = '#c1c1c1';
     createdInTabButton.addEventListener('mouseenter', onMouseEnterHammer);
     createdInTabButton.addEventListener('mouseleave', onMouseLeaveHammer);
     likedTabButton.removeEventListener('mouseenter', onMouseEnterHeart);
     likedTabButton.removeEventListener('mouseleave', onMouseLeaveHeart);
   } else {
-    createdInDialog.style.display = 'block';
+    createdInDialog.style.display = 'flex';
     likedDialog.style.display = 'none';
     createdInTabButton.style.backgroundColor = 'white';
     likedTabButton.style.backgroundColor = '#e2e2e2';
@@ -43,6 +46,7 @@ const changeDialogStyling = changeTo => {
     heartLine.style.backgroundColor = '#c1c1c1';
     hammerLine.style.backgroundColor = 'white';
     createdInTabButton.style.cursor = 'default';
+    createdInTabBorder.style.backgroundColor = '#c1c1c1';
     likedTabButton.addEventListener('mouseenter', onMouseEnterHeart);
     likedTabButton.addEventListener('mouseleave', onMouseLeaveHeart);
     createdInTabButton.removeEventListener('mouseenter', onMouseEnterHammer);
@@ -54,24 +58,28 @@ const onMouseEnterHammer = () => {
   createdInTabButton.style.backgroundColor = '#436b7331';
   createdInTabButton.style.cursor = 'pointer';
   hammer.style.color = '#436B73';
+  createdInTabBorder.style.backgroundColor = '#436b737c';
 };
 
 const onMouseLeaveHammer = () => {
   createdInTabButton.style.backgroundColor = '#e2e2e2';
   createdInTabButton.style.cursor = 'default';
   hammer.style.color = 'olive';
+  createdInTabBorder.style.backgroundColor = '#c1c1c1';
 };
 
 const onMouseEnterHeart = () => {
   likedTabButton.style.backgroundColor = '#d8709331';
   likedTabButton.style.cursor = 'pointer';
   heart.style.color = 'palevioletred';
+  likedTabBorder.style.backgroundColor = '#d8709386';
 };
 
 const onMouseLeaveHeart = () => {
   likedTabButton.style.backgroundColor = '#e2e2e2';
   heart.style.color = 'olive';
   likedTabButton.style.cursor = 'default';
+  likedTabBorder.style.backgroundColor = '#c1c1c1';
 };
 
 document.addEventListener('DOMContentLoaded', function () {
