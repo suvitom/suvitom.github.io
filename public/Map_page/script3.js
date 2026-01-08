@@ -73,13 +73,24 @@ const setLoginLogoutBtn = async fi => {
   const loginButton = document.getElementById('logInOrOut');
 
   const user = await waitForAuth();
-  console.log(user);
+  // console.log(JSON.stringify(user, null, 2));
 
   if (user) {
-    loginButton.textContent = fi ? 'Kirjaudu ulos' : 'Sign Out';
+    loginButton.textContent = fi ? 'Kirjaudu ulos ➜]' : 'Sign Out ➜]';
+    loginButton.onclick = signOut;
   } else {
-    loginButton.textContent = fi ? 'Kirjaudu' : 'Sign In';
+    loginButton.textContent = fi ? 'Kirjaudu ☕︎' : 'Sign In ☕︎';
+    loginButton.onclick = goToLoginPage;
   }
+};
+
+const signOut = async () => {
+  await firebase.auth().signOut();
+  setLoginLogoutBtn(language === 'fi');
+};
+
+const goToLoginPage = () => {
+  window.location.href = '../Loginpage/Loginpage.html';
 };
 
 const waitForAuth = () => {

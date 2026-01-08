@@ -5,24 +5,25 @@ body {
   overflow-x: hidden;
   width: 100vw;
   height: 100vh;
+  color: black;
 }
 
 .side {
-  /* background-color: #9a9aa3; */
-  background-image: url('../Frontpage/images/Circle.jpeg');
-  opacity: 0.85;
-  background-size: 300px 300px;
-  background-repeat: repeat-y;
-  background-color: #00181c;
+  /* background-image: url('../Frontpage/images/Circle.jpeg'); */
+  opacity: 0.67;
+  /* background-size: 250px 250px;
+  background-repeat: repeat-y; */
+  /* background-color: #00181c; */
+  background-color: rgb(41, 50, 24);
 }
 
-#sideLeft {
-  background-position: calc(100% + 150px) -100px;
+/* #sideLeft {
+  background-position: calc(100% + 125px) -125px;
 }
 
 #sideRight {
-  background-position: calc(0% - 150px) -100px;
-}
+  background-position: calc(0% - 125px) -125px;
+} */
 
 .chaptr {
   text-align: justify;
@@ -31,19 +32,20 @@ body {
 }
 
 button:hover {
-  background-color: #f5ebe490;
-  color: #37451e;
+  background-color: rgba(177, 177, 131, 0.496);
+  border: outset 2px rgb(177, 177, 131);
 }
 
 button {
   border-radius: 3px;
   cursor: pointer;
   font-size: large;
-  border: outset 2px rgb(175, 175, 175);
+  border: outset 2px rgb(177, 177, 131);
   padding: 4px 9px;
-  background-color: #f5ebe4c7;
-  color: rgb(35, 35, 35);
+  background-color: rgba(177, 177, 131, 0.613);
   margin: 40px auto 30px;
+  letter-spacing: 1px;
+  color: black;
 }
 
 h1,
@@ -53,7 +55,7 @@ h2,
 }
 
 h2 {
-  color: #474747;
+  color: #373737;
   font-weight: 300;
   font-size: 22px;
 }
@@ -100,7 +102,7 @@ h2 {
 
 h1 {
   margin: 0;
-  color: rgb(78, 78, 82);
+  /* color: rgb(78, 78, 82); */
   letter-spacing: 1px;
   font-weight: 400;
   font-size: 29px;
