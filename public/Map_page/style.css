@@ -237,12 +237,34 @@ label {
   align-items: center;
 }
 
-.fa-heart {
+.tabHeart {
   color: #959595;
 }
 
-.fa-hammer {
+.tabHammer {
   color: olive;
+}
+
+#heartIcon {
+  color: #b1b1b1;
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-right: 7px;
+}
+
+#diskIcon {
+  color: green;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+b {
+  display: block;
+}
+
+#heartIcon:hover,
+#diskIcon:hover {
+  cursor: pointer;
 }
 
 #createdInTabButton {
@@ -257,7 +279,7 @@ label {
   grid-row: 2 / 3;
   grid-column: 1 / 6;
   display: grid;
-  grid-template-columns: 10px 84px 11px 84px auto;
+  grid-template-columns: 12px 80px 15px 80px auto;
   z-index: 100;
 }
 

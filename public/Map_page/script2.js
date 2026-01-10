@@ -61,11 +61,9 @@ const findAndSaveCreationYear = sculptures => {
     let year = foundSculpt?.year;
 
     if (!year) {
-      const caption = [
-        sculpt.picture_caption_fi,
-        sculpt.picture_caption_sv,
-        sculpt.picture_caption_en,
-      ].join('');
+      const caption = [sculpt.picture_caption_fi, sculpt.picture_caption_sv, sculpt.picture_caption_en].join(
+        '',
+      );
 
       year = caption.match(/\d{4}\./)
         ? caption.match(/\d{4}\./)[0].replace('.', '')
@@ -188,11 +186,27 @@ const createPopUp = sculpt => {
   const caption = document.createElement('div');
   caption.textContent = shortened;
 
+  const heartIcon = document.createElement('i');
+  heartIcon.classList.add('fa-solid', 'fa-heart');
+  heartIcon.id = 'heartIcon';
+  heartIcon.onclick = () => saveOrRemoveSculp(sculpt.name_fi, 'heart');
+
+  const diskIcon = document.createElement('i');
+  diskIcon.classList.add('fa-solid', 'fa-floppy-disk');
+  diskIcon.id = 'diskIcon';
+  diskIcon.onclick = () => saveOrRemoveSculp(sculpt.name_fi, 'disk');
+
+  popupContent.appendChild(heartIcon);
+  popupContent.appendChild(diskIcon);
   popupContent.appendChild(title);
   popupContent.appendChild(caption);
   popupContent.appendChild(link);
 
   return popupContent;
+};
+
+const saveOrRemoveSculp = (sculpName, group) => {
+  console.log(sculpName, group);
 };
 
 const shortnCaptOrFindArtist = (sculpt, artist) => {
