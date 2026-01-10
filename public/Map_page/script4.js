@@ -28,10 +28,10 @@ const changeDialogStyling = changeTo => {
     createdInTabButton.style.backgroundColor = '#e2e2e2';
     heart.style.color = 'olive';
     hammer.style.color = '#959595';
-    hammerLine.style.backgroundColor = '#c1c1c1';
+    hammerLine.style.backgroundColor = '#d7d7d7';
     heartLine.style.backgroundColor = 'white';
     likedTabButton.style.cursor = 'default';
-    likedTabBorder.style.backgroundColor = '#c1c1c1';
+    likedTabBorder.style.backgroundColor = '#c9c9c9';
     createdInTabButton.addEventListener('mouseenter', onMouseEnterHammer);
     createdInTabButton.addEventListener('mouseleave', onMouseLeaveHammer);
     likedTabButton.removeEventListener('mouseenter', onMouseEnterHeart);
@@ -43,10 +43,10 @@ const changeDialogStyling = changeTo => {
     likedTabButton.style.backgroundColor = '#e2e2e2';
     hammer.style.color = 'olive';
     heart.style.color = '#959595';
-    heartLine.style.backgroundColor = '#c1c1c1';
+    heartLine.style.backgroundColor = '#d7d7d7';
     hammerLine.style.backgroundColor = 'white';
     createdInTabButton.style.cursor = 'default';
-    createdInTabBorder.style.backgroundColor = '#c1c1c1';
+    createdInTabBorder.style.backgroundColor = '#c9c9c9';
     likedTabButton.addEventListener('mouseenter', onMouseEnterHeart);
     likedTabButton.addEventListener('mouseleave', onMouseLeaveHeart);
     createdInTabButton.removeEventListener('mouseenter', onMouseEnterHammer);
@@ -65,7 +65,7 @@ const onMouseLeaveHammer = () => {
   createdInTabButton.style.backgroundColor = '#e2e2e2';
   createdInTabButton.style.cursor = 'default';
   hammer.style.color = 'olive';
-  createdInTabBorder.style.backgroundColor = '#c1c1c1';
+  createdInTabBorder.style.backgroundColor = '#c9c9c9';
 };
 
 const onMouseEnterHeart = () => {
@@ -79,7 +79,7 @@ const onMouseLeaveHeart = () => {
   likedTabButton.style.backgroundColor = '#e2e2e2';
   heart.style.color = 'olive';
   likedTabButton.style.cursor = 'default';
-  likedTabBorder.style.backgroundColor = '#c1c1c1';
+  likedTabBorder.style.backgroundColor = '#c9c9c9';
 };
 
 document.addEventListener('DOMContentLoaded', function () {
