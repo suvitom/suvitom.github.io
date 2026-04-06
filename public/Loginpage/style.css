@@ -7,21 +7,42 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: whitesmoke;
-  color: rgb(54, 54, 54);
+  font-size: large;
+  color: #212529;
+}
+
+body {
+  background:
+    radial-gradient(rgba(41, 50, 24, 0.08) 2px, transparent 3px),
+    radial-gradient(rgba(41, 50, 24, 0.22) 1px, transparent 1px),
+    radial-gradient(rgba(41, 50, 24, 0.25) 1px, transparent 1px),
+    radial-gradient(rgba(41, 50, 24, 0.27) 1px, transparent 1px),
+    radial-gradient(rgba(41, 50, 24, 0.22) 1px, transparent 1px) rgba(41, 50, 24, 0.7);
+
+  background-size:
+    5px 5px,
+    15px 15px,
+    30px 20px,
+    45px 52px,
+    15px 15px;
+  background-position:
+    0 0,
+    4px 4px,
+    11px 11px,
+    15px 15px,
+    10px 9px;
 }
 
 .firebaseui-title {
-  font-size: large;
+  font-size: x-large;
   margin: 0;
   margin-bottom: 15px;
   font-weight: 500;
-  color: #000000;
 }
 
 .firebaseui-textfield {
   display: grid;
-  grid-template-columns: auto 90px 180px auto;
+  grid-template-columns: auto 100px 230px auto;
 }
 
 .firebaseui-label {
@@ -36,17 +57,18 @@ body {
   grid-column: 3 / 4;
   width: 100%;
   box-sizing: border-box;
-
-  height: 25px;
-  border: 2px solid #a5a5a5;
+  font-size: large;
+  height: 32px;
+  border: 2px solid #c3c3c3;
   outline: none;
-  padding: 2px 6px 2px;
-  border-radius: 1px;
+  padding: 4px 6px 4px;
+  border-radius: 4px;
   align-self: center;
+  color: #212529;
 }
 
 input[type='email']:valid {
-  background-color: seashell !important;
+  background-color: rgb(244, 255, 238) !important;
 }
 
 input[type='email']:invalid {
@@ -54,7 +76,7 @@ input[type='email']:invalid {
 }
 
 input[type='password']:valid {
-  background-color: seashell !important;
+  background-color: rgb(244, 255, 238) !important;
 }
 
 .firebaseui-input:focus {
@@ -63,17 +85,19 @@ input[type='password']:valid {
 }
 
 .firebaseui-button {
-  border: outset 2px rgb(175, 175, 175);
-  padding: 3px 5px;
-  background-color: seashell;
-  border-radius: 3px;
+  border: none;
+  padding: 7px 30px;
+  background-color: #512aac;
+  color: white;
+  border-radius: 5px;
   cursor: pointer;
   margin-left: 3px;
   margin-right: 3px;
+  font-size: large;
 }
 
 .firebaseui-button:hover {
-  background-color: #f5ebe4;
+  background-color: #693dcf;
 }
 
 .firebaseui-form-links {
@@ -86,8 +110,9 @@ ul {
 
 #box {
   border: solid #cfcfcf 2px;
-  padding: 37px;
+  padding: 50px;
   background-color: white;
+  border-radius: 10px;
 }
 
 .firebaseui-info-bar-message {
@@ -95,6 +120,10 @@ ul {
 }
 
 a {
-  color: rgb(190, 108, 0);
-  text-decoration: none;
+  color: #212529;
+  /* text-decoration: none; */
+}
+
+.firebaseui-error {
+  color: rgb(221, 69, 4);
 }

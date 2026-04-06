@@ -2,7 +2,7 @@ let language = localStorage.getItem('language') || 'fi';
 
 const chapters = document.getElementById('chapters');
 const title = document.getElementById('title');
-const btntext = document.getElementById('mapButton');
+const btntext = document.getElementById('btntext');
 const helsinkiphoto = document.getElementById('helsinkiphoto');
 const photolink = document.getElementById('photolink');
 

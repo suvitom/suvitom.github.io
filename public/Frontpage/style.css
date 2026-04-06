@@ -5,47 +5,84 @@ body {
   overflow-x: hidden;
   width: 100vw;
   height: 100vh;
-  color: black;
+  color: #212529;
 }
 
 .side {
-  /* background-image: url('../Frontpage/images/Circle.jpeg'); */
-  opacity: 0.67;
-  /* background-size: 250px 250px;
-  background-repeat: repeat-y; */
-  /* background-color: #00181c; */
-  background-color: rgb(41, 50, 24);
+  background:
+    radial-gradient(rgba(41, 50, 24, 0.08) 2px, transparent 3px),
+    radial-gradient(rgba(41, 50, 24, 0.22) 1px, transparent 1px),
+    radial-gradient(rgba(41, 50, 24, 0.25) 1px, transparent 1px),
+    radial-gradient(rgba(41, 50, 24, 0.27) 1px, transparent 1px),
+    radial-gradient(rgba(41, 50, 24, 0.22) 1px, transparent 1px) rgba(41, 50, 24, 0.7);
+
+  background-size:
+    5px 5px,
+    15px 15px,
+    30px 20px,
+    45px 52px,
+    15px 15px;
+  background-position:
+    0 0,
+    4px 4px,
+    11px 11px,
+    15px 15px,
+    10px 9px;
 }
 
 /* #sideLeft {
   background-position: calc(100% + 125px) -125px;
-}
+} (41, 50, 24);
 
 #sideRight {
-  background-position: calc(0% - 125px) -125px;
+  background-position: calc(0% - 125px) -125px;    
 } */
 
 .chaptr {
   text-align: justify;
   font-size: large;
-  color: #373737;
 }
 
 button:hover {
-  background-color: rgba(177, 177, 131, 0.496);
-  border: outset 2px rgb(177, 177, 131);
+  background-color: #693dcf;
+}
+
+button:hover #arrow {
+  transform: translateX(6px);
+}
+
+#arrow {
+  transition: opacity 0.2s ease;
+  grid-column: 3;
+  margin-left: 8px;
+  justify-self: start;
+}
+
+#btntext {
+  grid-column: 2;
 }
 
 button {
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: large;
-  border: outset 2px rgb(177, 177, 131);
-  padding: 4px 9px;
-  background-color: rgba(177, 177, 131, 0.613);
-  margin: 40px auto 30px;
+  padding: 6px 9px;
+  border: none;
   letter-spacing: 1px;
-  color: black;
+  background-color: #512aac;
+  color: white;
+  width: 200px;
+  display: grid;
+  grid-template-columns: 1fr auto auto 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+#btncontainer {
+  margin: 40px auto 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1,
@@ -55,7 +92,6 @@ h2,
 }
 
 h2 {
-  color: #373737;
   font-weight: 300;
   font-size: 22px;
 }
