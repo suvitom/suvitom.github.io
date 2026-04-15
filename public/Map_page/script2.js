@@ -68,8 +68,8 @@ const findAndSaveCreationYear = sculptures => {
       year = caption.match(/\d{4}\./)
         ? caption.match(/\d{4}\./)[0].replace('.', '')
         : caption.match(/\d{4}/)
-        ? caption.match(/\d{4}/)[0]
-        : null;
+          ? caption.match(/\d{4}/)[0]
+          : null;
     }
     creationYearMap.set(sculpt.id, year);
   });

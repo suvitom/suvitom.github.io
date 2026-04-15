@@ -44,108 +44,106 @@
                 </span>
             </div>
         </div>
+
+
         <div id="sculptList">
-            <h3 id="subHeading"></h3>
-            <div id="searchContainer">
-                <input type="text" id="search" placeholder="" autofocus />
-                <div id="artiSearchContainer">
-                    <div class="searchBy">
-                        <input type="checkbox" id="artistSearch" />
-                        <label for="artistSearch" id="artistLabel"><span id="lablTextArtist"></span></label>
-                    </div>
-                    <div class="searchBy">
-                        <input type="checkbox" id="yearSearch" />
-                        <label for="yearSearch" id="yearLabel"><span id="lablTextYear"></span></label>
-                    </div>
-                </div>
+            <div class="rightSideView">
+                <div class="browsing dot" onclick="changeRightHandView('browsing')">⬤</div>
+                <div class="browsing" onclick="changeRightHandView('browsing')">Selailu</div>
+                <div></div>
             </div>
-            <div id="list"></div>
-            <div id="markerSelection">
-                <!-- <div style="grid-column: 1 / 2; grid-row: 1 / 3;"></div>
-                <div class="tab createdInTabBorder" style="grid-column: 2 / 3;">
-                    <div class="tabWhite">
-                        <div id="createdInTabButton" onclick="changeMarkers('CreatedIn')">
-                            <i class="fa-solid fa-hammer tabHammer"></i>
-                        </div>
-                    </div>
-                </div>
-                <div style="grid-column: 3 / 4; grid-row: 1 / 3;"></div>
-                <div class="tab likedTabBorder" style="grid-column: 4 / 5;">
-                    <div class="tabWhite">
-                        <div id="likedTabButton" onclick="changeMarkers('Liked')">
-                            <i class="fa-solid fa-heart tabHeart"></i>
-                        </div>
-                    </div>
-                </div>
-                <div id="selectionLine">
-                    <div style="background-color: #d7d7d7;"></div>
-                    <div id="hammerLine"></div>
-                    <div style="background-color: #d7d7d7;"></div>
-                    <div id="heartLine"></div>
-                    <div style="background-color: #d7d7d7;"></div>
-                </div> -->
-                <div id="markerSelectionContent">
-                    <div>Valitse kartalle:</div>
-                    <div id="createdInContent">
-                        <div id="createdInGrid">
-                            <div>▶</div>
-                            <div id="createdIn"></div>
-                        </div>
-                        <form autocomplete="off">
-                            <label class="labl" for="check1">
-                                <input type="checkbox" onclick="showOrHideMarkers('–1825')" id="check1" checked></input>
-                                <span class="legend" style="background-color: #000000"></span>
-                                <span>–1825</span>
-                            </label>
-                            <label class="labl" for="check2">
-                                <input type="checkbox" onclick="showOrHideMarkers('1826–1865')" id="check2"
-                                    checked></input>
-                                <span class="legend" style="background-color: #4f4f4f"></span>
-                                <span>1826–1865</span>
-                            </label>
-                            <label class="labl" for="check3">
-                                <input type="checkbox" onclick="showOrHideMarkers('1866–1905')" id="check3"
-                                    checked></input>
-                                <span class="legend" style="background-color: #94877f"></span>
-                                <span>1866–1905</span>
-                            </label>
-                            <label class="labl" for="check4">
-                                <input type="checkbox" onclick="showOrHideMarkers('1906–1945')" id="check4"
-                                    checked></input>
-                                <span class="legend" style="background-color: #7d70ba"></span>
-                                <span>1906–1945</span>
-                            </label>
-                            <label class="labl" for="check5">
-                                <input type="checkbox" onclick="showOrHideMarkers('1946–1985')" id="check5"
-                                    checked></input>
-                                <span class="legend" style="background-color: #6aadd1"></span>
-                                <span>1946–1985</span>
-                            </label>
-                            <label class="labl" for="check6">
-                                <input type="checkbox" onclick="showOrHideMarkers('1986–2025')" id="check6"
-                                    checked></input>
-                                <span class="legend" style="background-color: thistle"></span>
-                                <span>1986–2025</span>
-                            </label>
-                            <label class="labl" for="check7">
-                                <input type="checkbox" onclick="showOrHideMarkers('muu')" id="check7" checked></input>
-                                <span class="legend" style="background-color: yellowgreen"></span>
-                                <span id="check7-text"></span>
-                            </label>
-                        </form>
-                    </div>
-                    <!-- <div id="likedContent">
-                        <div id="liked">
-                            <div></div>
-                            <a href="../Loginpage/Loginpage.html" id="dialogLoginLink">
-                                <i class="fa-solid fa-circle-arrow-right"></i>
-                                <span></span>
-                            </a>
-                        </div>
-                    </div> -->
-                </div>
+            <div class="rightSideView">
+                <div class="yearBuilt dot" onclick="changeRightHandView('yearBuilt')">⬤</div>
+                <div class="yearBuilt" onclick="changeRightHandView('yearBuilt')">Rakennusvuosi-valinta</div>
+                <div></div>
             </div>
+            <div class="rightSideView">
+                <div class="favourites dot" onclick="changeRightHandView('favourites')">⬤</div>
+                <div class="favourites" onclick="changeRightHandView('favourites')">Suosikit</div>
+                <div></div>
+            </div>
+            <div id="sideBar">
+                <div id="browsingContent">
+                    <h3 id="subHeading"></h3>
+                    <div id="searchContainer">
+                        <input type="text" id="search" placeholder="" autofocus />
+                        <div id="artiSearchContainer">
+                            <div class="searchBy">
+                                <input type="checkbox" id="artistSearch" />
+                                <label for="artistSearch" id="artistLabel"><span id="lablTextArtist"></span></label>
+                            </div>
+                            <div class="searchBy">
+                                <input type="checkbox" id="yearSearch" />
+                                <label for="yearSearch" id="yearLabel"><span id="lablTextYear"></span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="list"></div>
+                </div>
+
+                <div id="yearBuiltContent" style="display:none">
+                    <div id="markerSelection">
+                        <div>Valitse kartalle:</div>
+                        <div id="createdInContent">
+                            <div id="createdInGrid">
+                                <div>▶</div>
+                                <div id="createdIn"></div>
+                            </div>
+                            <form autocomplete="off">
+                                <label class="labl" for="check1">
+                                    <input type="checkbox" onclick="showOrHideMarkers('–1825')" id="check1"
+                                        checked></input>
+                                    <span class="legend" style="background-color: #000000"></span>
+                                    <span>–1825</span>
+                                </label>
+                                <label class="labl" for="check2">
+                                    <input type="checkbox" onclick="showOrHideMarkers('1826–1865')" id="check2"
+                                        checked></input>
+                                    <span class="legend" style="background-color: #4f4f4f"></span>
+                                    <span>1826–1865</span>
+                                </label>
+                                <label class="labl" for="check3">
+                                    <input type="checkbox" onclick="showOrHideMarkers('1866–1905')" id="check3"
+                                        checked></input>
+                                    <span class="legend" style="background-color: #94877f"></span>
+                                    <span>1866–1905</span>
+                                </label>
+                                <label class="labl" for="check4">
+                                    <input type="checkbox" onclick="showOrHideMarkers('1906–1945')" id="check4"
+                                        checked></input>
+                                    <span class="legend" style="background-color: #7d70ba"></span>
+                                    <span>1906–1945</span>
+                                </label>
+                                <label class="labl" for="check5">
+                                    <input type="checkbox" onclick="showOrHideMarkers('1946–1985')" id="check5"
+                                        checked></input>
+                                    <span class="legend" style="background-color: #6aadd1"></span>
+                                    <span>1946–1985</span>
+                                </label>
+                                <label class="labl" for="check6">
+                                    <input type="checkbox" onclick="showOrHideMarkers('1986–2025')" id="check6"
+                                        checked></input>
+                                    <span class="legend" style="background-color: thistle"></span>
+                                    <span>1986–2025</span>
+                                </label>
+                                <label class="labl" for="check7">
+                                    <input type="checkbox" onclick="showOrHideMarkers('muu')" id="check7"
+                                        checked></input>
+                                    <span class="legend" style="background-color: yellowgreen"></span>
+                                    <span id="check7-text"></span>
+                                </label>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="favContent" style="display: none">moi</div>
+
+            </div>
+
         </div>
+
+
+
     </div>
     <script src="additionalData.js"></script>
     <script src="../firebase-config.js"></script>

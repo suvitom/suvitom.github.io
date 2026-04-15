@@ -87,10 +87,10 @@ body {
 
 #subHeading {
   font-weight: 300;
-  font-size: 19px;
   color: #373737;
-  letter-spacing: 0.5px;
-  margin-top: 10px;
+  font-size: 17px;
+  letter-spacing: 1px;
+  margin-top: 20px;
 }
 
 #back {
@@ -180,7 +180,7 @@ body {
   overflow-y: auto;
   border: solid #c1c1c1 2px;
   background-color: white;
-  margin-bottom: 15px;
+  /* min-height: 0; */
 }
 
 #map {
@@ -202,7 +202,7 @@ label {
   grid-template-columns: 20px auto;
 }
 
-#markerSelection {
+#yearBuiltContent {
   /* display: grid; */
   /* grid-template-columns: 7px 90px 5px 90px auto; */
   /* grid-template-rows: 25px auto; */
@@ -212,7 +212,7 @@ label {
   box-sizing: border-box;
 }
 
-#markerSelectionContent {
+#markerSelection {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -451,6 +451,38 @@ input[type='checkbox'] {
   white-space: nowrap;
 }
 
+.rightSideView {
+  display: grid;
+  grid-template-columns: 40px 155px auto;
+  align-items: center;
+  letter-spacing: 1px;
+}
+
+.browsing,
+.yearBuilt,
+.favourites {
+  cursor: pointer;
+  text-wrap: nowrap;
+}
+
+.dot {
+  color: #a8a8a8;
+}
+
+.dot.browsing {
+  color: #693dcf;
+}
+
+#sideBar {
+  min-height: 0;
+}
+
+#browsingContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 @media screen and (max-width: 900px) {
   #title {
     padding: 50px 15px 10px;
@@ -478,7 +510,7 @@ input[type='checkbox'] {
   #list {
     height: 250px;
   }
-  #markerSelection {
+  #yearBuiltContent {
     height: 350px;
     margin-bottom: 40px;
   }
@@ -499,11 +531,12 @@ input[type='checkbox'] {
   }
   #sculptList {
     grid-column: 2 / 3;
-    height: calc(100vh - 172px);
+    height: calc(100vh - 187px);
     text-align: left;
-    margin-left: 15px;
+    margin-left: 25px;
+    margin-top: 15px;
     display: grid;
-    grid-template-rows: 6% 7% 43% 44%;
+    grid-template-rows: 30px 30px 30px 1fr;
   }
   #map {
     height: calc(100vh - 175px);
