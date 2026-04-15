@@ -95,29 +95,35 @@ body {
 
 #back {
   position: absolute;
-  top: 31px;
+  top: 33px;
   left: 40px;
-  border: outset 2px rgb(175, 175, 175);
-  padding: 3px 5px;
-  background-color: seashell;
+  border: none;
+  padding: 3px 7px;
+  letter-spacing: 1px;
+  background-color: #512aac;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#back:hover,
+#logInOrOut:hover {
+  background-color: #693dcf;
 }
 
 #logInOrOut {
   position: absolute;
   top: 31px;
   right: 40px;
-  border: outset 2px #dae1bb;
-  padding: 3px 5px;
-  background-color: #f8ffdb;
+  border: none;
+  padding: 3px 7px 4px;
+  background-color: #512aac;
   letter-spacing: 2px;
-  color: black;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-#logInOrOut:hover {
-  background-color: #efffb7;
-}
-
-#back:hover,
 #findMebtn:hover {
   background-color: #f5ebe4;
 }

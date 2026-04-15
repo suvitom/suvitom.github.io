@@ -30,14 +30,6 @@ body {
     10px 9px;
 }
 
-/* #sideLeft {
-  background-position: calc(100% + 125px) -125px;
-} (41, 50, 24);
-
-#sideRight {
-  background-position: calc(0% - 125px) -125px;    
-} */
-
 .chaptr {
   text-align: justify;
   font-size: large;
