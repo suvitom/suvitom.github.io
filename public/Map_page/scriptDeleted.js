@@ -1,7 +1,7 @@
 // On-click event for the marker selection dialog changes the markers on the map and
 // the selection dialog to reflect either building year or favourite statues.
 // User must be logged in to view or save favourite statues.
-// const createdInDialog = document.getElementById('createdInContent');
+// const createdInDialog = document.getElementById('createdInContent'); CLASS DON'T EXIST
 // const likedDialog = document.getElementById('likedContent');
 // const likedTabButton = document.getElementById('likedTabButton');
 // const createdInTabButton = document.getElementById('createdInTabButton');

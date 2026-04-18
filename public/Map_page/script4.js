@@ -2,9 +2,25 @@ const state = {
   browsing: true,
   yearBuilt: false,
   favourites: false,
+  top: false,
 };
+const sideBar = document.getElementById('sideBar');
 
 const changeRightHandView = key => {
+  changeTabColorAndState(key);
+
+  for (const child of sideBar.children) {
+    child.style.display = 'none';
+  }
+  const element = document.querySelector(`#${key}Content`);
+
+  if (element) {
+    element.style.display = 'flex';
+  }
+};
+
+const changeTabColorAndState = key => {
+  // If the input key is included in state, it is set to true; otherwise false.
   Object.keys(state).forEach(k => {
     state[k] = k === key;
 

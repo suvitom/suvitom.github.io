@@ -87,7 +87,7 @@ body {
 
 #subHeading {
   font-weight: 300;
-  color: #373737;
+  color: #1c1c1c;
   font-size: 17px;
   letter-spacing: 1px;
   margin-top: 20px;
@@ -194,31 +194,18 @@ label {
 
 #createdIn {
   padding-top: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 7px;
+  letter-spacing: 1px;
 }
 
-#createdInGrid {
-  display: grid;
-  grid-template-columns: 20px auto;
+.years {
+  letter-spacing: 1px;
 }
 
 #yearBuiltContent {
-  /* display: grid; */
-  /* grid-template-columns: 7px 90px 5px 90px auto; */
-  /* grid-template-rows: 25px auto; */
-  gap: 0px;
-  border: solid #c1c1c1 2px;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-#markerSelection {
-  display: flex;
   justify-content: center;
-  flex-direction: column;
-  height: 100%;
   box-sizing: border-box;
-  padding-left: 20px;
+  padding-left: 5px;
 }
 
 .tab {
@@ -312,15 +299,6 @@ b {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-}
-
-#createdInContent {
-  /* display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-  box-sizing: border-box; */
-  padding-left: 15px;
 }
 
 #liked {
@@ -460,7 +438,8 @@ input[type='checkbox'] {
 
 .browsing,
 .yearBuilt,
-.favourites {
+.favourites,
+.top {
   cursor: pointer;
   text-wrap: nowrap;
 }
@@ -479,6 +458,12 @@ input[type='checkbox'] {
 
 #browsingContent {
   display: flex;
+}
+
+#browsingContent,
+#yearBuiltContent,
+#favouritesContent,
+#topContent {
   flex-direction: column;
   height: 100%;
 }
@@ -536,7 +521,7 @@ input[type='checkbox'] {
     margin-left: 25px;
     margin-top: 15px;
     display: grid;
-    grid-template-rows: 30px 30px 30px 1fr;
+    grid-template-rows: 30px 30px 30px 30px 1fr;
   }
   #map {
     height: calc(100vh - 175px);
