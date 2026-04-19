@@ -1,6 +1,6 @@
 const state = {
   browsing: true,
-  yearBuilt: false,
+  map: false,
   favourites: false,
   top: false,
 };

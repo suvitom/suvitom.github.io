@@ -43,8 +43,8 @@ const addTextToThePage = () => {
   const subheading = document.getElementById('subHeading');
   subheading.textContent = fi ? 'Hae veistos' : 'Find a sculpture';
 
-  const createdIn = document.getElementById('createdIn');
-  createdIn.textContent = fi ? 'Valmistuneet vuosina:' : 'Created in:';
+  // const createdIn = document.getElementById('createdIn');
+  // createdIn.textContent = fi ? 'Valmistuneet vuosina:' : 'Created in:';
 
   const check7 = document.getElementById('check7-text');
   check7.textContent = fi ? 'ei tietoa' : 'no info.';

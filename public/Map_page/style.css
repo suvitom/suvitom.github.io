@@ -192,9 +192,10 @@ label {
   display: block;
 }
 
-#createdIn {
-  padding-top: 5px;
-  padding-bottom: 7px;
+#createdIn,
+#default {
+  margin-top: 5px;
+  margin-bottom: 7px;
   letter-spacing: 1px;
 }
 
@@ -202,7 +203,7 @@ label {
   letter-spacing: 1px;
 }
 
-#yearBuiltContent {
+#mapContent {
   justify-content: center;
   box-sizing: border-box;
   padding-left: 5px;
@@ -326,12 +327,14 @@ b {
 #check4,
 #check5,
 #check6,
-#check7 {
+#check7,
+#check1_def,
+#check2_def {
   accent-color: gray;
 }
 
 form {
-  margin-left: 15px;
+  margin-left: 23px;
 }
 
 .legend {
@@ -389,13 +392,17 @@ input[type='checkbox'] {
 }
 
 #yearSearch,
-#artistSearch {
+#artistSearch,
+#def,
+#cti {
   position: absolute;
   opacity: 0;
 }
 
 #yearSearch + label,
-#artistSearch + label {
+#artistSearch + label,
+#def + label,
+#cti + label {
   display: inline-flex;
   width: 9px;
   height: 9px;
@@ -424,7 +431,9 @@ input[type='checkbox'] {
 }
 
 #lablTextYear,
-#lablTextArtist {
+#lablTextArtist,
+#lablTextDef,
+#lablTextCti {
   margin-left: 17px;
   white-space: nowrap;
 }
@@ -437,7 +446,7 @@ input[type='checkbox'] {
 }
 
 .browsing,
-.yearBuilt,
+.map,
 .favourites,
 .top {
   cursor: pointer;
@@ -461,7 +470,7 @@ input[type='checkbox'] {
 }
 
 #browsingContent,
-#yearBuiltContent,
+#mapContent,
 #favouritesContent,
 #topContent {
   flex-direction: column;
@@ -495,7 +504,7 @@ input[type='checkbox'] {
   #list {
     height: 250px;
   }
-  #yearBuiltContent {
+  #mapContent {
     height: 350px;
     margin-bottom: 40px;
   }

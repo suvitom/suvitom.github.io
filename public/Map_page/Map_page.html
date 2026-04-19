@@ -53,8 +53,8 @@
                 <div></div>
             </div>
             <div class="rightSideView">
-                <div class="yearBuilt dot" onclick="changeRightHandView('yearBuilt')">⬤</div>
-                <div class="yearBuilt" onclick="changeRightHandView('yearBuilt')">Rakennusvuosi-valinta</div>
+                <div class="map dot" onclick="changeRightHandView('map')">⬤</div>
+                <div class="map" onclick="changeRightHandView('map')">Karttanäkymän valinta</div>
                 <div></div>
             </div>
             <div class="rightSideView">
@@ -86,8 +86,28 @@
                     <div id="list"></div>
                 </div>
 
-                <div id="yearBuiltContent" style="display:none">
-                    <div id="createdIn"></div>
+                <div id="mapContent" style="display:none">
+                    <div class="searchBy">
+                        <input type="checkbox" id="def" checked />
+                        <label for="def" id="default"><span id="lablTextDef">Oletus:</span></label>
+                    </div>
+                    <form autocomplete="off">
+                        <label class="labl" for="check1_def">
+                            <input type="checkbox" onclick="console.log('clicked')" id="check1_def" checked></input>
+                            <span class="legend" style="background-color: red"></span>
+                            <span class="years">Suosikit</span>
+                        </label>
+                        <label class="labl" for="check2_def">
+                            <input type="checkbox" onclick="console.log('clicked')" id="check2_def" checked></input>
+                            <span class="legend" style="background-color: #FFCD00"></span>
+                            <span class="years">Muut</span>
+                        </label>
+                    </form>
+                    <br />
+                    <div class="searchBy">
+                        <input type="checkbox" id="cti" checked />
+                        <label for="cti" id="createdIn"><span id="lablTextCti">Valmistuneet vuosina:</span></label>
+                    </div>
                     <form autocomplete="off">
                         <label class="labl" for="check1">
                             <input type="checkbox" onclick="showOrHideMarkers('–1825')" id="check1" checked></input>
