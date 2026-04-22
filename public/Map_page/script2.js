@@ -1,5 +1,6 @@
 // Fetches sculptures and adds them to both the map and the search list
-const addSculptures = async () => {
+const addSculptures = async view => {
+  grpForAllMarkers.eachLayer(g => g.clearLayers());
   let sculptures = null;
 
   if (!sculptureData) {
@@ -24,11 +25,11 @@ const addSculptures = async () => {
   const sortedSculptures = sortSculptAlphabetically(sculptures);
 
   sortedSculptures.forEach(sculpt => {
-    addMarkerToMap(sculpt);
+    addMarkerToMap(sculpt, view);
     addToSidebarList(sculpt);
   });
 
-  changeSculptIcon(); //Changes icons for the correct zoom level.
+  changeSculptIcon(view); //Changes icons for the correct zoom level.
 };
 
 const departmentId = '0afb1cd8-726d-4900-8a7f-5e3447e8f477';
@@ -97,12 +98,12 @@ const sortSculptAlphabetically = sculptures => {
   });
 };
 
-const addMarkerToMap = sculpt => {
+const addMarkerToMap = (sculpt, view) => {
   const latitude = parseFloat(sculpt.latitude);
   const longitude = parseFloat(sculpt.longitude);
 
   if (!isNaN(latitude) && !isNaN(longitude)) {
-    const {icon, group} = setMarkerGroupAndIcon(sculpt);
+    const {icon, group} = setMarkerGroupAndIcon(sculpt, view);
     const popupContent = createPopUp(sculpt);
 
     sculpt.marker = L.marker([latitude, longitude], {icon: icon}).bindPopup(popupContent).addTo(group);
@@ -111,58 +112,65 @@ const addMarkerToMap = sculpt => {
 
 // Groupes sculptures by their creation years to enable visibility control
 // and assigns icons for styling
-const setMarkerGroupAndIcon = sculpt => {
+const setMarkerGroupAndIcon = (sculpt, view) => {
   let group = null;
   let icon = null;
   let bigIcon = null;
   let midSizeIcon = null;
 
   if (creatYearData.has(sculpt.id)) {
-    const value = parseInt(creatYearData.get(sculpt.id)) || 1;
+    if (view == 'cti_radio') {
+      const value = parseInt(creatYearData.get(sculpt.id)) || 1;
 
-    switch (true) {
-      case value > 1985:
-        group = grpSix;
-        // Different sized icons for various zoom levels
-        icon = iconSix;
-        bigIcon = bigIconSix;
-        midSizeIcon = midSizeIconSix;
-        break;
-      case value > 1945:
-        group = grpFive;
-        icon = iconFive;
-        bigIcon = bigIconFive;
-        midSizeIcon = midSizeIconFive;
-        break;
-      case value > 1905:
-        group = grpFour;
-        icon = iconFour;
-        bigIcon = bigIconFour;
-        midSizeIcon = midSizeIconFour;
-        break;
-      case value > 1865:
-        group = grpThree;
-        icon = iconThree;
-        bigIcon = bigIconThree;
-        midSizeIcon = midSizeIconThree;
-        break;
-      case value > 1825:
-        group = grpTwo;
-        icon = iconTwo;
-        bigIcon = bigIconTwo;
-        midSizeIcon = midSizeIconTwo;
-        break;
-      case value > 10:
-        group = grpOne;
-        icon = iconOne;
-        bigIcon = bigIconOne;
-        midSizeIcon = midSizeIconOne;
-        break;
-      default:
-        group = grpSeven;
-        icon = iconSeven;
-        bigIcon = bigIconSeven;
-        midSizeIcon = midSizeIconSeven;
+      switch (true) {
+        case value > 1985:
+          group = grpSix;
+          // Different sized icons for various zoom levels
+          icon = iconSix;
+          bigIcon = bigIconSix;
+          midSizeIcon = midSizeIconSix;
+          break;
+        case value > 1945:
+          group = grpFive;
+          icon = iconFive;
+          bigIcon = bigIconFive;
+          midSizeIcon = midSizeIconFive;
+          break;
+        case value > 1905:
+          group = grpFour;
+          icon = iconFour;
+          bigIcon = bigIconFour;
+          midSizeIcon = midSizeIconFour;
+          break;
+        case value > 1865:
+          group = grpThree;
+          icon = iconThree;
+          bigIcon = bigIconThree;
+          midSizeIcon = midSizeIconThree;
+          break;
+        case value > 1825:
+          group = grpTwo;
+          icon = iconTwo;
+          bigIcon = bigIconTwo;
+          midSizeIcon = midSizeIconTwo;
+          break;
+        case value > 10:
+          group = grpOne;
+          icon = iconOne;
+          bigIcon = bigIconOne;
+          midSizeIcon = midSizeIconOne;
+          break;
+        default:
+          group = grpSeven;
+          icon = iconSeven;
+          bigIcon = bigIconSeven;
+          midSizeIcon = midSizeIconSeven;
+      }
+    } else {
+      group = grpEight;
+      icon = iconEight;
+      bigIcon = bigIconEight;
+      midSizeIcon = midSizeIconEight;
     }
   } else {
     console.log(`Key ${sculpt.id} not found when determining markergroup`);

@@ -1,5 +1,5 @@
-//Changes icons(=markers) at different zoom levels
-const changeSculptIcon = () => {
+//Changes icons(=markers) at different zoom levels and when the map's theme is changed
+const changeSculptIcon = view => {
   const zoomLevel = map.getZoom();
 
   if (!sculptureData || sculptureData.length === 0) {
@@ -9,7 +9,7 @@ const changeSculptIcon = () => {
 
   sculptureData.forEach(sculpt => {
     const marker = sculpt.marker;
-    const {icon, bigIcon, midSizeIcon} = setMarkerGroupAndIcon(sculpt, creatYearData);
+    const {icon, bigIcon, midSizeIcon} = setMarkerGroupAndIcon(sculpt, view);
 
     if (marker && bigIcon) {
       if (zoomLevel <= 13) {
@@ -23,8 +23,14 @@ const changeSculptIcon = () => {
   });
 };
 
+// checks whether the default view or the year classification view is selected for the map
+const checkSelectedRadioBtn = () => {
+  const selected = document.querySelector('input[name="mapradio"]:checked');
+  return selected.id;
+};
+
 map.on('zoomend', function () {
-  changeSculptIcon();
+  changeSculptIcon(checkSelectedRadioBtn());
 });
 
 //Adds text content to the page.
@@ -175,26 +181,27 @@ const changeLanguage = lang => {
   localStorage.setItem('language', lang);
   language = lang;
 
-  clearMarkerLayers();
+  //clearMarkerLayers();
+  grpForAllMarkers.eachLayer(g => g.clearLayers());
 
   while (sideBarList.firstChild) {
     sideBarList.removeChild(sideBarList.firstChild); //clears the sculpture search list
   }
 
-  addSculptures();
-  changeSculptIcon();
+  addSculptures(checkSelectedRadioBtn());
+  changeSculptIcon(checkSelectedRadioBtn());
   addTextToThePage();
 };
 
-const clearMarkerLayers = () => {
-  grpOne.clearLayers();
-  grpTwo.clearLayers();
-  grpThree.clearLayers();
-  grpFour.clearLayers();
-  grpFive.clearLayers();
-  grpSix.clearLayers();
-  grpSeven.clearLayers();
-};
+// const clearMarkerLayers = () => {
+//   grpOne.clearLayers();
+//   grpTwo.clearLayers();
+//   grpThree.clearLayers();
+//   grpFour.clearLayers();
+//   grpFive.clearLayers();
+//   grpSix.clearLayers();
+//   grpSeven.clearLayers();
+// };
 
 //Search function
 const searchInput = document.getElementById('search');
@@ -266,7 +273,7 @@ const addOrRemoveLayer = (markerGroup, tagId) => {
   }
 };
 
-const showOrHideMarkers = interval => {
+const showOrHideMarkers1 = interval => {
   switch (interval) {
     case '–1825':
       addOrRemoveLayer(grpOne, 'check1');
@@ -291,9 +298,13 @@ const showOrHideMarkers = interval => {
   }
 };
 
+const showOrHideMarkers2 = selection => {
+  addOrRemoveLayer(grpEight, 'check2_def');
+};
+
 document.addEventListener('DOMContentLoaded', function () {
   initializeFirebase();
-  addSculptures();
+  addSculptures('def_radio');
   addTextToThePage();
   setOpacitySliderVal();
 });

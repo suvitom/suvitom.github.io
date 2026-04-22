@@ -47,6 +47,12 @@ body {
   border: 1px solid black;
 }
 
+.iconEight {
+  background-color: #ffcd00;
+  border-radius: 100px;
+  border: 1px solid black;
+}
+
 #searchContainer {
   display: grid;
   gap: 9px;
@@ -194,11 +200,19 @@ label {
 
 #createdIn,
 #default {
-  margin-top: 5px;
-  margin-bottom: 7px;
   letter-spacing: 1px;
 }
 
+#cti_radio,
+#def_radio {
+  margin: 0;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+input[type='radio'] {
+  accent-color: #512aac;
+}
 .years {
   letter-spacing: 1px;
 }
@@ -328,7 +342,7 @@ b {
 #check5,
 #check6,
 #check7,
-#check1_def,
+#check1_fav,
 #check2_def {
   accent-color: gray;
 }
@@ -392,17 +406,13 @@ input[type='checkbox'] {
 }
 
 #yearSearch,
-#artistSearch,
-#def,
-#cti {
+#artistSearch {
   position: absolute;
   opacity: 0;
 }
 
 #yearSearch + label,
-#artistSearch + label,
-#def + label,
-#cti + label {
+#artistSearch + label {
   display: inline-flex;
   width: 9px;
   height: 9px;
@@ -431,9 +441,7 @@ input[type='checkbox'] {
 }
 
 #lablTextYear,
-#lablTextArtist,
-#lablTextDef,
-#lablTextCti {
+#lablTextArtist {
   margin-left: 17px;
   white-space: nowrap;
 }

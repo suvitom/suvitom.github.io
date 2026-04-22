@@ -33,6 +33,7 @@ const iconFour = L.divIcon({className: 'iconFour', iconSize: size});
 const iconFive = L.divIcon({className: 'iconFive', iconSize: size});
 const iconSix = L.divIcon({className: 'iconSix', iconSize: size});
 const iconSeven = L.divIcon({className: 'iconSeven', iconSize: size});
+const iconEight = L.divIcon({className: 'iconEight', iconSize: size});
 
 const midSizeIconOne = L.divIcon({className: 'iconOne', iconSize: midSize});
 const midSizeIconTwo = L.divIcon({className: 'iconTwo', iconSize: midSize});
@@ -41,6 +42,7 @@ const midSizeIconFour = L.divIcon({className: 'iconFour', iconSize: midSize});
 const midSizeIconFive = L.divIcon({className: 'iconFive', iconSize: midSize});
 const midSizeIconSix = L.divIcon({className: 'iconSix', iconSize: midSize});
 const midSizeIconSeven = L.divIcon({className: 'iconSeven', iconSize: midSize});
+const midSizeIconEight = L.divIcon({className: 'iconEight', iconSize: midSize});
 
 const bigIconOne = L.divIcon({className: 'iconOne', iconSize: bigSize});
 const bigIconTwo = L.divIcon({className: 'iconTwo', iconSize: bigSize});
@@ -49,6 +51,7 @@ const bigIconFour = L.divIcon({className: 'iconFour', iconSize: bigSize});
 const bigIconFive = L.divIcon({className: 'iconFive', iconSize: bigSize});
 const bigIconSix = L.divIcon({className: 'iconSix', iconSize: bigSize});
 const bigIconSeven = L.divIcon({className: 'iconSeven', iconSize: bigSize});
+const bigIconEight = L.divIcon({className: 'iconEight', iconSize: bigSize});
 
 let grpForAllMarkers = L.featureGroup().addTo(map);
 let grpOne = L.featureGroup();
@@ -58,6 +61,7 @@ let grpFour = L.featureGroup();
 let grpFive = L.featureGroup();
 let grpSix = L.featureGroup();
 let grpSeven = L.featureGroup();
+let grpEight = L.featureGroup();
 
 grpForAllMarkers.addLayer(grpOne);
 grpForAllMarkers.addLayer(grpTwo);
@@ -66,3 +70,4 @@ grpForAllMarkers.addLayer(grpFour);
 grpForAllMarkers.addLayer(grpFive);
 grpForAllMarkers.addLayer(grpSix);
 grpForAllMarkers.addLayer(grpSeven);
+grpForAllMarkers.addLayer(grpEight);

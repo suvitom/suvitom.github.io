@@ -87,60 +87,68 @@
                 </div>
 
                 <div id="mapContent" style="display:none">
-                    <div class="searchBy">
-                        <input type="checkbox" id="def" checked />
-                        <label for="def" id="default"><span id="lablTextDef">Oletus:</span></label>
+                    <div class="searchBy" style="margin-bottom: 13px">
+                        <input type="radio" id="def_radio" name="mapradio" onclick="addSculptures('def_radio')"
+                            checked />
+                        <label for="def_radio" id="default"><span id="lablTextDef">Oletus:</span></label>
                     </div>
                     <form autocomplete="off">
-                        <label class="labl" for="check1_def">
-                            <input type="checkbox" onclick="console.log('clicked')" id="check1_def" checked></input>
+                        <label class="labl" for="check1_fav">
+                            <input type="checkbox" onclick="" id="check1_fav" checked></input>
                             <span class="legend" style="background-color: red"></span>
                             <span class="years">Suosikit</span>
                         </label>
                         <label class="labl" for="check2_def">
-                            <input type="checkbox" onclick="console.log('clicked')" id="check2_def" checked></input>
+                            <input type="checkbox" onclick="showOrHideMarkers2('check2_def')" id="check2_def"
+                                checked></input>
                             <span class="legend" style="background-color: #FFCD00"></span>
                             <span class="years">Muut</span>
                         </label>
                     </form>
                     <br />
-                    <div class="searchBy">
-                        <input type="checkbox" id="cti" checked />
-                        <label for="cti" id="createdIn"><span id="lablTextCti">Valmistuneet vuosina:</span></label>
+                    <div class="searchBy" style="margin-bottom: 13px">
+                        <input type="radio" id="cti_radio" name="mapradio" onclick="addSculptures('cti_radio')" />
+                        <label for="cti_radio" id="createdIn"><span id="lablTextCti">Valmistuneet
+                                vuosina:</span></label>
                     </div>
                     <form autocomplete="off">
                         <label class="labl" for="check1">
-                            <input type="checkbox" onclick="showOrHideMarkers('–1825')" id="check1" checked></input>
+                            <input type="checkbox" onclick="showOrHideMarkers1('–1825')" id="check1" checked></input>
                             <span class="legend" style="background-color: #000000"></span>
                             <span class="years">–1825</span>
                         </label>
                         <label class="labl" for="check2">
-                            <input type="checkbox" onclick="showOrHideMarkers('1826–1865')" id="check2" checked></input>
+                            <input type="checkbox" onclick="showOrHideMarkers1('1826–1865')" id="check2"
+                                checked></input>
                             <span class="legend" style="background-color: #4f4f4f"></span>
                             <span class="years">1826–1865</span>
                         </label>
                         <label class="labl" for="check3">
-                            <input type="checkbox" onclick="showOrHideMarkers('1866–1905')" id="check3" checked></input>
+                            <input type="checkbox" onclick="showOrHideMarkers1('1866–1905')" id="check3"
+                                checked></input>
                             <span class="legend" style="background-color: #94877f"></span>
                             <span class="years">1866–1905</span>
                         </label>
                         <label class="labl" for="check4">
-                            <input type="checkbox" onclick="showOrHideMarkers('1906–1945')" id="check4" checked></input>
+                            <input type="checkbox" onclick="showOrHideMarkers1('1906–1945')" id="check4"
+                                checked></input>
                             <span class="legend" style="background-color: #7d70ba"></span>
                             <span class="years">1906–1945</span>
                         </label>
                         <label class="labl" for="check5">
-                            <input type="checkbox" onclick="showOrHideMarkers('1946–1985')" id="check5" checked></input>
+                            <input type="checkbox" onclick="showOrHideMarkers1('1946–1985')" id="check5"
+                                checked></input>
                             <span class="legend" style="background-color: #6aadd1"></span>
                             <span class="years">1946–1985</span>
                         </label>
                         <label class="labl" for="check6">
-                            <input type="checkbox" onclick="showOrHideMarkers('1986–2025')" id="check6" checked></input>
+                            <input type="checkbox" onclick="showOrHideMarkers1('1986–2025')" id="check6"
+                                checked></input>
                             <span class="legend" style="background-color: thistle"></span>
                             <span class="years">1986–2025</span>
                         </label>
                         <label class="labl" for="check7">
-                            <input type="checkbox" onclick="showOrHideMarkers('muu')" id="check7" checked></input>
+                            <input type="checkbox" onclick="showOrHideMarkers1('muu')" id="check7" checked></input>
                             <span class="legend" style="background-color: yellowgreen"></span>
                             <span id="check7-text" class="years"></span>
                         </label>
