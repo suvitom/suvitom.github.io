@@ -68,7 +68,7 @@ body {
 }
 
 input[type='email']:valid {
-  background-color: rgb(244, 255, 238) !important;
+  background-color: rgb(238, 248, 255) !important;
 }
 
 input[type='email']:invalid {
@@ -76,7 +76,7 @@ input[type='email']:invalid {
 }
 
 input[type='password']:valid {
-  background-color: rgb(244, 255, 238) !important;
+  background-color: rgb(238, 248, 255) !important;
 }
 
 .firebaseui-input:focus {
@@ -112,7 +112,7 @@ ul {
   border: solid #cfcfcf 2px;
   padding: 50px;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 2px;
 }
 
 .firebaseui-info-bar-message {
@@ -126,4 +126,5 @@ a {
 
 .firebaseui-error {
   color: rgb(221, 69, 4);
+  font-size: medium;
 }

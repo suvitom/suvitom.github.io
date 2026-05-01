@@ -73,8 +73,8 @@ body {
 
 #search:focus {
   outline: none;
-  border-color: #9a9a9a;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-color: #878787;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
 }
 
 #artiSearchContainer {
@@ -186,7 +186,8 @@ body {
   overflow-y: auto;
   border: solid #c1c1c1 2px;
   background-color: white;
-  /* min-height: 0; */
+  min-height: 1px;
+  margin-top: 4px;
 }
 
 #map {
@@ -483,6 +484,20 @@ input[type='checkbox'] {
 #topContent {
   flex-direction: column;
   height: 100%;
+}
+
+#organize {
+  border-radius: 2px;
+  margin-left: auto;
+  height: 27px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 2px solid rgb(183, 183, 183);
+}
+
+#organize:focus {
+  outline: none;
+  border-color: rgb(154, 154, 154);
 }
 
 @media screen and (max-width: 900px) {
