@@ -186,7 +186,7 @@ body {
   overflow-y: auto;
   border: solid #c1c1c1 2px;
   background-color: white;
-  min-height: 1px;
+  min-height: 90px;
   margin-top: 4px;
 }
 

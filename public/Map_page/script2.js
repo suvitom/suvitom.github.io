@@ -22,15 +22,75 @@ const addSculptures = async view => {
     findAndSaveCreationYear(sculptures); //Creates a map collection if it doesn't exist.
   }
 
-  const sortedSculptures = sortSculptAlphabetically(sculptures);
+  const sortedSculptures = sortSculptures(sculptures);
 
   sortedSculptures.forEach(sculpt => {
     addMarkerToMap(sculpt, view);
-    addToSidebarList(sculpt);
   });
 
   changeSculptIcon(view); //Changes icons for the correct zoom level.
 };
+
+const sortingSelection = document.getElementById('organize');
+
+// Sorts the sculptures based on the dropdown selection. Adds them to the sidebarlist.
+const sortSculptures = sculpts => {
+  sideBarList.replaceChildren();
+
+  const sortingValue = sortingSelection.value;
+  let sortedSculptures = [...sculpts];
+
+  if (sortingValue == '1') {
+    sortedSculptures = sortSculptAlphabetically(sculpts, 'asc');
+  } else if (sortingValue == '2') {
+    sortedSculptures = sortSculptAlphabetically(sculpts, 'desc');
+  } else if (sortingValue == '3') {
+    //oldest first
+    sortedSculptures = sortSculpturesByAge(sculpts, 'asc');
+  } else if (sortingValue == '4') {
+    //newest first
+    sortedSculptures = sortSculpturesByAge(sculpts, 'desc');
+  }
+
+  sortedSculptures.forEach(sculpt => {
+    addToSidebarList(sculpt);
+  });
+
+  return sortedSculptures;
+};
+
+// Sorts the objects in the sculpture array by their creation year, either from
+// oldest to newest (asc) or from newest to oldest (desc), using the
+// creatYearData map as a reference.
+const sortSculpturesByAge = (sculpts, order) => {
+  const indexMap = new Map(
+    [...creatYearData.entries()] //[ [id, year], [id, year], ... ]
+      .filter(([, year]) => year && !isNaN(Number(year)))
+      //a = 1849, b = 1940 -> a - b = -91 -> a first    b - a = 91 -> b first
+      .sort((a, b) => (order === 'asc' ? Number(a[1]) - Number(b[1]) : Number(b[1]) - Number(a[1])))
+      //replaces years with indexes
+      .map(([key], i) => [key, i]),
+  );
+  return [...sculpts].sort(compareByIndex(indexMap));
+};
+
+const compareByIndex = indexMap => (a, b) => {
+  const ai = indexMap.get(a.id);
+  const bi = indexMap.get(b.id);
+
+  // order doesn't change
+  if (ai === undefined && bi === undefined) return 0;
+  // positive -> b first
+  if (ai === undefined) return 1;
+  //negative -> a first
+  if (bi === undefined) return -1;
+  return ai - bi;
+};
+
+sortingSelection.addEventListener('change', () => {
+  sideBarList.replaceChildren();
+  sortSculptures(sculptureData);
+});
 
 const departmentId = '0afb1cd8-726d-4900-8a7f-5e3447e8f477';
 const url = `https://www.hel.fi/palvelukarttaws/rest/v4/unit/?department=${departmentId}`;
@@ -54,6 +114,22 @@ const fetchSculptures = async () => {
 // Creates a map collection for the creation years of the sculptures
 // First, checks if the sculpture exists in the additional data with the year information,
 // and then searches for the year in the caption.
+const extractYear = caption => {
+  // "1849." → "1849"
+  if (caption.match(/\d{4}\./)) return caption.match(/\d{4}\./)[0].replace('.', '');
+
+  // "1849 " → "1849"
+  if (caption.match(/\d{4} /)) return caption.match(/\d{4}/)[0];
+
+  // "1901-02" → "1902"
+  if (caption.match(/\d{4}-\d{2}/)) {
+    const m = caption.match(/(\d{2})\d{2}-(\d{2})/);
+    return m[1] + m[2];
+  }
+
+  return null;
+};
+
 const findAndSaveCreationYear = sculptures => {
   let creationYearMap = new Map();
 
@@ -66,11 +142,13 @@ const findAndSaveCreationYear = sculptures => {
         '',
       );
 
-      year = caption.match(/\d{4}\./)
-        ? caption.match(/\d{4}\./)[0].replace('.', '')
-        : caption.match(/\d{4}/)
-          ? caption.match(/\d{4}/)[0]
-          : null;
+      year = extractYear(caption);
+
+      // year = caption.match(/\d{4}\./)
+      //   ? caption.match(/\d{4}\./)[0].replace('.', '')
+      //   : caption.match(/\d{4}/)
+      //     ? caption.match(/\d{4}/)[0]
+      //     : null;
     }
     creationYearMap.set(sculpt.id, year);
   });
@@ -90,11 +168,13 @@ const compareDataAndFindSculpt = sculpt => {
   return foundSculpt;
 };
 
-const sortSculptAlphabetically = sculptures => {
+const sortSculptAlphabetically = (sculptures, order) => {
   return sculptures.sort((a, b) => {
     const nimiA = language === 'fi' ? a.name_fi : a.name_en?.replace(/^[^/]*\/\s*/, '') || '';
     const nimiB = language === 'fi' ? b.name_fi : b.name_en?.replace(/^[^/]*\/\s*/, '') || '';
-    return nimiA.localeCompare(nimiB);
+    return order === 'desc'
+      ? nimiB.localeCompare(nimiA) // Z → A
+      : nimiA.localeCompare(nimiB); // A → Z
   });
 };
 

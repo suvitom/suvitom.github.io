@@ -219,4 +219,10 @@ const addlSculptData = [
     name_fi: 'Sotilaan hauta',
     artist: '',
   },
+  // {
+  //   id: 23401,
+  //   year: 1938,
+  //   name_fi: 'Matti ja Jaakko',
+  //   artist: 'Mauno Oittinen',
+  // },
 ];

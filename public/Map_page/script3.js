@@ -216,6 +216,7 @@ const handleInputText = () => {
 
   Array.from(allListedDivs).forEach(div => {
     const text = getSearchText(div).toLowerCase();
+    //shows the div element if text contains filter, and hides it otherwise
     div.style.display = text.includes(filter) ? '' : 'none';
   });
 };
