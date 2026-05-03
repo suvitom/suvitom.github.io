@@ -40,6 +40,8 @@ const sortSculptures = sculpts => {
   const sortingValue = sortingSelection.value;
   let sortedSculptures = [...sculpts];
 
+  let order = '';
+
   if (sortingValue == '1') {
     sortedSculptures = sortSculptAlphabetically(sculpts, 'asc');
   } else if (sortingValue == '2') {
@@ -47,13 +49,15 @@ const sortSculptures = sculpts => {
   } else if (sortingValue == '3') {
     //oldest first
     sortedSculptures = sortSculpturesByAge(sculpts, 'asc');
+    order = 'age';
   } else if (sortingValue == '4') {
     //newest first
     sortedSculptures = sortSculpturesByAge(sculpts, 'desc');
+    order = 'age';
   }
 
   sortedSculptures.forEach(sculpt => {
-    addToSidebarList(sculpt);
+    addToSidebarList(sculpt, order);
   });
 
   return sortedSculptures;
@@ -68,7 +72,7 @@ const sortSculpturesByAge = (sculpts, order) => {
       .filter(([, year]) => year && !isNaN(Number(year)))
       //a = 1849, b = 1940 -> a - b = -91 -> a first    b - a = 91 -> b first
       .sort((a, b) => (order === 'asc' ? Number(a[1]) - Number(b[1]) : Number(b[1]) - Number(a[1])))
-      //replaces years with indexes
+      //.map() replaces years with indexes
       .map(([key], i) => [key, i]),
   );
   return [...sculpts].sort(compareByIndex(indexMap));
@@ -88,7 +92,6 @@ const compareByIndex = indexMap => (a, b) => {
 };
 
 sortingSelection.addEventListener('change', () => {
-  sideBarList.replaceChildren();
   sortSculptures(sculptureData);
 });
 
@@ -203,32 +206,32 @@ const setMarkerGroupAndIcon = (sculpt, view) => {
       const value = parseInt(creatYearData.get(sculpt.id)) || 1;
 
       switch (true) {
-        case value > 1985:
+        case value > 1986:
           group = grpSix;
-          // Different sized icons for various zoom levels
+          // different sized icons for various zoom levels
           icon = iconSix;
           bigIcon = bigIconSix;
           midSizeIcon = midSizeIconSix;
           break;
-        case value > 1945:
+        case value > 1946:
           group = grpFive;
           icon = iconFive;
           bigIcon = bigIconFive;
           midSizeIcon = midSizeIconFive;
           break;
-        case value > 1905:
+        case value > 1906:
           group = grpFour;
           icon = iconFour;
           bigIcon = bigIconFour;
           midSizeIcon = midSizeIconFour;
           break;
-        case value > 1865:
+        case value > 1866:
           group = grpThree;
           icon = iconThree;
           bigIcon = bigIconThree;
           midSizeIcon = midSizeIconThree;
           break;
-        case value > 1825:
+        case value > 1826:
           group = grpTwo;
           icon = iconTwo;
           bigIcon = bigIconTwo;
@@ -360,10 +363,15 @@ const goToDetailPage = sculpt => {
 };
 
 // Creating the content for the search list.
-const addToSidebarList = sculpt => {
+const addToSidebarList = (sculpt, order) => {
   const div = document.createElement('div');
   //Finnish name in name_en attribute is deleted
-  div.textContent = language === 'fi' ? sculpt.name_fi : sculpt.name_en.replace(/^[^/]*\/\s*/, '') || '';
+  const englishName = sculpt.name_en.replace(/^[^/]*\/\s*/, '');
+
+  const yearValue = Number(creatYearData.get(sculpt.id));
+  const year = order == 'age' && yearValue > 0 ? ` ${yearValue}` : '';
+
+  div.textContent = language === 'fi' ? sculpt.name_fi + year : englishName + year || '';
 
   div.classList.add('listed');
   const artist = shortnCaptOrFindArtist(sculpt, true);
