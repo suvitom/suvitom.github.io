@@ -462,6 +462,9 @@ input[type='checkbox'] {
   text-wrap: nowrap;
 }
 
+#favourites {
+}
+
 .dot {
   color: #a8a8a8;
 }

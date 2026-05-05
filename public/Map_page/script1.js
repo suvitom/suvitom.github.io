@@ -3,6 +3,7 @@ let language = localStorage.getItem('language') || 'fi';
 let sculptureData = null;
 let creatYearData = null;
 const sideBarList = document.getElementById('list');
+let currentUser = null;
 
 //Map initial settings
 let lat = 60.172;

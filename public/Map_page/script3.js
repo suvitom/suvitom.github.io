@@ -181,7 +181,6 @@ const changeLanguage = lang => {
   localStorage.setItem('language', lang);
   language = lang;
 
-  //clearMarkerLayers();
   grpForAllMarkers.eachLayer(g => g.clearLayers());
 
   while (sideBarList.firstChild) {
@@ -191,17 +190,8 @@ const changeLanguage = lang => {
   addSculptures(checkSelectedRadioBtn());
   changeSculptIcon(checkSelectedRadioBtn());
   addTextToThePage();
+  updateFavSideView(currentUser);
 };
-
-// const clearMarkerLayers = () => {
-//   grpOne.clearLayers();
-//   grpTwo.clearLayers();
-//   grpThree.clearLayers();
-//   grpFour.clearLayers();
-//   grpFive.clearLayers();
-//   grpSix.clearLayers();
-//   grpSeven.clearLayers();
-// };
 
 //Search function
 const searchInput = document.getElementById('search');
@@ -304,7 +294,13 @@ const showOrHideMarkers2 = selection => {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-  initializeFirebase();
+  const {auth, db} = initializeFirebase();
+
+  auth.onAuthStateChanged(user => {
+    updateFavSideView(user);
+    currentUser = user;
+  });
+
   addSculptures('def_radio');
   addTextToThePage();
   setOpacitySliderVal();

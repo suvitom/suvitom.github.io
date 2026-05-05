@@ -31,3 +31,15 @@ const changeTabColorAndState = key => {
     }
   });
 };
+
+const updateFavSideView = user => {
+  const favourites = document.getElementById('favourites');
+  if (!user) {
+    favourites.textContent =
+      language == 'fi'
+        ? 'Kirjaudu sisään tallentaaksesi suosikkeja tästä'
+        : 'Log in to save your favourites here';
+  } else {
+    console.log(user.uid);
+  }
+};
