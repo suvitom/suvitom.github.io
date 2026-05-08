@@ -307,12 +307,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const {auth, database} = initializeFirebase();
   db = database;
 
-  auth.onAuthStateChanged(user => {
-    updateFavSideView(user);
-    currentUser = user;
-  });
-
   addSculptures('def_radio');
   addTextToThePage();
   setOpacitySliderVal();
+
+  auth.onAuthStateChanged(user => {
+    updateFavSideView(user);
+    currentUser = user;
+    document.querySelectorAll('.heartIcon').forEach(icon => {
+      icon.style.display = user ? 'inline-block' : 'none';
+    });
+  });
 });

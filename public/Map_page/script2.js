@@ -144,14 +144,7 @@ const findAndSaveCreationYear = sculptures => {
       const caption = [sculpt.picture_caption_fi, sculpt.picture_caption_sv, sculpt.picture_caption_en].join(
         '',
       );
-
       year = extractYear(caption);
-
-      // year = caption.match(/\d{4}\./)
-      //   ? caption.match(/\d{4}\./)[0].replace('.', '')
-      //   : caption.match(/\d{4}/)
-      //     ? caption.match(/\d{4}/)[0]
-      //     : null;
     }
     creationYearMap.set(sculpt.id, year);
   });
@@ -281,35 +274,38 @@ const createPopUp = sculpt => {
   const heartIcon = document.createElement('i');
   heartIcon.classList.add('fa-solid', 'fa-heart');
   heartIcon.classList.add('heartIcon');
-  heartIcon.onclick = () => saveOrRemoveSculpt(sculpt);
-
-  // const diskIcon = document.createElement('i');
-  // diskIcon.classList.add('fa-solid', 'fa-floppy-disk');
-  // diskIcon.id = 'diskIcon';
-  // diskIcon.onclick = () => saveOrRemoveSculpt(sculpt, 'disk');
+  heartIcon.onclick = () => saveOrRemoveSculpt(sculpt, heartIcon);
 
   popupContent.appendChild(title);
   popupContent.appendChild(heartIcon);
-  // popupContent.appendChild(diskIcon);
   popupContent.appendChild(caption);
   popupContent.appendChild(link);
 
   return popupContent;
 };
 
-const saveOrRemoveSculpt = async sculpt => {
-  console.log(currentUser.uid);
+const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
   try {
-    await db
-      .collection('users')
-      .doc(String(currentUser.uid))
-      .collection('favourites')
-      .doc(String(sculpt.id))
-      .set({
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      });
+    if (currentUser) {
+      const docRef = await db
+        .collection('users')
+        .doc(String(currentUser.uid))
+        .collection('favourites')
+        .doc(String(sculpt.id));
+      const docSnap = await docRef.get();
+
+      if (docSnap.exists) {
+        await docRef.delete();
+        console.log('deleted:', sculpt.id);
+        heartIcon.style.color = '#b1b1b1';
+      } else {
+        await docRef.set({createdAt: firebase.firestore.FieldValue.serverTimestamp()});
+        console.log('saved:', sculpt.id);
+        heartIcon.style.color = '#693dcf';
+      }
+    }
   } catch (error) {
-    console.error('Saving error:', error);
+    console.error('Error saving or deleting sculpture as a favorite:', error);
   }
 };
 
