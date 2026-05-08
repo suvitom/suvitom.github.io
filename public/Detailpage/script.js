@@ -37,7 +37,7 @@ const addTextToDetailPage = async () => {
 
   h2.textContent = name;
   div1Top.textContent = caption;
-  div2Bottom.textContent = description;
+  div2Bottom.textContent = description.trim() != 'undefined' ? description : '';
 };
 
 document.addEventListener('DOMContentLoaded', function () {

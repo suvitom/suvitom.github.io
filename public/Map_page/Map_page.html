@@ -49,17 +49,18 @@
         <div id="sculptList">
             <div class="rightSideView">
                 <div class="browsing dot" onclick="changeRightHandView('browsing')">⬤</div>
-                <div class="browsing" onclick="changeRightHandView('browsing')">Selailu</div>
+                <div class="browsing" onclick="changeRightHandView('browsing')"></div>
                 <div></div>
+                <!--empty div is for styling-->
             </div>
             <div class="rightSideView">
                 <div class="map dot" onclick="changeRightHandView('map')">⬤</div>
-                <div class="map" onclick="changeRightHandView('map')">Karttanäkymän valinta</div>
+                <div class="map" onclick="changeRightHandView('map')"></div>
                 <div></div>
             </div>
             <div class="rightSideView">
                 <div class="favourites dot" onclick="changeRightHandView('favourites')">⬤</div>
-                <div class="favourites" onclick="changeRightHandView('favourites')">Suosikit</div>
+                <div class="favourites" onclick="changeRightHandView('favourites')"></div>
                 <div></div>
             </div>
             <div class="rightSideView">
@@ -85,10 +86,10 @@
                     </div>
                     <div style="display: flex;">
                         <select id="organize">
-                            <option value="1">Aakkosjärjestys (A➝Ö)</option>
-                            <option value="2">Aakkosjärjestys (Ö➝A)</option>
-                            <option value="3">Vanhin ensin</option>
-                            <option value="4">Uusin ensin</option>
+                            <option value="1"></option>
+                            <option value="2"></option>
+                            <option value="3"></option>
+                            <option value="4"></option>
                         </select>
                     </div>
                     <div id="list"></div>
@@ -98,7 +99,7 @@
                     <div class="searchBy" style="margin-bottom: 13px">
                         <input type="radio" id="def_radio" name="mapradio" onclick="addSculptures('def_radio')"
                             checked />
-                        <label for="def_radio" id="default"><span id="lablTextDef">Oletus:</span></label>
+                        <label for="def_radio" id="default"></label>
                     </div>
                     <form autocomplete="off">
                         <label class="labl" for="check1_fav">
@@ -116,8 +117,7 @@
                     <br />
                     <div class="searchBy" style="margin-bottom: 13px">
                         <input type="radio" id="cti_radio" name="mapradio" onclick="addSculptures('cti_radio')" />
-                        <label for="cti_radio" id="createdIn"><span id="lablTextCti">Valmistuneet
-                                vuosina:</span></label>
+                        <label for="cti_radio" id="createdIn"></label>
                     </div>
                     <form autocomplete="off">
                         <label class="labl" for="check1">
@@ -163,7 +163,12 @@
                     </form>
                 </div>
                 <div id="favouritesContent" style="display: none">
-                    <div id="favourites"></div>
+                    <div id="favNoShow">
+                        <span id="here" onclick="goToLoginPage()"></span>
+                    </div>
+                    <div id="favShow">
+                        <div>FAVOURITES</div>
+                    </div>
                 </div>
                 <div id="topContent" style="display: none">top</div>
             </div>

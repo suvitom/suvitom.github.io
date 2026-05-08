@@ -274,30 +274,43 @@ const createPopUp = sculpt => {
   const popupContent = document.createElement('div');
   const title = document.createElement('b');
   title.textContent = language === 'fi' ? sculpt.name_fi : sculpt.name_en || '';
+  title.classList.add('popupTitle');
   const caption = document.createElement('div');
   caption.textContent = shortened;
 
   const heartIcon = document.createElement('i');
   heartIcon.classList.add('fa-solid', 'fa-heart');
-  heartIcon.id = 'heartIcon';
-  heartIcon.onclick = () => saveOrRemoveSculp(sculpt.name_fi, 'heart');
+  heartIcon.classList.add('heartIcon');
+  heartIcon.onclick = () => saveOrRemoveSculpt(sculpt);
 
-  const diskIcon = document.createElement('i');
-  diskIcon.classList.add('fa-solid', 'fa-floppy-disk');
-  diskIcon.id = 'diskIcon';
-  diskIcon.onclick = () => saveOrRemoveSculp(sculpt.name_fi, 'disk');
+  // const diskIcon = document.createElement('i');
+  // diskIcon.classList.add('fa-solid', 'fa-floppy-disk');
+  // diskIcon.id = 'diskIcon';
+  // diskIcon.onclick = () => saveOrRemoveSculpt(sculpt, 'disk');
 
-  popupContent.appendChild(heartIcon);
-  popupContent.appendChild(diskIcon);
   popupContent.appendChild(title);
+  popupContent.appendChild(heartIcon);
+  // popupContent.appendChild(diskIcon);
   popupContent.appendChild(caption);
   popupContent.appendChild(link);
 
   return popupContent;
 };
 
-const saveOrRemoveSculp = (sculpName, group) => {
-  console.log(sculpName, group);
+const saveOrRemoveSculpt = async sculpt => {
+  console.log(currentUser.uid);
+  try {
+    await db
+      .collection('users')
+      .doc(String(currentUser.uid))
+      .collection('favourites')
+      .doc(String(sculpt.id))
+      .set({
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      });
+  } catch (error) {
+    console.error('Saving error:', error);
+  }
 };
 
 const shortnCaptOrFindArtist = (sculpt, artist) => {

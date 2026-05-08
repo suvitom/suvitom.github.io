@@ -49,8 +49,25 @@ const addTextToThePage = () => {
   const subheading = document.getElementById('subHeading');
   subheading.textContent = fi ? 'Hae veistos' : 'Find a sculpture';
 
-  // const createdIn = document.getElementById('createdIn');
-  // createdIn.textContent = fi ? 'Valmistuneet vuosina:' : 'Created in:';
+  const createdIn = document.getElementById('createdIn');
+  createdIn.textContent = fi ? 'Valmistuneet vuosina:' : 'Created in:';
+
+  const def = document.getElementById('default');
+  def.textContent = fi ? 'Oletus:' : 'Default:';
+
+  const sculptList = document.getElementById('sculptList');
+  const browsingTabBtn = sculptList.children[0].children[1];
+  browsingTabBtn.textContent = fi ? 'Selailu' : 'Browsing';
+  const mapViewTabBtn = sculptList.children[1].children[1];
+  mapViewTabBtn.textContent = fi ? 'Karttanäkymän valinta' : 'Map view selection';
+  const favTabBtn = sculptList.children[2].children[1];
+  favTabBtn.textContent = fi ? 'Suosikit' : 'Favourites';
+
+  const options = document.getElementById('organize').options;
+  options[0].textContent = fi ? 'Aakkosjärjestys (A➝Ö)' : 'Alphabetical (A➝Z)';
+  options[1].textContent = fi ? 'Aakkosjärjestys (Ö➝A)' : 'Alphabetical (Z➝A)';
+  options[2].textContent = fi ? 'Vanhin ensin' : 'Oldest first';
+  options[3].textContent = fi ? 'Uusin ensin' : 'Newest first';
 
   const check7 = document.getElementById('check7-text');
   check7.textContent = fi ? 'ei tietoa' : 'no info.';
@@ -63,14 +80,6 @@ const addTextToThePage = () => {
 
   const opcLabel = document.getElementById('opacityLabl');
   opcLabel.textContent = fi ? 'läpinäkyvyys' : 'transparency';
-
-  // const likedDialog = document.getElementById('liked').children[0];
-  // likedDialog.textContent = fi
-  //   ? 'Kirjaudu sisään tai rekisteröidy tallentaaksesi suosikkeja!'
-  //   : 'Log in or register to save your favorites!';
-
-  // const dialogLogin = document.querySelector('#dialogLoginLink > span');
-  // dialogLogin.textContent = fi ? 'Kirjaudu / Rekisteröidy' : 'Log in / Register';
 
   setLoginLogoutBtn(fi);
 };
@@ -93,6 +102,7 @@ const setLoginLogoutBtn = async fi => {
 const signOut = async () => {
   await firebase.auth().signOut();
   setLoginLogoutBtn(language === 'fi');
+  currentUser = null;
 };
 
 const goToLoginPage = () => {
@@ -294,7 +304,8 @@ const showOrHideMarkers2 = selection => {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-  const {auth, db} = initializeFirebase();
+  const {auth, database} = initializeFirebase();
+  db = database;
 
   auth.onAuthStateChanged(user => {
     updateFavSideView(user);

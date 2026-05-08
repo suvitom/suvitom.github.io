@@ -57,7 +57,7 @@ body {
   grid-column: 3 / 4;
   width: 100%;
   box-sizing: border-box;
-  font-size: large;
+  font-size: medium;
   height: 32px;
   border: 2px solid #c3c3c3;
   outline: none;
@@ -121,7 +121,7 @@ ul {
 
 a {
   color: #212529;
-  /* text-decoration: none; */
+  font-size: medium;
 }
 
 .firebaseui-error {

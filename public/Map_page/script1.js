@@ -4,6 +4,7 @@ let sculptureData = null;
 let creatYearData = null;
 const sideBarList = document.getElementById('list');
 let currentUser = null;
+let db = null;
 
 //Map initial settings
 let lat = 60.172;
