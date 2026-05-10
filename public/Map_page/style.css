@@ -53,6 +53,12 @@ body {
   border: 1px solid black;
 }
 
+.iconNine {
+  background-color: red;
+  border-radius: 100px;
+  border: 1px solid black;
+}
+
 #searchContainer {
   display: grid;
   gap: 9px;

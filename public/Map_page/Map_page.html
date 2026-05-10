@@ -97,7 +97,7 @@
 
                 <div id="mapContent" style="display:none">
                     <div class="searchBy" style="margin-bottom: 13px">
-                        <input type="radio" id="def_radio" name="mapradio" onclick="addSculptures('def_radio')"
+                        <input type="radio" id="def_radio" name="mapradio" onclick="addSculptures('def_radio', favIds)"
                             checked />
                         <label for="def_radio" id="default"></label>
                     </div>
@@ -116,7 +116,8 @@
                     </form>
                     <br />
                     <div class="searchBy" style="margin-bottom: 13px">
-                        <input type="radio" id="cti_radio" name="mapradio" onclick="addSculptures('cti_radio')" />
+                        <input type="radio" id="cti_radio" name="mapradio"
+                            onclick="addSculptures('cti_radio', favIds)" />
                         <label for="cti_radio" id="createdIn"></label>
                     </div>
                     <form autocomplete="off">

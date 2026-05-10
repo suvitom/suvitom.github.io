@@ -49,6 +49,5 @@ const updateFavSideView = user => {
   } else {
     favNoShow.style.display = 'none';
     favShow.style.display = 'flex';
-    console.log(user.uid);
   }
 };

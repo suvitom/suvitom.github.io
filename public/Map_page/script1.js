@@ -5,6 +5,7 @@ let creatYearData = null;
 const sideBarList = document.getElementById('list');
 let currentUser = null;
 let db = null;
+let favIds = new Set();
 
 //Map initial settings
 let lat = 60.172;
@@ -36,6 +37,7 @@ const iconFive = L.divIcon({className: 'iconFive', iconSize: size});
 const iconSix = L.divIcon({className: 'iconSix', iconSize: size});
 const iconSeven = L.divIcon({className: 'iconSeven', iconSize: size});
 const iconEight = L.divIcon({className: 'iconEight', iconSize: size});
+const iconNine = L.divIcon({className: 'iconNine', iconSize: size});
 
 const midSizeIconOne = L.divIcon({className: 'iconOne', iconSize: midSize});
 const midSizeIconTwo = L.divIcon({className: 'iconTwo', iconSize: midSize});
@@ -45,6 +47,7 @@ const midSizeIconFive = L.divIcon({className: 'iconFive', iconSize: midSize});
 const midSizeIconSix = L.divIcon({className: 'iconSix', iconSize: midSize});
 const midSizeIconSeven = L.divIcon({className: 'iconSeven', iconSize: midSize});
 const midSizeIconEight = L.divIcon({className: 'iconEight', iconSize: midSize});
+const midSizeIconNine = L.divIcon({className: 'iconNine', iconSize: midSize});
 
 const bigIconOne = L.divIcon({className: 'iconOne', iconSize: bigSize});
 const bigIconTwo = L.divIcon({className: 'iconTwo', iconSize: bigSize});
@@ -54,6 +57,7 @@ const bigIconFive = L.divIcon({className: 'iconFive', iconSize: bigSize});
 const bigIconSix = L.divIcon({className: 'iconSix', iconSize: bigSize});
 const bigIconSeven = L.divIcon({className: 'iconSeven', iconSize: bigSize});
 const bigIconEight = L.divIcon({className: 'iconEight', iconSize: bigSize});
+const bigIconNine = L.divIcon({className: 'iconNine', iconSize: bigSize});
 
 let grpForAllMarkers = L.featureGroup().addTo(map);
 let grpOne = L.featureGroup();
@@ -64,6 +68,7 @@ let grpFive = L.featureGroup();
 let grpSix = L.featureGroup();
 let grpSeven = L.featureGroup();
 let grpEight = L.featureGroup();
+let grpNine = L.featureGroup();
 
 grpForAllMarkers.addLayer(grpOne);
 grpForAllMarkers.addLayer(grpTwo);
@@ -73,3 +78,4 @@ grpForAllMarkers.addLayer(grpFive);
 grpForAllMarkers.addLayer(grpSix);
 grpForAllMarkers.addLayer(grpSeven);
 grpForAllMarkers.addLayer(grpEight);
+grpForAllMarkers.addLayer(grpNine);

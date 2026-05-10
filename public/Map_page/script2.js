@@ -1,5 +1,5 @@
 // Fetches sculptures and adds them to both the map and the search list
-const addSculptures = async view => {
+const addSculptures = async (view, favourites) => {
   grpForAllMarkers.eachLayer(g => g.clearLayers());
   let sculptures = null;
 
@@ -25,7 +25,7 @@ const addSculptures = async view => {
   const sortedSculptures = sortSculptures(sculptures);
 
   sortedSculptures.forEach(sculpt => {
-    addMarkerToMap(sculpt, view);
+    addMarkerToMap(sculpt, view, favourites);
   });
 
   changeSculptIcon(view); //Changes icons for the correct zoom level.
@@ -174,12 +174,12 @@ const sortSculptAlphabetically = (sculptures, order) => {
   });
 };
 
-const addMarkerToMap = (sculpt, view) => {
+const addMarkerToMap = (sculpt, view, favouriteIds) => {
   const latitude = parseFloat(sculpt.latitude);
   const longitude = parseFloat(sculpt.longitude);
 
   if (!isNaN(latitude) && !isNaN(longitude)) {
-    const {icon, group} = setMarkerGroupAndIcon(sculpt, view);
+    const {icon, group} = setMarkerGroupAndIcon(sculpt, view, favouriteIds);
     const popupContent = createPopUp(sculpt);
 
     sculpt.marker = L.marker([latitude, longitude], {icon: icon}).bindPopup(popupContent).addTo(group);
@@ -188,7 +188,7 @@ const addMarkerToMap = (sculpt, view) => {
 
 // Groupes sculptures by their creation years to enable visibility control
 // and assigns icons for styling
-const setMarkerGroupAndIcon = (sculpt, view) => {
+const setMarkerGroupAndIcon = (sculpt, view, favouriteIds) => {
   let group = null;
   let icon = null;
   let bigIcon = null;
@@ -243,10 +243,17 @@ const setMarkerGroupAndIcon = (sculpt, view) => {
           midSizeIcon = midSizeIconSeven;
       }
     } else {
-      group = grpEight;
-      icon = iconEight;
-      bigIcon = bigIconEight;
-      midSizeIcon = midSizeIconEight;
+      if (favouriteIds && favouriteIds.has(String(sculpt.id))) {
+        group = grpNine;
+        icon = iconNine;
+        bigIcon = bigIconNine;
+        midSizeIcon = midSizeIconNine;
+      } else {
+        group = grpEight;
+        icon = iconEight;
+        bigIcon = bigIconEight;
+        midSizeIcon = midSizeIconEight;
+      }
     }
   } else {
     console.log(`Key ${sculpt.id} not found when determining markergroup`);
@@ -284,10 +291,21 @@ const createPopUp = sculpt => {
   return popupContent;
 };
 
+let currentMarker = null;
+
+map.on('popupopen', e => {
+  currentMarker = e.popup._source;
+});
+
+map.on('popupclose', e => {
+  currentMarker = null;
+});
+
 const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
+  const marker = currentMarker;
   try {
     if (currentUser) {
-      const docRef = await db
+      const docRef = db
         .collection('users')
         .doc(String(currentUser.uid))
         .collection('favourites')
@@ -298,10 +316,26 @@ const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
         await docRef.delete();
         console.log('deleted:', sculpt.id);
         heartIcon.style.color = '#b1b1b1';
+        if (marker) {
+          // removes the sculpture from the Set that stores IDs for quick access
+          favIds.delete(String(sculpt.id));
+          // adds the marker to the correct group and class
+          grpNine.removeLayer(marker);
+          marker.addTo(grpEight);
+          marker.getElement().classList.add('iconEight');
+          marker.getElement().classList.remove('iconNine');
+        }
       } else {
         await docRef.set({createdAt: firebase.firestore.FieldValue.serverTimestamp()});
         console.log('saved:', sculpt.id);
         heartIcon.style.color = '#693dcf';
+        if (marker) {
+          favIds.add(String(sculpt.id));
+          grpEight.removeLayer(marker);
+          marker.addTo(grpNine);
+          marker.getElement().classList.add('iconNine');
+          marker.getElement().classList.remove('iconEight');
+        }
       }
     }
   } catch (error) {

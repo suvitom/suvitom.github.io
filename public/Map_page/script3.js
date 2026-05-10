@@ -9,7 +9,7 @@ const changeSculptIcon = view => {
 
   sculptureData.forEach(sculpt => {
     const marker = sculpt.marker;
-    const {icon, bigIcon, midSizeIcon} = setMarkerGroupAndIcon(sculpt, view);
+    const {icon, bigIcon, midSizeIcon} = setMarkerGroupAndIcon(sculpt, view, favIds);
 
     if (marker && bigIcon) {
       if (zoomLevel <= 13) {
@@ -197,7 +197,7 @@ const changeLanguage = lang => {
     sideBarList.removeChild(sideBarList.firstChild); //clears the sculpture search list
   }
 
-  addSculptures(checkSelectedRadioBtn());
+  addSculptures(checkSelectedRadioBtn(), favIds);
   changeSculptIcon(checkSelectedRadioBtn());
   addTextToThePage();
   updateFavSideView(currentUser);
@@ -307,15 +307,23 @@ document.addEventListener('DOMContentLoaded', function () {
   const {auth, database} = initializeFirebase();
   db = database;
 
-  addSculptures('def_radio');
-  addTextToThePage();
-  setOpacitySliderVal();
-
-  auth.onAuthStateChanged(user => {
+  auth.onAuthStateChanged(async user => {
     updateFavSideView(user);
     currentUser = user;
+    console.log('uid', user.uid);
+
+    let favouriteIds = new Set();
+    if (user) {
+      const snaps = await db.collection('users').doc(user.uid).collection('favourites').get();
+      snaps.forEach(sculpt => favouriteIds.add(sculpt.id));
+    }
+    favIds = favouriteIds;
+    addSculptures('def_radio', favouriteIds);
     document.querySelectorAll('.heartIcon').forEach(icon => {
       icon.style.display = user ? 'inline-block' : 'none';
     });
   });
+
+  addTextToThePage();
+  setOpacitySliderVal();
 });
