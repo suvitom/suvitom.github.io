@@ -299,10 +299,6 @@ const showOrHideMarkers1 = interval => {
   }
 };
 
-const showOrHideMarkers2 = selection => {
-  addOrRemoveLayer(grpEight, 'check2_def');
-};
-
 document.addEventListener('DOMContentLoaded', function () {
   const {auth, database} = initializeFirebase();
   db = database;
@@ -310,7 +306,6 @@ document.addEventListener('DOMContentLoaded', function () {
   auth.onAuthStateChanged(async user => {
     updateFavSideView(user);
     currentUser = user;
-    console.log('uid', user.uid);
 
     let favouriteIds = new Set();
     if (user) {
