@@ -9,6 +9,47 @@ body {
   font-size: large;
 }
 
+div {
+  color: #373737;
+}
+
+#heart {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin-right: -10px;
+}
+
+.fa-heart {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fa-solid {
+  color: #d19dff;
+}
+
+.fa-regular {
+  color: #693dcf;
+}
+
+#header {
+  /* display: inline-grid;
+  grid-template-columns: auto auto auto; */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 19px;
+  margin-bottom: 19px;
+}
+
+#savingInfo {
+  color: blue;
+}
+
 #colorBlocks {
   display: grid;
   gap: 0;
@@ -60,10 +101,8 @@ body {
   letter-spacing: 0.5px;
   font-weight: 300;
   font-size: 24px;
-}
-
-div {
-  color: #373737;
+  margin: 0;
+  flex: 1;
 }
 
 #sculptImg {

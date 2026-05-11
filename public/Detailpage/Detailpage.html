@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html lang="fi">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Helsingin veistokset</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="colorBlocks">
-      <div id="white">
-        <div id="textContainer">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Helsingin veistokset</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://kit.fontawesome.com/0c92469ee5.js" crossorigin="anonymous"></script>
+
+  <!-- update the version number as needed -->
+  <script defer src="https://www.gstatic.com/firebasejs/12.7.0/firebase-app-compat.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="https://www.gstatic.com/firebasejs/12.7.0/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore-compat.js"></script>
+  <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+  <!-- <script defer src="/__/firebase/init.js?useEmulator=false"></script> -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="colorBlocks">
+    <div id="white">
+      <div id="textContainer">
+        <div id="header">
           <h2 id="h2"></h2>
-          <div id="div1"></div>
-          <br id="br" />
-          <div id="div2"></div>
-          <img src="" alt="Kuva veistoksesta" id="sculptImg" />
-          <div id="btncontainer">
-            <button id="btn" type="button" onclick="window.location.href='../Map_page/Map_page.html'">
-              <span id="arrow">❮</span>
-            </button>
+          <div id="savingInfo">saved ✔</div>
+          <div id="heart">
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-regular fa-heart"></i>
           </div>
         </div>
+        <div id="div1"></div>
+        <br id="br" />
+        <div id="div2"></div>
+        <img src="" alt="Kuva veistoksesta" id="sculptImg" />
+        <div id="btncontainer">
+          <button id="btn" type="button" onclick="window.location.href='../Map_page/Map_page.html'">
+            <span id="arrow">❮</span>
+          </button>
+        </div>
       </div>
-      <div id="gray"></div>
     </div>
-    <script src="script.js"></script>
-  </body>
+    <div id="gray"></div>
+  </div>
+  <script src="../firebase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>

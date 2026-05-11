@@ -88,7 +88,6 @@ const setLoginLogoutBtn = async fi => {
   const loginButton = document.getElementById('logInOrOut');
 
   const user = await waitForAuth();
-  // console.log(JSON.stringify(user, null, 2));
 
   if (user) {
     loginButton.textContent = fi ? 'Kirjaudu ulos ➜]' : 'Sign Out ➜]';
@@ -103,6 +102,7 @@ const signOut = async () => {
   await firebase.auth().signOut();
   setLoginLogoutBtn(language === 'fi');
   currentUser = null;
+  favIds = new Set();
 };
 
 const goToLoginPage = () => {
@@ -274,31 +274,6 @@ const addOrRemoveLayer = (markerGroup, tagId) => {
   }
 };
 
-const showOrHideMarkers1 = interval => {
-  switch (interval) {
-    case '–1825':
-      addOrRemoveLayer(grpOne, 'check1');
-      break;
-    case '1826–1865':
-      addOrRemoveLayer(grpTwo, 'check2');
-      break;
-    case '1866–1905':
-      addOrRemoveLayer(grpThree, 'check3');
-      break;
-    case '1906–1945':
-      addOrRemoveLayer(grpFour, 'check4');
-      break;
-    case '1946–1985':
-      addOrRemoveLayer(grpFive, 'check5');
-      break;
-    case '1986–2025':
-      addOrRemoveLayer(grpSix, 'check6');
-      break;
-    default:
-      addOrRemoveLayer(grpSeven, 'check7');
-  }
-};
-
 document.addEventListener('DOMContentLoaded', function () {
   const {auth, database} = initializeFirebase();
   db = database;
@@ -314,9 +289,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     favIds = favouriteIds;
     addSculptures('def_radio', favouriteIds);
-    document.querySelectorAll('.heartIcon').forEach(icon => {
-      icon.style.display = user ? 'inline-block' : 'none';
-    });
   });
 
   addTextToThePage();

@@ -180,7 +180,7 @@ const addMarkerToMap = (sculpt, view, favouriteIds) => {
 
   if (!isNaN(latitude) && !isNaN(longitude)) {
     const {icon, group} = setMarkerGroupAndIcon(sculpt, view, favouriteIds);
-    const popupContent = createPopUp(sculpt);
+    const popupContent = createPopUp(sculpt, favouriteIds);
 
     sculpt.marker = L.marker([latitude, longitude], {icon: icon}).bindPopup(popupContent).addTo(group);
   }
@@ -263,7 +263,7 @@ const setMarkerGroupAndIcon = (sculpt, view, favouriteIds) => {
 };
 
 // Creates markers for sculptures on the map
-const createPopUp = sculpt => {
+const createPopUp = (sculpt, favouriteIds) => {
   const shortened = shortnCaptOrFindArtist(sculpt, false);
 
   const link = document.createElement('div');
@@ -282,6 +282,13 @@ const createPopUp = sculpt => {
   heartIcon.classList.add('fa-solid', 'fa-heart');
   heartIcon.classList.add('heartIcon');
   heartIcon.onclick = () => saveOrRemoveSculpt(sculpt, heartIcon);
+  heartIcon.style.display = currentUser ? 'inline-block' : 'none';
+
+  if (currentUser) {
+    heartIcon.style.color = favouriteIds.has(String(sculpt.id)) ? '#693dcf' : '#b1b1b1';
+  } else {
+    heartIcon.style.color = '#b1b1b1';
+  }
 
   popupContent.appendChild(title);
   popupContent.appendChild(heartIcon);
@@ -289,6 +296,16 @@ const createPopUp = sculpt => {
   popupContent.appendChild(link);
 
   return popupContent;
+};
+
+const getDocSnap = async sculpt => {
+  const docRef = db
+    .collection('users')
+    .doc(String(currentUser.uid))
+    .collection('favourites')
+    .doc(String(sculpt.id));
+  const docSnap = await docRef.get();
+  return {docSnap, docRef};
 };
 
 let currentMarker = null;
@@ -305,13 +322,7 @@ const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
   const marker = currentMarker;
   try {
     if (currentUser) {
-      const docRef = db
-        .collection('users')
-        .doc(String(currentUser.uid))
-        .collection('favourites')
-        .doc(String(sculpt.id));
-      const docSnap = await docRef.get();
-
+      const {docSnap, docRef} = await getDocSnap(sculpt);
       if (docSnap.exists) {
         await docRef.delete();
         console.log('deleted:', sculpt.id);
@@ -319,11 +330,10 @@ const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
         if (marker) {
           // removes the sculpture from the Set that stores IDs for quick access
           favIds.delete(String(sculpt.id));
-          // adds the marker to the correct group and class
+          // adds the marker to the correct group and gives it a group-specific color
           grpNine.removeLayer(marker);
           marker.addTo(grpEight);
-          marker.getElement().classList.add('iconEight');
-          marker.getElement().classList.remove('iconNine');
+          marker.getElement().style.backgroundColor = '#ffd942';
         }
       } else {
         await docRef.set({createdAt: firebase.firestore.FieldValue.serverTimestamp()});
@@ -333,8 +343,7 @@ const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
           favIds.add(String(sculpt.id));
           grpEight.removeLayer(marker);
           marker.addTo(grpNine);
-          marker.getElement().classList.add('iconNine');
-          marker.getElement().classList.remove('iconEight');
+          marker.getElement().style.backgroundColor = 'red';
         }
       }
     }
@@ -402,6 +411,7 @@ const goToDetailPage = sculpt => {
   localStorage.setItem('description', finnish ? sculpt.desc_fi : sculpt.desc_en);
   localStorage.setItem('name', finnish ? sculpt.name_fi : sculpt.name_en);
   localStorage.setItem('url', sculpt.picture_url);
+  localStorage.setItem('sculptId', sculpt.id);
   window.location.href = '../Detailpage/Detailpage.html';
 };
 
