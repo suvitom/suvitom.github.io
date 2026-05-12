@@ -10,14 +10,16 @@ body {
 }
 
 div {
-  color: #373737;
+  color: #212529;
 }
 
 #heart {
   position: relative;
   width: 30px;
   height: 30px;
-  margin-right: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .fa-heart {
@@ -26,19 +28,26 @@ div {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  line-height: 1;
 }
 
-.fa-solid {
-  color: #d19dff;
+:root {
+  --heart-size: 20px;
 }
 
-.fa-regular {
-  color: #693dcf;
+.innerPart {
+  font-size: var(--heart-size);
+  color: white;
+  z-index: 100;
+  margin-top: -1px;
+}
+
+.outlines {
+  font-size: calc(var(--heart-size) + 3px);
+  color: #d31688;
 }
 
 #header {
-  /* display: inline-grid;
-  grid-template-columns: auto auto auto; */
   display: flex;
   align-items: center;
   width: 100%;
@@ -47,7 +56,8 @@ div {
 }
 
 #savingInfo {
-  color: blue;
+  font-size: small;
+  margin-right: 5px;
 }
 
 #colorBlocks {
@@ -90,6 +100,8 @@ div {
 
 #arrow {
   color: #a3a07b;
+  transform: rotate(180deg);
+  display: inline-block;
 }
 
 #div2 {
@@ -97,7 +109,7 @@ div {
 }
 
 #h2 {
-  color: #373737;
+  color: #212529;
   letter-spacing: 0.5px;
   font-weight: 300;
   font-size: 24px;

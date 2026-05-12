@@ -31,7 +31,12 @@ const addTextToDetailPage = async auth => {
   const {language, caption, description, name, url, sculptId} = getLocalData();
 
   auth.onAuthStateChanged(async user => {
-    heartIcon.style.color = (await checkIfSaved(sculptId, user)) ? '#9243d7' : 'whitesmoke';
+    if (!user) {
+      document.getElementById('heart').style.display = 'none';
+    } else {
+      heartIcon.style.color = (await checkIfSaved(sculptId, user)) ? '#d13b95' : 'white';
+      heartIcon.onclick = () => saveOrRemoveSculpt(sculptId, user, heartIcon, language);
+    }
   });
 
   if (!caption) {
@@ -48,14 +53,50 @@ const addTextToDetailPage = async auth => {
   div2Bottom.textContent = description.trim() != 'undefined' ? description : '';
 };
 
+const saveOrRemoveSculpt = async (sculptId, user, heartIcon, lang) => {
+  try {
+    const {docSnap, docRef} = await getDocSnap(sculptId, user);
+    const outlines = document.querySelector('.outlines');
+
+    if (docSnap.exists) {
+      await docRef.delete();
+      console.log('deleted:', sculptId);
+      heartIcon.style.color = 'white';
+      outlines.classList.remove('fa-solid');
+      outlines.classList.add('fa-regular');
+      showMessage(lang == 'fi' ? 'poistettu suosikeista' : 'removed from favourites');
+    } else {
+      await docRef.set({createdAt: firebase.firestore.FieldValue.serverTimestamp()});
+      console.log('saved:', sculptId);
+      heartIcon.style.color = '#d13b95';
+      outlines.classList.remove('fa-regular');
+      outlines.classList.add('fa-solid');
+      showMessage(lang == 'fi' ? 'tallennettu suosikiksi' : 'saved to favourites');
+    }
+  } catch (error) {
+    console.error('Error saving or deleting sculpture as a favorite:', error);
+  }
+};
+
+const showMessage = message => {
+  const savingInfo = document.getElementById('savingInfo');
+  savingInfo.textContent = message;
+  setTimeout(() => {
+    savingInfo.textContent = '';
+  }, 3000);
+};
+
 const checkIfSaved = async (sculptId, user) => {
   const {docSnap, docRef} = await getDocSnap(sculptId, user);
+  if (!docSnap) return false;
   return docSnap.exists;
 };
 
 const getDocSnap = async (sculptId, user) => {
+  if (!user) return {docSnap: undefined, docRef: undefined};
   const docRef = db.collection('users').doc(String(user.uid)).collection('favourites').doc(String(sculptId));
   const docSnap = await docRef.get();
+
   return {docSnap, docRef};
 };
 
