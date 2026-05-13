@@ -285,7 +285,7 @@ const createPopUp = (sculpt, favouriteIds) => {
   heartIcon.style.display = currentUser ? 'inline-block' : 'none';
 
   if (currentUser) {
-    heartIcon.style.color = favouriteIds.has(String(sculpt.id)) ? '#693dcf' : '#b1b1b1';
+    heartIcon.style.color = favouriteIds.has(String(sculpt.id)) ? '#ff4b66' : '#b1b1b1';
   } else {
     heartIcon.style.color = '#b1b1b1';
   }
@@ -333,16 +333,18 @@ const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
           // adds the marker to the correct group and gives it a group-specific color
           grpNine.removeLayer(marker);
           marker.addTo(grpEight);
+          setTimeout(() => marker.openPopup(), 800);
           marker.getElement().style.backgroundColor = '#ffd942';
         }
       } else {
         await docRef.set({createdAt: firebase.firestore.FieldValue.serverTimestamp()});
         console.log('saved:', sculpt.id);
-        heartIcon.style.color = '#693dcf';
+        heartIcon.style.color = '#ff4b66';
         if (marker) {
           favIds.add(String(sculpt.id));
           grpEight.removeLayer(marker);
           marker.addTo(grpNine);
+          setTimeout(() => marker.openPopup(), 800);
           marker.getElement().style.backgroundColor = 'red';
         }
       }

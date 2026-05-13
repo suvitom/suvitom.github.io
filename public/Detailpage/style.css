@@ -13,29 +13,37 @@ div {
   color: #212529;
 }
 
-#heart {
+/* #heart {
   position: relative;
   width: 30px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .fa-heart {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1px;
+}
+
+/* .fa-heart {
   cursor: pointer;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 1;
-}
+} */
 
-:root {
+/* :root {
   --heart-size: 20px;
-}
+} */
 
-.innerPart {
+/* .innerPart {
   font-size: var(--heart-size);
   color: white;
   z-index: 100;
@@ -45,19 +53,33 @@ div {
 .outlines {
   font-size: calc(var(--heart-size) + 3px);
   color: #d31688;
+} */
+
+.fa-regular {
+  color: #b1b1b1;
+}
+
+.fa-solid {
+  background: linear-gradient(120deg, rgb(255, 134, 225), rgb(225, 0, 0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 #header {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 60% 30% auto;
   width: 100%;
-  margin-top: 19px;
-  margin-bottom: 19px;
+  margin-top: 14px;
+  margin-bottom: 24px;
 }
 
 #savingInfo {
   font-size: small;
-  margin-right: 5px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 #colorBlocks {
@@ -114,7 +136,6 @@ div {
   font-weight: 300;
   font-size: 24px;
   margin: 0;
-  flex: 1;
 }
 
 #sculptImg {
