@@ -1,11 +1,12 @@
 const serviceDescr_fi = `Tervetuloa käyttämään karttapalvelua, joka tarjoaa kattavat tiedot Helsingin kaupungin veistoksista.
-                        Palvelu mahdollistaa veistosten löytämisen eri puolilta kaupunkia.
+                        Palvelu mahdollistaa veistosten löytämisen eri puolilta kaupunkia. Tiedot ja kuvat veistoksista ovat peräisin
+                        Helsingin kaupungin toimipisterekisterin avoimesta rajapinnasta (palvelukartta.hel.fi).
                         Veistoksia voi suodattaa niiden tekijän, nimen ja luontiajankohdan mukaan.
                         Lisäksi jokaisesta veistoksesta löytyy kattava kuvaus, tiedot taiteilijasta sekä veistoksen historiasta.`;
 const serviceDescr_en = `Welcome to the map service, providing comprehensive information about sculptures in the city of Helsinki.
-                        The service allows you to find sculptures throughout the city. You can filter sculptures by their name,
-                        creator, and time of creation.
-                        Additionally, for each sculpture, you will find a detailed description, information about the artist,
+                        The service allows you to find sculptures throughout the city. Information and images of the sculptures are sourced from
+                        the City of Helsinki’s open Service Map API (palvelukartta.hel.fi). You can filter sculptures by their name,
+                        creator, and time of creation. Additionally, for each sculpture, you will find a detailed description, information about the artist,
                         and the sculpture's history.`;
 const history1_fi = `"Vanhin Helsingin muistomerkeistä on 1700-luvun lopulla alkunsa saanut August Ehrensvärdin hauta ja muistomerkki
                         Suomenlinnassa. Helsingin vanhimmaksi mainitaan myös Kauppatorilla vuonna 1835 paljastettu Keisarinnankivi.
