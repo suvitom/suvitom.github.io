@@ -112,7 +112,7 @@ ul {
   border: solid #cfcfcf 2px;
   padding: 50px;
   background-color: white;
-  border-radius: 2px;
+  border-radius: 20px;
 }
 
 .firebaseui-info-bar-message {
