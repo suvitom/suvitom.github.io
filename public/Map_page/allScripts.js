@@ -580,8 +580,10 @@ const compareDataAndFindSculpt = sculpt => {
   return foundSculpt;
 };
 
+// Sorts sculptures alphabetically and trims English name prefixes.
 const sortSculptAlphabetically = (sculptures, order) => {
   return sculptures.sort((a, b) => {
+    // if (a.name_en != || b.name_en)
     const nimiA = language === 'fi' ? a.name_fi : a.name_en?.replace(/^[^/]*\/\s*/, '') || '';
     const nimiB = language === 'fi' ? b.name_fi : b.name_en?.replace(/^[^/]*\/\s*/, '') || '';
     return order === 'desc'

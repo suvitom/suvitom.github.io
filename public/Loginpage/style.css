@@ -133,7 +133,7 @@ a {
   font-size: 30px;
   cursor: pointer;
   transform: rotate(180deg);
-  color: #3c444bbd;
+  color: rgba(41, 50, 24, 0.7);
 }
 
 #arrowContainer {

@@ -1,4 +1,4 @@
-//Variables used in multiple places
+// ===== GENERAL VARIABLES AND MAP INITIALIZATION =====
 let language = localStorage.getItem('language') || 'fi';
 let sculptureData = null;
 let creatYearData = null;
@@ -7,13 +7,20 @@ let currentUser = null;
 let db = null;
 let favIds = new Set();
 
-//Map initial settings
+const sortingSelection = document.getElementById('organize');
+const searchInput = document.getElementById('search');
+const artistCkbox = document.getElementById('artistSearch');
+const yearCkbox = document.getElementById('yearSearch');
+const artistLabl = document.getElementById('artistLabel');
+const yearLabl = document.getElementById('yearLabel');
+
+// Basic map settings and the base map layer.
 let lat = 60.172;
 let lon = 24.95;
 const opacity = parseFloat(localStorage.getItem('opacity')) || 0.9;
 let map = L.map('map', {maxZoom: 20, minZoom: 11}).setView([lat, lon], 13);
 
-wmsLayer = L.tileLayer
+const wmsLayer = L.tileLayer
   .wms('https://kartta.hel.fi/ws/geoserver/avoindata/wms', {
     layers: 'avoindata:Karttasarja_harmaa',
     format: 'image/png',
@@ -24,7 +31,8 @@ wmsLayer = L.tileLayer
   })
   .addTo(map);
 
-//Marker styles and groups
+// ===== MARKER STYLES AND GROUPS =====
+// Define marker sizes and icon variants for different zoom levels and map views.
 const size = [7, 7];
 const midSize = [10, 10];
 const bigSize = [14, 14];
