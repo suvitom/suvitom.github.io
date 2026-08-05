@@ -1,11 +1,12 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
   margin: 0 0;
   background-color: #e4e4e4;
   overflow-x: hidden;
   width: 100vw;
   height: 100vh;
   color: #212529;
+  font-size: 17px;
 }
 
 .side {
@@ -32,7 +33,7 @@ body {
 
 .chaptr {
   text-align: justify;
-  font-size: large;
+  white-space: pre-line;
 }
 
 button:hover {
@@ -57,7 +58,7 @@ button:hover #arrow {
 button {
   border-radius: 5px;
   cursor: pointer;
-  font-size: large;
+  font-size: 17px;
   padding: 6px 9px;
   border: none;
   letter-spacing: 1px;
@@ -68,10 +69,11 @@ button {
   grid-template-columns: 1fr auto auto 1fr;
   justify-content: center;
   align-items: center;
+  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
 }
 
 #btncontainer {
-  margin: 40px auto 30px;
+  margin: 30px auto 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,8 +86,12 @@ h2,
 }
 
 h2 {
-  font-weight: 300;
-  font-size: 22px;
+  font-weight: 600;
+  font-size: 23px;
+  font-family: 'Savate', sans-serif;
+  color: #5835abd1;
+  letter-spacing: 1px;
+  font-optical-sizing: auto;
 }
 
 #langcontainer {
@@ -94,14 +100,16 @@ h2 {
   margin-top: 30px;
 }
 
-#wikipedia {
+#wikipedia,
+#ham {
   text-decoration: none;
-  padding-left: 7px;
   padding-right: 7px;
+  display: inline-block;
 }
 
 #wikipedia:hover,
-#photolink:hover {
+#photolink:hover,
+#ham:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 0, 0.192);
 }
@@ -130,10 +138,12 @@ h2 {
 
 h1 {
   margin: 0;
-  /* color: rgb(78, 78, 82); */
-  letter-spacing: 1px;
-  font-weight: 400;
+  font-family: 'Savate', sans-serif;
+  letter-spacing: 2px;
+  font-weight: 600;
   font-size: 29px;
+  color: #512aacea;
+  font-optical-sizing: auto;
 }
 
 #blocks {
