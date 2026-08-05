@@ -111,7 +111,9 @@ const shortnCaptOrFindArtist = (sculpt, artist) => {
 
 const setShortenedCapt = (capt, sculpt) => {
   const parts = capt.split(/©|Kuva|Photo/);
-  let shrtn = parts[0].replace(/\//g, '');
+  //let shrtn = parts[0].replace(/\//g, '');
+  //preserves 2016/2024
+  let shrtn = parts[0].replace(/\/(?!\d{4})/g, '');
 
   shrtn = shrtn
     .replace('Et voi käyttää kuvaa kaupallisiin tarkoituksiin.', '')
