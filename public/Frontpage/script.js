@@ -62,25 +62,23 @@ const create_Element = (tag, text) => {
 const setTextContent = () => {
   const fi = language === 'fi';
 
-  const h2_1 = create_Element('h2', fi ? 'Tietoa palvelusta' : 'About the service');
-  // const h2_2 = create_Element('h2', fi ? 'Tietoa Helsingin veistoksista' : "About Helsinki's sculptures");
+  //const h2_1 = create_Element('h2', fi ? 'Tietoa palvelusta' : 'About the service');
+
   const div1 = create_Element('div', fi ? serviceDescr_fi : serviceDescr_en);
   const div2 = create_Element('div', fi ? moreInfo_fi : moreInfo_en);
-  // const div3 = create_Element('div', fi ? history2_fi : history2_en);
+
   const br1 = document.createElement('br');
   const br2 = document.createElement('br');
 
   const a = createLink('wikipedia');
   const a2 = createLink('ham');
+
   btntext.textContent = fi ? 'siirry kartalle' : 'to the map';
   title.textContent = fi ? 'Helsingin veistokset' : 'Sculptures of Helsinki';
 
   div1.classList.add('chaptr');
-  // div2.classList.add('chaptr');
-  // div3.classList.add('chaptr');
 
-  //div3.appendChild(a);
-  const elements = [h2_1, div1, br1, div2, br2, a, a2];
+  const elements = [div1, br1, div2, br2, a, a2];
   elements.forEach(element => chapters.appendChild(element));
 };
 

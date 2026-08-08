@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
   margin: 0 0;
   background-color: #e4e4e4;
   overflow-x: hidden;
@@ -13,15 +13,6 @@ div {
   color: #212529;
 }
 
-/* #heart {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-
 .fa-heart {
   cursor: pointer;
   display: flex;
@@ -29,31 +20,6 @@ div {
   align-items: center;
   margin-top: 1px;
 }
-
-/* .fa-heart {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  line-height: 1;
-} */
-
-/* :root {
-  --heart-size: 20px;
-} */
-
-/* .innerPart {
-  font-size: var(--heart-size);
-  color: white;
-  z-index: 100;
-  margin-top: -1px;
-}
-
-.outlines {
-  font-size: calc(var(--heart-size) + 3px);
-  color: #d31688;
-} */
 
 .fa-regular {
   color: #b1b1b1;
@@ -113,7 +79,9 @@ div {
   border-radius: 3px;
   cursor: pointer;
   margin-top: 40px;
-  font-size: large;
+  font-size: 17px;
+  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
+  display: flex;
 }
 
 #btn:hover #arrow {
@@ -124,6 +92,7 @@ div {
   color: #a3a07b;
   transform: rotate(180deg);
   display: inline-block;
+  margin-right: 6px;
 }
 
 #div2 {
@@ -131,11 +100,13 @@ div {
 }
 
 #h2 {
-  color: #212529;
-  letter-spacing: 0.5px;
-  font-weight: 300;
+  letter-spacing: 1px;
+  font-weight: 500;
   font-size: 24px;
   margin: 0;
+  font-family: 'Savate', sans-serif;
+  font-optical-sizing: auto;
+  color: #212529ef;
 }
 
 #sculptImg {

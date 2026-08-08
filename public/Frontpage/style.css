@@ -58,7 +58,7 @@ button:hover #arrow {
 button {
   border-radius: 5px;
   cursor: pointer;
-  font-size: 17px;
+  font-size: 19px;
   padding: 6px 9px;
   border: none;
   letter-spacing: 1px;
@@ -69,11 +69,12 @@ button {
   grid-template-columns: 1fr auto auto 1fr;
   justify-content: center;
   align-items: center;
-  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
+  font-family: 'Savate', sans-serif;
+  font-optical-sizing: auto;
 }
 
 #btncontainer {
-  margin: 30px auto 30px;
+  margin: 30px auto 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,11 +87,10 @@ h2,
 }
 
 h2 {
-  font-weight: 600;
-  font-size: 23px;
-  font-family: 'Savate', sans-serif;
-  color: #5835abd1;
-  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 19px;
+  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
+  /* letter-spacing: 1px; */
   font-optical-sizing: auto;
 }
 
@@ -117,6 +117,9 @@ h2 {
 .language {
   padding: 3px 6px;
   border-radius: 4px;
+  font-family: 'Savate', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 .language:hover {
@@ -142,7 +145,7 @@ h1 {
   letter-spacing: 2px;
   font-weight: 600;
   font-size: 29px;
-  color: #512aacea;
+  color: #512aacf9;
   font-optical-sizing: auto;
 }
 
