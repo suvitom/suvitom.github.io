@@ -6,8 +6,8 @@ const setLoginLogoutBtn = async fi => {
   const user = await waitForAuth();
 
   if (user) {
-    loginButton.textContent = fi ? 'Kirjaudu ulos ➜]' : 'Sign Out ➜]';
-    loginButton.onclick = signOut;
+    loginButton.textContent = fi ? 'Asetukset' : 'User settings';
+    loginButton.onclick = goToSettingPage;
   } else {
     loginButton.textContent = fi ? 'Kirjaudu ☕︎' : 'Sign In ☕︎';
     loginButton.onclick = goToLoginPage;
@@ -23,6 +23,10 @@ const signOut = async () => {
 
 const goToLoginPage = () => {
   window.location.href = '../Loginpage/Loginpage.html';
+};
+
+const goToSettingPage = () => {
+  window.location.href = '../Settingpage/Usersettingpage.html';
 };
 
 const waitForAuth = () => {
