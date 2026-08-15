@@ -1,0 +1,23 @@
+body {
+  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
+  color: #212529;
+  display: grid;
+  grid-template-columns: min-content auto;
+  margin: 0;
+  margin-left: 25px;
+}
+
+.btn {
+  border: 2px #e1e1e1 outset;
+  margin-top: 25px;
+  white-space: nowrap;
+  border-radius: 5px;
+  background-color: seashell;
+  cursor: pointer;
+}
+
+#logout,
+#deleteAccount {
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+}

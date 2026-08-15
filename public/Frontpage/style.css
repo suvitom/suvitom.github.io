@@ -58,7 +58,7 @@ button:hover #arrow {
 button {
   border-radius: 5px;
   cursor: pointer;
-  font-size: 19px;
+  font-size: 16px;
   padding: 6px 9px;
   border: none;
   letter-spacing: 1px;
@@ -69,7 +69,7 @@ button {
   grid-template-columns: 1fr auto auto 1fr;
   justify-content: center;
   align-items: center;
-  font-family: 'Savate', sans-serif;
+  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
   font-optical-sizing: auto;
 }
 

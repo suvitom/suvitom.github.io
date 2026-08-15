@@ -14,12 +14,12 @@ const setLoginLogoutBtn = async fi => {
   }
 };
 
-const signOut = async () => {
-  await firebase.auth().signOut();
-  setLoginLogoutBtn(language === 'fi');
-  currentUser = null;
-  favIds = new Set();
-};
+// const signOut = async () => {
+//   await firebase.auth().signOut();
+//   setLoginLogoutBtn(language === 'fi');
+//   currentUser = null;
+//   favIds = new Set();
+// };
 
 const goToLoginPage = () => {
   window.location.href = '../Loginpage/Loginpage.html';
