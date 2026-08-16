@@ -37,7 +37,7 @@ div {
   grid-template-columns: 60% 30% auto;
   width: 100%;
   margin-top: 14px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 #savingInfo {
@@ -104,9 +104,15 @@ div {
   font-weight: 500;
   font-size: 24px;
   margin: 0;
-  font-family: 'Savate', sans-serif;
+  /* font-family: Verdana, 'Segoe UI', 'Trebuchet MS'; */
   font-optical-sizing: auto;
-  color: #212529ef;
+  /* color: #212529ef; */
+  /* border: 3px solid rgba(255, 160, 122, 0.642); */
+  /* border-radius: 15px; */
+  /* width: min-content; */
+  white-space: nowrap;
+  color: #512aacf9;
+  /* padding: 5px 10px 5px 10px; */
 }
 
 #sculptImg {

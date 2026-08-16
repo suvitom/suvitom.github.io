@@ -186,7 +186,7 @@ input {
 #langcontainer {
   position: absolute;
   top: 37px;
-  left: 130px;
+  left: 150px;
 }
 
 .language {
@@ -245,46 +245,6 @@ input[type='radio'] {
   padding-left: 5px;
 }
 
-/* .tab {
-  grid-row: 1 / 3;
-  clip-path: polygon(30% 0%, 70% 0%, 78% 6%, 85% 25%, 100% 100%, 0% 100%, 15% 25%, 23% 6%);
-  position: relative;
-  background-color: #c9c9c9;
-  bottom: 0;
-} */
-
-/* .tabWhite {
-  clip-path: polygon(30% 0%, 70% 0%, 78% 6%, 85% 25%, 100% 100%, 0% 100%, 15% 25%, 23% 6%);
-  background-color: white;
-  bottom: 0;
-  width: 94%;
-  height: 94%;
-  left: 3%;
-  position: absolute;
-} */
-
-/* #createdInTabButton,
-#likedTabButton {
-  background-color: white;
-  clip-path: polygon(30% 0%, 70% 0%, 78% 6%, 85% 25%, 100% 100%, 0% 100%, 15% 25%, 23% 6%);
-  width: 100%;
-  height: 100%;
-  left: 0;
-  bottom: 0;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* .tabHeart {
-  color: #959595;
-}
-
-.tabHammer {
-  color: olive;
-} */
-
 .heartIcon,
 .popupTitle {
   display: inline-block;
@@ -299,59 +259,6 @@ input[type='radio'] {
   /* color: #b1b1b1; */
   margin-left: 5px;
 }
-
-/* #diskIcon {
-  color: green;
-  display: inline-block;
-  margin-bottom: 5px;
-} */
-
-/* b {
-  display: block;
-} */
-
-/* 
-#createdInTabButton {
-  background-color: white;
-} */
-
-/* #likedTabButton {
-  background-color: #e2e2e2;
-} */
-
-/* #selectionLine {
-  grid-row: 2 / 3;
-  grid-column: 1 / 6;
-  display: grid;
-  grid-template-columns: 12px 80px 15px 80px auto;
-  z-index: 100;
-} */
-
-/* #heartLine {
-  background-color: #c1c1c1;
-} */
-
-/* #likedContent {
-  display: none;
-  padding: 20px;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-} */
-
-/* #liked {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-} */
 
 #dialogLoginLink {
   text-decoration: none;
@@ -403,9 +310,8 @@ form {
   font-size: 27px;
   margin-top: 15px;
   margin-bottom: 0px;
-  border: solid #c7c7c7 2px;
-  border-radius: 8px;
-
+  /* border: solid #c7c7c7 2px; */
+  /* border-radius: 8px; */
   font-family: 'Savate', sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;

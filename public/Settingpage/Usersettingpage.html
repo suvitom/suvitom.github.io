@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
 
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Savate:wght@200..900&display=swap" rel="stylesheet">
+
     <!-- update the version number as needed -->
     <script defer src="https://www.gstatic.com/firebasejs/12.7.0/firebase-app-compat.js"></script>
     <!-- include only the Firebase features as you need -->
@@ -26,6 +31,9 @@
         </div>
         <div class="btn" onclick="deleteAccount()">
             <div id="deleteAccount"></div>
+        </div>
+        <div class="btn" onclick="window.location.href='../Map_page/Map_page.html'">
+            <div id="goBack">➜</div>
         </div>
     </div>
     <script src="../firebase-config.js"></script>
