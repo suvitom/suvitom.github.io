@@ -1,6 +1,6 @@
 body {
-  /* font-family: Verdana, 'Segoe UI', 'Trebuchet MS'; */
-  font-family: 'Savate', sans-serif;
+  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
+  /* font-family: 'Savate', sans-serif; */
   color: #212529f5;
   display: grid;
   grid-template-columns: min-content auto;
