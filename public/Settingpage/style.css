@@ -1,23 +1,28 @@
 body {
   font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
   /* font-family: 'Savate', sans-serif; */
-  color: #212529f5;
+  font-optical-sizing: auto;
+  color: #2c0d76;
   display: grid;
-  grid-template-columns: min-content auto;
+  grid-template-columns: auto min-content auto;
   margin: 0;
   margin-left: 30px;
+  height: 100vh;
 }
 
 .btn {
-  border: 2px #e1e1e1 outset;
-  margin-top: 30px;
+  border: 3px solid #512aac20;
   white-space: nowrap;
   border-radius: 5px;
-  background-color: seashell;
+  background-color: #f0f0f0;
   cursor: pointer;
   font-weight: 500;
   letter-spacing: 1px;
   font-size: 19px;
+}
+
+.btn:hover {
+  background-color: #512aac08;
 }
 
 #goBack {
@@ -31,4 +36,10 @@ body {
 #goBack {
   padding: 10px 20px 10px 20px;
   text-align: center;
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

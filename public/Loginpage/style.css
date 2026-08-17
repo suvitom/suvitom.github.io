@@ -8,7 +8,7 @@ body {
   align-items: center;
   height: 100vh;
   font-size: large;
-  color: #212529;
+  color: #212529e8;
 }
 
 body {
@@ -36,13 +36,14 @@ body {
 .firebaseui-title {
   font-size: x-large;
   margin: 0;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   font-weight: 500;
 }
 
 .firebaseui-textfield {
   display: grid;
   grid-template-columns: auto 110px 235px auto;
+  margin-bottom: 30px;
 }
 
 .firebaseui-label {
@@ -103,7 +104,8 @@ input[type='password']:valid {
 }
 
 .firebaseui-form-links {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+  margin-top: -5px;
 }
 
 ul {
@@ -122,13 +124,15 @@ ul {
 }
 
 a {
-  color: #212529;
+  color: #212529e8;
   font-size: medium;
 }
 
 .firebaseui-error {
   color: rgb(221, 69, 4);
   font-size: medium;
+  margin-bottom: 25px;
+  margin-top: -5px;
 }
 
 #arrowLeft {
