@@ -306,16 +306,15 @@ form {
 }
 
 #title {
-  color: #512aac;
+  color: #212529;
   letter-spacing: 3px;
   font-size: 27px;
   margin-top: 15px;
   margin-bottom: 0px;
   /* border: solid #c7c7c7 2px; */
   /* border-radius: 8px; */
-  font-family: 'Savate', sans-serif;
   font-optical-sizing: auto;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 #opacitySlider {

@@ -12,7 +12,8 @@ body {
 }
 
 body {
-  background: radial-gradient(rgba(41, 50, 24, 0.22) 40px, transparent 40px);
+  /* background: radial-gradient(rgba(41, 50, 24, 0.22) 40px, transparent 40px); */
+  background: radial-gradient(#c7c6ba 40px, transparent 40px);
 
   background-size: 78px 78px;
 

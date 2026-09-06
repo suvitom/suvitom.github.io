@@ -65,6 +65,7 @@ div {
 #gray {
   grid-column: 2/3;
   background-color: #c7c6ba;
+  /* background-color: #d0d2cd; */
 }
 
 #textContainer {
