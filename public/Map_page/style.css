@@ -4,6 +4,7 @@ body {
   overflow-x: hidden;
   margin: 0px 20px;
   font-size: 15px;
+  background-color: rgb(251, 249, 255);
 }
 
 .iconOne {
@@ -305,7 +306,7 @@ form {
 }
 
 #title {
-  color: #512aacea;
+  color: #512aac;
   letter-spacing: 3px;
   font-size: 27px;
   margin-top: 15px;

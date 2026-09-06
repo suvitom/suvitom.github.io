@@ -119,6 +119,7 @@ h2 {
   border-radius: 4px;
   font-weight: 500;
   letter-spacing: 1px;
+  color: black;
 }
 
 .language:hover {
@@ -140,11 +141,11 @@ h2 {
 
 h1 {
   margin: 0;
-  font-family: 'Savate', sans-serif;
+  /* font-family: 'Savate', sans-serif; */
   letter-spacing: 2px;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 29px;
-  color: #512aacf9;
+  /* color: #512aac; */
   font-optical-sizing: auto;
 }
 

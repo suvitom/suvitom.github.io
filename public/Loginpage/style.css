@@ -12,25 +12,11 @@ body {
 }
 
 body {
-  background:
-    radial-gradient(rgba(41, 50, 24, 0.08) 2px, transparent 3px),
-    radial-gradient(rgba(41, 50, 24, 0.22) 1px, transparent 1px),
-    radial-gradient(rgba(41, 50, 24, 0.25) 1px, transparent 1px),
-    radial-gradient(rgba(41, 50, 24, 0.27) 1px, transparent 1px),
-    radial-gradient(rgba(41, 50, 24, 0.22) 1px, transparent 1px) rgba(41, 50, 24, 0.7);
+  background: radial-gradient(rgba(41, 50, 24, 0.22) 40px, transparent 40px);
 
-  background-size:
-    5px 5px,
-    15px 15px,
-    30px 20px,
-    45px 52px,
-    15px 15px;
-  background-position:
-    0 0,
-    4px 4px,
-    11px 11px,
-    15px 15px,
-    10px 9px;
+  background-size: 78px 78px;
+
+  background-position: 20px 34px;
 }
 
 .firebaseui-title {
