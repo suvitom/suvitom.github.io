@@ -81,4 +81,5 @@ const changeLanguage = lang => {
   changeSculptIcon(checkSelectedRadioBtn());
   addTextToThePage();
   updateFavSideView(currentUser);
+  renderFavList();
 };

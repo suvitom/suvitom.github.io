@@ -14,7 +14,8 @@ body {
   border: 3px solid #512aac20;
   white-space: nowrap;
   border-radius: 5px;
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
+  background-color: rgb(241, 239, 244);
   cursor: pointer;
   font-weight: 500;
   letter-spacing: 1px;

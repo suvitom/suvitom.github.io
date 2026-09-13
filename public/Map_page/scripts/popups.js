@@ -76,7 +76,11 @@ const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
           marker.getElement().style.backgroundColor = '#ffd942';
         }
       } else {
-        await docRef.set({createdAt: firebase.firestore.FieldValue.serverTimestamp()});
+        await docRef.set({
+          name_fi: sculpt.name_fi,
+          name_en: sculpt.name_en,
+          createdAt: Date.now(),
+        });
         console.log('saved:', sculpt.id);
         heartIcon.style.color = '#ff4b66';
         if (marker) {

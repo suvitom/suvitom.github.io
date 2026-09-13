@@ -55,6 +55,27 @@ const updateFavSideView = user => {
   }
 };
 
+let globFavourites = [];
+
+// Called by the Firestore listener when the data changes
+const updateFavShow = async favourites => {
+  globFavourites = favourites;
+  renderFavList();
+};
+
+const renderFavList = () => {
+  const favList = document.getElementById('favList');
+  favList.textContent = '';
+
+  const sorted = [...globFavourites].sort((a, b) => b.createdAt - a.createdAt);
+
+  sorted.forEach(fav => {
+    const li = document.createElement('li');
+    li.textContent = language == 'fi' ? fav.name_fi : fav.name_en;
+    favList.appendChild(li);
+  });
+};
+
 // ===== SEARCH =====
 // Filter the visible sidebar items based on the current search input.
 const handleInputText = () => {
