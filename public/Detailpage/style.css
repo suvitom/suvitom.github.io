@@ -64,8 +64,9 @@ div {
 
 #gray {
   grid-column: 2/3;
-  background-color: #c7c6ba;
-  /* background-color: #d0d2cd; */
+  /* background-color: #d9eaf6; */
+  /* background-color: #eaf6fe; */
+  background-color: #d6d4d9;
 }
 
 #textContainer {
