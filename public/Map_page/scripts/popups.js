@@ -1,6 +1,6 @@
 // ===== POPUPS =====
 // Create the popup content and favorite interaction for each marker.
-const createPopUp = (sculpt, favouriteIds) => {
+const createPopUp = sculpt => {
   // Use the shortened caption for a compact popup preview.
   const shortened = shortnCaptOrFindArtist(sculpt, false);
 
@@ -23,7 +23,7 @@ const createPopUp = (sculpt, favouriteIds) => {
   heartIcon.style.display = currentUser ? 'inline-block' : 'none';
 
   if (currentUser) {
-    heartIcon.style.color = favouriteIds.has(String(sculpt.id)) ? '#ff4b66' : '#b1b1b1';
+    heartIcon.style.color = globFavourites.has(String(sculpt.id)) ? '#ff4b66' : '#b1b1b1';
   } else {
     heartIcon.style.color = '#b1b1b1';
   }
@@ -68,7 +68,7 @@ const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
         heartIcon.style.color = '#b1b1b1';
         if (marker) {
           // removes the sculpture from the Set that stores IDs for quick access
-          favIds.delete(String(sculpt.id));
+          globFavourites.delete(sculpt.id);
           // adds the marker to the correct group and gives it a group-specific color
           grpNine.removeLayer(marker);
           marker.addTo(grpEight);
@@ -84,7 +84,13 @@ const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
         console.log('saved:', sculpt.id);
         heartIcon.style.color = '#ff4b66';
         if (marker) {
-          favIds.add(String(sculpt.id));
+          //globFavourites.add(String(sculpt.id));
+          globFavourites.set(sculpt.id, {
+            id: sculpt.id,
+            name_fi: sculpt.name_fi,
+            name_en: sculpt.name_en,
+            createdAt: Date.now(),
+          });
           grpEight.removeLayer(marker);
           marker.addTo(grpNine);
           setTimeout(() => marker.openPopup(), 800);

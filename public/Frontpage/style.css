@@ -10,16 +10,15 @@ body {
 }
 
 .side {
-  background:
-    radial-gradient(rgba(41, 50, 24, 0.08) 2px, transparent 3px),
-    radial-gradient(rgba(41, 50, 24, 0.22) 1px, transparent 1px),
+  background: radial-gradient(rgba(161, 160, 163, 0.345) 2px, transparent 3px);
+  /* radial-gradient(rgba(41, 50, 24, 0.22) 1px, transparent 1px),
     radial-gradient(rgba(41, 50, 24, 0.25) 1px, transparent 1px),
     radial-gradient(rgba(41, 50, 24, 0.27) 1px, transparent 1px),
-    radial-gradient(rgba(41, 50, 24, 0.22) 1px, transparent 1px) rgba(41, 50, 24, 0.7);
+    radial-gradient(rgba(41, 50, 24, 0.22) 1px, transparent 1px), */
+  /* rgba(41, 50, 24, 0.7); */
 
-  background-size:
-    5px 5px,
-    15px 15px,
+  background-size: 5px 5px;
+  /* 15px 15px,
     30px 20px,
     45px 52px,
     15px 15px;
@@ -28,7 +27,7 @@ body {
     4px 4px,
     11px 11px,
     15px 15px,
-    10px 9px;
+    10px 9px; */
 }
 
 .chaptr {
@@ -104,7 +103,8 @@ h2 {
 #ham {
   text-decoration: none;
   padding-right: 7px;
-  display: inline-block;
+  display: block;
+  width: max-content;
 }
 
 #wikipedia:hover,

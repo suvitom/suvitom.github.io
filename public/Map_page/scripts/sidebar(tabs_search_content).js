@@ -55,23 +55,28 @@ const updateFavSideView = user => {
   }
 };
 
-let globFavourites = [];
-
-// Called by the Firestore listener when the data changes
-const updateFavShow = async favourites => {
-  globFavourites = favourites;
-  renderFavList();
-};
-
 const renderFavList = () => {
   const favList = document.getElementById('favList');
   favList.textContent = '';
 
-  const sorted = [...globFavourites].sort((a, b) => b.createdAt - a.createdAt);
+  const sorted = [...globFavourites.values()].sort((a, b) => b.createdAt - a.createdAt);
 
   sorted.forEach(fav => {
     const li = document.createElement('li');
-    li.textContent = language == 'fi' ? fav.name_fi : fav.name_en;
+    const location = document.createElement('span');
+    const close = document.createElement('span');
+    const text = document.createElement('span');
+
+    text.textContent = language == 'fi' ? fav.name_fi : fav.name_en;
+    close.textContent = 'close';
+    location.textContent = 'location_on';
+    close.classList.add('material-symbols-outlined');
+    location.classList.add('material-symbols-outlined');
+
+    li.appendChild(location);
+    li.appendChild(close);
+    li.appendChild(text);
+
     favList.appendChild(li);
   });
 };

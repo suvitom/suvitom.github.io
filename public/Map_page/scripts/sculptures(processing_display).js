@@ -10,7 +10,7 @@ const addOrRemoveLayer = (markerGroup, tagId) => {
 };
 
 // Load sculpture data, place markers on the map, and update their appearance.
-const addSculptures = async (view, favourites) => {
+const addSculptures = async view => {
   // Clear old marker groups before drawing the current selection.
   grpForAllMarkers.eachLayer(g => g.clearLayers());
   let sculptures = null;
@@ -37,7 +37,7 @@ const addSculptures = async (view, favourites) => {
   const sortedSculptures = sortSculptures(sculptures);
 
   sortedSculptures.forEach(sculpt => {
-    addMarkerToMap(sculpt, view, favourites);
+    addMarkerToMap(sculpt, view);
   });
 
   changeSculptIcon(view); //Changes icons for the correct zoom level.
@@ -57,7 +57,7 @@ const changeSculptIcon = view => {
 
   sculptureData.forEach(sculpt => {
     const marker = sculpt.marker;
-    const {icon, bigIcon, midSizeIcon} = setMarkerGroupAndIcon(sculpt, view, favIds);
+    const {icon, bigIcon, midSizeIcon} = setMarkerGroupAndIcon(sculpt, view);
 
     if (marker && bigIcon) {
       if (zoomLevel <= 13) {

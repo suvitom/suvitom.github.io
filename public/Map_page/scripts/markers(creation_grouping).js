@@ -1,13 +1,13 @@
 // ===== MARKER CREATION =====
 // Create a map marker for each sculpture using the selected group and popup content.
-const addMarkerToMap = (sculpt, view, favouriteIds) => {
+const addMarkerToMap = (sculpt, view) => {
   // Convert coordinates to numbers and place the marker only when both are valid.
   const latitude = parseFloat(sculpt.latitude);
   const longitude = parseFloat(sculpt.longitude);
 
   if (!isNaN(latitude) && !isNaN(longitude)) {
-    const {icon, group} = setMarkerGroupAndIcon(sculpt, view, favouriteIds);
-    const popupContent = createPopUp(sculpt, favouriteIds);
+    const {icon, group} = setMarkerGroupAndIcon(sculpt, view);
+    const popupContent = createPopUp(sculpt);
 
     sculpt.marker = L.marker([latitude, longitude], {icon: icon}).bindPopup(popupContent).addTo(group);
   }
@@ -15,7 +15,7 @@ const addMarkerToMap = (sculpt, view, favouriteIds) => {
 
 // ===== MARKER GROUPING AND ICON SELECTION =====
 // Group sculptures by creation year for visibility control and assign the correct icon styling.
-const setMarkerGroupAndIcon = (sculpt, view, favouriteIds) => {
+const setMarkerGroupAndIcon = (sculpt, view) => {
   let group = null;
   let icon = null;
   let bigIcon = null;
@@ -70,7 +70,7 @@ const setMarkerGroupAndIcon = (sculpt, view, favouriteIds) => {
           midSizeIcon = midSizeIconSeven;
       }
     } else {
-      if (favouriteIds && favouriteIds.has(String(sculpt.id))) {
+      if (globFavourites && globFavourites.has(String(sculpt.id))) {
         group = grpNine;
         icon = iconNine;
         bigIcon = bigIconNine;

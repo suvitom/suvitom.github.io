@@ -5,7 +5,7 @@ let creatYearData = null;
 const sideBarList = document.getElementById('list');
 let currentUser = null;
 let db = null;
-let favIds = new Set();
+let globFavourites = new Map();
 
 const sortingSelection = document.getElementById('organize');
 const searchInput = document.getElementById('search');

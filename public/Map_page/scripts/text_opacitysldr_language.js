@@ -77,7 +77,7 @@ const changeLanguage = lang => {
     sideBarList.removeChild(sideBarList.firstChild);
   }
 
-  addSculptures(checkSelectedRadioBtn(), favIds);
+  addSculptures(checkSelectedRadioBtn());
   changeSculptIcon(checkSelectedRadioBtn());
   addTextToThePage();
   updateFavSideView(currentUser);

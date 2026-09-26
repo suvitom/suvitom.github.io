@@ -14,7 +14,7 @@ body {
 }
 
 .iconTwo {
-  background-color: #4f4f4f;
+  background-color: rgb(0, 0, 148);
   border-radius: 100px;
   border: 1px solid black;
 }
@@ -26,25 +26,25 @@ body {
 }
 
 .iconFour {
-  background-color: #7d70ba;
+  background-color: deeppink;
   border-radius: 100px;
   border: 1px solid black;
 }
 
 .iconFive {
-  background-color: #6aadd1;
+  background-color: #1bafff;
   border-radius: 100px;
   border: 1px solid black;
 }
 
 .iconSix {
-  background-color: thistle;
+  background-color: #ffcc00;
   border-radius: 100px;
   border: 1px solid black;
 }
 
 .iconSeven {
-  background-color: yellowgreen;
+  background-color: rgb(74, 235, 0);
   border-radius: 100px;
   border: 1px solid black;
 }
@@ -442,6 +442,44 @@ input[type='checkbox'] {
 #organize:focus {
   outline: none;
   border-color: rgb(154, 154, 154);
+}
+
+li {
+  list-style-type: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(199, 199, 199);
+}
+
+ul {
+  padding-inline-start: 8px;
+  padding-right: 8px;
+}
+
+ul > :last-child {
+  border-bottom: none;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  color: rgb(113, 113, 113);
+  font-size: 19px;
+  margin-right: 7px;
+  cursor: pointer;
+}
+
+li > span.material-symbols-outlined {
+  display: none;
+}
+
+li:hover > span.material-symbols-outlined {
+  display: inline-block;
 }
 
 @media screen and (max-width: 900px) {
