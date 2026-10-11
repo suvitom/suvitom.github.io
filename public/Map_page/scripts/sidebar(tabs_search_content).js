@@ -73,6 +73,18 @@ const renderFavList = () => {
     close.classList.add('material-symbols-outlined');
     location.classList.add('material-symbols-outlined');
 
+    const latitude = parseFloat(fav.lat);
+    const longitude = parseFloat(fav.lng);
+
+    location.onclick = () => {
+      if (Number.isNaN(latitude) || Number.isNaN(longitude)) {
+        console.warn('Invalid favorite coordinates', fav);
+        return;
+      }
+      map.setView([latitude, longitude], 18);
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+
     li.appendChild(location);
     li.appendChild(close);
     li.appendChild(text);

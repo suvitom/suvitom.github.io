@@ -10,7 +10,7 @@ body {
 }
 
 .side {
-  background: radial-gradient(rgba(161, 160, 163, 0.345) 2px, transparent 3px);
+  background: radial-gradient(rgba(161, 160, 163, 0.6) 2px, transparent 3px);
   /* radial-gradient(rgba(41, 50, 24, 0.22) 1px, transparent 1px),
     radial-gradient(rgba(41, 50, 24, 0.25) 1px, transparent 1px),
     radial-gradient(rgba(41, 50, 24, 0.27) 1px, transparent 1px),
@@ -199,7 +199,11 @@ h1 {
 
 @media screen and (min-width: 1001px) {
   #white {
+    z-index: 1;
     padding: 60px 90px 40px;
     background-color: white;
+    box-shadow:
+      -8px 0 8px -2px white,
+      8px 0 8px -2px white;
   }
 }

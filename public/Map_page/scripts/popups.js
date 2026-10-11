@@ -36,6 +36,16 @@ const createPopUp = sculpt => {
   return popupContent;
 };
 
+const refreshPopupForAllMarkers = () => {
+  if (!sculptureData) return;
+
+  sculptureData.forEach(sculpt => {
+    if (sculpt.marker) {
+      sculpt.marker.setPopupContent(createPopUp(sculpt));
+    }
+  });
+};
+
 const getDocSnap = async sculpt => {
   const docRef = db
     .collection('users')
@@ -84,12 +94,13 @@ const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
         console.log('saved:', sculpt.id);
         heartIcon.style.color = '#ff4b66';
         if (marker) {
-          //globFavourites.add(String(sculpt.id));
           globFavourites.set(sculpt.id, {
             id: sculpt.id,
             name_fi: sculpt.name_fi,
             name_en: sculpt.name_en,
             createdAt: Date.now(),
+            lat: marker.getLatLng().lat,
+            lng: marker.getLatLng().lng,
           });
           grpEight.removeLayer(marker);
           marker.addTo(grpNine);
