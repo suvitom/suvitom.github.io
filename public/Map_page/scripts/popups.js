@@ -83,13 +83,17 @@ const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
           grpNine.removeLayer(marker);
           marker.addTo(grpEight);
           setTimeout(() => marker.openPopup(), 800);
-          marker.getElement().style.backgroundColor = '#ffd942';
+          if (checkSelectedRadioBtn() == 'def_radio') {
+            marker.getElement().style.backgroundColor = '#ffd942';
+          }
         }
       } else {
         await docRef.set({
           name_fi: sculpt.name_fi,
           name_en: sculpt.name_en,
           createdAt: Date.now(),
+          lat: marker.getLatLng().lat,
+          lng: marker.getLatLng().lng,
         });
         console.log('saved:', sculpt.id);
         heartIcon.style.color = '#ff4b66';
@@ -105,7 +109,9 @@ const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
           grpEight.removeLayer(marker);
           marker.addTo(grpNine);
           setTimeout(() => marker.openPopup(), 800);
-          marker.getElement().style.backgroundColor = 'red';
+          if (checkSelectedRadioBtn() == 'def_radio') {
+            marker.getElement().style.backgroundColor = 'red';
+          }
         }
       }
     }

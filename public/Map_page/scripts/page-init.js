@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         globFavourites = favourites;
         renderFavList();
+        refreshPopupForAllMarkers();
+        changeSculptIcon(checkSelectedRadioBtn());
       });
     }
   });

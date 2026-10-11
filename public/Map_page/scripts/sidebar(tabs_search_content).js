@@ -81,7 +81,7 @@ const renderFavList = () => {
         console.warn('Invalid favorite coordinates', fav);
         return;
       }
-      map.setView([latitude, longitude], 18);
+      map.setView([latitude, longitude], 19);
       window.scrollTo({top: 0, behavior: 'smooth'});
     };
 
