@@ -10,24 +10,19 @@ body {
 }
 
 .side {
-  background: radial-gradient(rgba(161, 160, 163, 0.6) 2px, transparent 3px);
-  /* radial-gradient(rgba(41, 50, 24, 0.22) 1px, transparent 1px),
-    radial-gradient(rgba(41, 50, 24, 0.25) 1px, transparent 1px),
-    radial-gradient(rgba(41, 50, 24, 0.27) 1px, transparent 1px),
-    radial-gradient(rgba(41, 50, 24, 0.22) 1px, transparent 1px), */
-  /* rgba(41, 50, 24, 0.7); */
+  /* background: rgba(161, 160, 163, 0.6); */
+  background-image: url('images/viileaKontrastilla38.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: hue-rotate(330deg);
+}
 
-  background-size: 5px 5px;
-  /* 15px 15px,
-    30px 20px,
-    45px 52px,
-    15px 15px;
-  background-position:
-    0 0,
-    4px 4px,
-    11px 11px,
-    15px 15px,
-    10px 9px; */
+#sideRight {
+  background-position: right;
+}
+
+#sideLeft {
+  background-position: left;
 }
 
 .chaptr {

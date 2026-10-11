@@ -69,50 +69,39 @@ map.on('popupclose', e => {
 const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
   // The currently open popup marker is used to update the correct marker instance.
   const marker = currentMarker;
+  if (!marker) return;
+
   try {
     if (currentUser) {
       const {docSnap, docRef} = await getDocSnap(sculpt);
+      // delete function
       if (docSnap.exists) {
         await docRef.delete();
-        console.log('deleted:', sculpt.id);
         heartIcon.style.color = '#b1b1b1';
-        if (marker) {
-          // removes the sculpture from the Set that stores IDs for quick access
-          globFavourites.delete(sculpt.id);
-          // adds the marker to the correct group and gives it a group-specific color
-          grpNine.removeLayer(marker);
-          marker.addTo(grpEight);
-          setTimeout(() => marker.openPopup(), 800);
-          if (checkSelectedRadioBtn() == 'def_radio') {
-            marker.getElement().style.backgroundColor = '#ffd942';
-          }
+        globFavourites.delete(sculpt.id);
+        setTimeout(() => marker.openPopup(), 800);
+        if (checkSelectedRadioBtn() == 'def_radio') {
+          marker.getElement().style.backgroundColor = '#ffd942';
         }
-      } else {
+      }
+      // save function
+      else {
         await docRef.set({
           name_fi: sculpt.name_fi,
           name_en: sculpt.name_en,
           createdAt: Date.now(),
-          lat: marker.getLatLng().lat,
-          lng: marker.getLatLng().lng,
         });
-        console.log('saved:', sculpt.id);
         heartIcon.style.color = '#ff4b66';
-        if (marker) {
-          globFavourites.set(sculpt.id, {
-            id: sculpt.id,
-            name_fi: sculpt.name_fi,
-            name_en: sculpt.name_en,
-            createdAt: Date.now(),
-            lat: marker.getLatLng().lat,
-            lng: marker.getLatLng().lng,
-          });
-          grpEight.removeLayer(marker);
-          marker.addTo(grpNine);
-          setTimeout(() => marker.openPopup(), 800);
-          if (checkSelectedRadioBtn() == 'def_radio') {
-            marker.getElement().style.backgroundColor = 'red';
-          }
+        globFavourites.set(sculpt.id, {
+          id: sculpt.id,
+          name_fi: sculpt.name_fi,
+          name_en: sculpt.name_en,
+          createdAt: Date.now(),
+        });
+        if (checkSelectedRadioBtn() == 'def_radio') {
+          marker.getElement().style.backgroundColor = 'red';
         }
+        setTimeout(() => marker.openPopup(), 800);
       }
     }
   } catch (error) {

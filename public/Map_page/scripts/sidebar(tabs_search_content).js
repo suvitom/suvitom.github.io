@@ -73,15 +73,12 @@ const renderFavList = () => {
     close.classList.add('material-symbols-outlined');
     location.classList.add('material-symbols-outlined');
 
-    const latitude = parseFloat(fav.lat);
-    const longitude = parseFloat(fav.lng);
-
     location.onclick = () => {
-      if (Number.isNaN(latitude) || Number.isNaN(longitude)) {
-        console.warn('Invalid favorite coordinates', fav);
-        return;
-      }
-      map.setView([latitude, longitude], 19);
+      const sculpt = sculptureData.find(s => s.id == fav.id);
+      if (!sculpt) return;
+
+      map.setView([sculpt.latitude, sculpt.longitude], 17);
+      sculpt.marker?.openPopup();
       window.scrollTo({top: 0, behavior: 'smooth'});
     };
 

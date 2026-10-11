@@ -21,8 +21,8 @@ body {
   font-size: x-large;
   margin: 0;
   margin-bottom: 25px;
-  font-weight: 600;
-  color: #651c7db5;
+  font-weight: 500;
+  color: black;
 }
 
 .firebaseui-textfield {

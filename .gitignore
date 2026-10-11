@@ -1,5 +1,7 @@
 firebase-config.js
 
+*.png
+
 # Logs
 logs
 *.log
