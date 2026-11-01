@@ -62,10 +62,11 @@ const create_Element = (tag, text) => {
 const setTextContent = () => {
   const fi = language === 'fi';
 
-  //const h2_1 = create_Element('h2', fi ? 'Tietoa palvelusta' : 'About the service');
+  const div1 = create_Element('div');
+  const div2 = create_Element('div');
 
-  const div1 = create_Element('div', fi ? serviceDescr_fi : serviceDescr_en);
-  const div2 = create_Element('div', fi ? moreInfo_fi : moreInfo_en);
+  div1.innerHTML = fi ? serviceDescr_fi : serviceDescr_en;
+  div2.innerHTML = fi ? moreInfo_fi : moreInfo_en;
 
   const br1 = document.createElement('br');
   const br2 = document.createElement('br');
@@ -98,6 +99,7 @@ const changeLanguage = lang => {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
+  applyBackground();
   setTextContent();
   setImage();
 });

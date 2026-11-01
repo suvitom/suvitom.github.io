@@ -1,10 +1,15 @@
 body {
-  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
+  font-family: 'Open Sans';
+  font-variation-settings: 'wdth' 90;
+  font-optical-sizing: auto;
   text-align: center;
   overflow-x: hidden;
   margin: 0px 20px;
-  font-size: 15px;
-  background-color: rgb(240, 239, 243);
+  font-size: 19px;
+  color: #212529;
+  /* background-color: rgb(240, 239, 243); */
+  background-color: white;
+  font-weight: 500;
 }
 
 .iconOne {
