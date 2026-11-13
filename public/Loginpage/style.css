@@ -1,5 +1,7 @@
 body {
-  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
+  font-family: 'Open Sans', Verdana, sans-serif;
+  font-variation-settings: 'wdth' 90;
+  font-optical-sizing: auto;
   text-align: center;
   overflow-x: hidden;
   margin: 0px 30px;
@@ -7,8 +9,9 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  font-size: large;
-  color: #212529e8;
+  font-size: 19px;
+  font-weight: 500;
+  color: #212529;
 }
 
 body {
@@ -18,11 +21,10 @@ body {
 }
 
 .firebaseui-title {
-  font-size: x-large;
+  font-size: 23px;
   margin: 0;
   margin-bottom: 25px;
   font-weight: 500;
-  color: black;
 }
 
 .firebaseui-textfield {
@@ -51,7 +53,9 @@ body {
   border-radius: 4px;
   align-self: center;
   color: #212529;
-  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
+  font-family: 'Open Sans', Verdana, sans-serif;
+  font-weight: 500;
+  font-size: 17px;
 }
 
 input[type='email']:valid {
@@ -73,15 +77,16 @@ input[type='password']:valid {
 
 .firebaseui-button {
   border: none;
-  padding: 7px 30px;
+  padding: 5px 30px;
   background-color: #512aac;
   color: white;
   border-radius: 5px;
   cursor: pointer;
   margin-left: 3px;
   margin-right: 3px;
-  font-size: large;
-  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
+  font-size: 18px;
+  font-family: 'Open Sans', Verdana, sans-serif;
+  font-weight: 500;
 }
 
 .firebaseui-button:hover {

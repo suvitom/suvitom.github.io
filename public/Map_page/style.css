@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', Verdana, sans-serif;
   font-variation-settings: 'wdth' 90;
   font-optical-sizing: auto;
   text-align: center;
@@ -104,11 +104,11 @@ body {
 }
 
 #subHeading {
-  font-weight: 300;
-  color: #1c1c1c;
-  font-size: 17px;
+  font-weight: 500;
+  font-size: 20px;
   letter-spacing: 1px;
-  margin-top: 20px;
+  margin-top: 25px;
+  margin-bottom: 10px;
 }
 
 #back {
@@ -142,17 +142,31 @@ body {
   cursor: pointer;
 }
 
-button,
 select,
-input {
-  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
+option {
   font-size: 14px;
+  font-family: 'Open Sans', Verdana, sans-serif;
+  color: #212529;
+  letter-spacing: 1px;
+  font-weight: 500;
 }
 
-.leaflet-popup-content {
-  font-family: Verdana, 'Segoe UI', 'Trebuchet MS';
-  font-size: 13px;
+.leaflet-popup-pane {
+  font-family: 'Open Sans', Verdana, sans-serif;
+  font-size: 14px;
+  color: #212529;
 }
+
+button,
+input {
+  font-size: 16px;
+  font-family: 'Open Sans', Verdana, sans-serif;
+  color: #212529;
+}
+
+/* .leaflet-popup-content {
+  font-size: 13px;
+} */
 
 #findMebtn:hover {
   background-color: #f5ebe4;
@@ -214,6 +228,7 @@ input {
   margin-top: 4px;
   border-radius: 5px;
   padding-top: 5px;
+  font-size: 18px;
 }
 
 #map {
@@ -316,9 +331,6 @@ form {
   font-size: 27px;
   margin-top: 15px;
   margin-bottom: 0px;
-  /* border: solid #c7c7c7 2px; */
-  /* border-radius: 8px; */
-  font-optical-sizing: auto;
   font-weight: 500;
 }
 

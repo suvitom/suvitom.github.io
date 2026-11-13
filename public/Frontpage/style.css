@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', Verdana, sans-serif;
   font-variation-settings: 'wdth' 90;
   font-optical-sizing: auto;
   margin: 0 0;
@@ -61,6 +61,8 @@ button {
   grid-template-columns: 1fr auto auto 1fr;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
+  font-family: 'Open Sans', Verdana, sans-serif;
 }
 
 #btncontainer {
