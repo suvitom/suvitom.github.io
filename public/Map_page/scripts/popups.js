@@ -78,7 +78,7 @@ const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
       if (docSnap.exists) {
         await docRef.delete();
         heartIcon.style.color = '#b1b1b1';
-        globFavourites.delete(sculpt.id);
+        globFavourites.delete(String(sculpt.id));
         setTimeout(() => marker.openPopup(), 800);
         if (checkSelectedRadioBtn() == 'def_radio') {
           marker.getElement().style.backgroundColor = '#ffd942';
@@ -92,7 +92,7 @@ const saveOrRemoveSculpt = async (sculpt, heartIcon) => {
           createdAt: Date.now(),
         });
         heartIcon.style.color = '#ff4b66';
-        globFavourites.set(sculpt.id, {
+        globFavourites.set(String(sculpt.id), {
           id: sculpt.id,
           name_fi: sculpt.name_fi,
           name_en: sculpt.name_en,

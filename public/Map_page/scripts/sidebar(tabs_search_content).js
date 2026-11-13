@@ -57,7 +57,7 @@ const updateFavSideView = user => {
 
 const renderFavList = () => {
   const favList = document.getElementById('favList');
-  favList.textContent = '';
+  favList.replaceChildren();
 
   const sorted = [...globFavourites.values()].sort((a, b) => b.createdAt - a.createdAt);
 
