@@ -1,8 +1,6 @@
 // ===== TEXT TO THE PAGE =====
 // Update the text on the page based on the selected language.
 const addTextToThePage = () => {
-  const fi = language === 'fi';
-
   const h1 = document.getElementById('title');
   h1.textContent = fi ? 'Helsingin veistokset' : 'Sculptures of Helsinki';
 
@@ -47,7 +45,7 @@ const addTextToThePage = () => {
   const opcLabel = document.getElementById('opacityLabl');
   opcLabel.textContent = fi ? 'läpinäkyvyys' : 'transparency';
 
-  setLoginLogoutBtn(fi);
+  setLoginLogoutBtn();
 };
 
 // ===== OPACITYSLIDER =====
@@ -70,6 +68,7 @@ const setOpacitySliderVal = () => {
 const changeLanguage = lang => {
   localStorage.setItem('language', lang);
   language = lang;
+  fi = lang == 'fi';
 
   grpForAllMarkers.eachLayer(g => g.clearLayers());
 
@@ -82,4 +81,5 @@ const changeLanguage = lang => {
   addTextToThePage();
   updateFavSideView(currentUser);
   renderFavList();
+  addTopListToThePage();
 };

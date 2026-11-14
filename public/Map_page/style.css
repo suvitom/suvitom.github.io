@@ -441,10 +441,13 @@ input[type='checkbox'] {
 
 #browsingContent,
 #mapContent,
-#favouritesContent,
-#topContent {
+#favouritesContent {
   flex-direction: column;
   height: 100%;
+}
+
+#topContent {
+  flex-direction: column;
 }
 
 #organize {
@@ -461,7 +464,7 @@ input[type='checkbox'] {
   border-color: rgb(154, 154, 154);
 }
 
-li {
+ul > li {
   list-style-type: none;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -470,12 +473,26 @@ li {
   border-bottom: 1px solid rgb(199, 199, 199);
 }
 
+ol > li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
+  /* border-bottom: 1px solid rgb(199, 199, 199); */
+}
+
 ul {
   padding-inline-start: 8px;
   padding-right: 8px;
 }
 
-ul > :last-child {
+ol {
+  padding-inline-start: 22px;
+  padding-right: 8px;
+  padding-top: 40px;
+}
+
+ul > :last-child,
+ol > :last-child {
   border-bottom: none;
 }
 

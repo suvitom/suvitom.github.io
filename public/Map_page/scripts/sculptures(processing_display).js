@@ -20,7 +20,7 @@ const addSculptures = async view => {
     sculptures = await fetchSculptures();
     if (sculptures.length === 0) {
       const div = document.createElement('div');
-      div.textContent = language === 'fi' ? 'Veistoksia ei voitu hakea.' : 'Failed to fetch sculptures.';
+      div.textContent = fi ? 'Veistoksia ei voitu hakea.' : 'Failed to fetch sculptures.';
       sideBarList.appendChild(div);
       return;
     } else {

@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         renderFavList();
         refreshPopupForAllMarkers();
         changeSculptIcon(checkSelectedRadioBtn());
+        addTopListToThePage();
       });
     }
   });

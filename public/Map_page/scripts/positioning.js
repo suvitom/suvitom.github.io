@@ -11,7 +11,7 @@ function position(pos) {
   }
 
   myOwnLoc = L.marker([lat, lon]).addTo(map);
-  myOwnLoc.bindPopup(language === 'fi' ? 'Olet tässä!' : "You're here!").openPopup();
+  myOwnLoc.bindPopup(fi ? 'Olet tässä!' : "You're here!").openPopup();
   map.setView([lat, lon], 18);
 }
 
@@ -29,10 +29,8 @@ function error(err) {
       3: 'Location request timed out.',
     },
   };
-  const lang = language === 'fi' ? 'fi' : 'en';
-  alert(
-    messages[lang][err.code] || (language === 'fi' ? 'Virhe paikannuksessa.' : 'Error in finding location.'),
-  );
+  const lang = fi ? 'fi' : 'en';
+  alert(messages[lang][err.code] || (fi ? 'Virhe paikannuksessa.' : 'Error in finding location.'));
 }
 
 function getMyLocation() {
@@ -43,10 +41,6 @@ function getMyLocation() {
       maximumAge: 0,
     });
   } else {
-    alert(
-      language === 'fi'
-        ? 'Paikannus ei ole tuettu tässä selaimessa.'
-        : 'Geolocation is not supported in this browser.',
-    );
+    alert(fi ? 'Paikannus ei ole tuettu tässä selaimessa.' : 'Geolocation is not supported in this browser.');
   }
 }

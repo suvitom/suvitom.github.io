@@ -1,6 +1,6 @@
 // ===== AUTHENTICATION =====
 // Handle login, logout, and auth state changes.
-const setLoginLogoutBtn = async fi => {
+const setLoginLogoutBtn = async () => {
   const loginButton = document.getElementById('logInOrOut');
 
   const user = await waitForAuth();

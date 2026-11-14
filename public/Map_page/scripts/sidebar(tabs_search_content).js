@@ -36,7 +36,6 @@ const changeTabColorAndState = key => {
 };
 
 const updateFavSideView = user => {
-  const fi = language == 'fi';
   const favNoShow = document.getElementById('favNoShow');
   const favShow = document.getElementById('favShow');
 
@@ -67,7 +66,7 @@ const renderFavList = () => {
     const close = document.createElement('span');
     const text = document.createElement('span');
 
-    text.textContent = language == 'fi' ? fav.name_fi : fav.name_en;
+    text.textContent = fi ? fav.name_fi : fav.name_en;
     close.textContent = 'close';
     location.textContent = 'location_on';
     close.classList.add('material-symbols-outlined');
@@ -150,7 +149,7 @@ const createSidebarEntry = (sculpt, order) => {
   const yearValue = Number(creatYearData.get(sculpt.id));
   const year = order === 'age' && yearValue > 0 ? ` ${yearValue}` : '';
 
-  div.textContent = language === 'fi' ? sculpt.name_fi + year : englishName + year;
+  div.textContent = fi ? sculpt.name_fi + year : englishName + year;
 
   // For later use in search function
   div.classList.add('listed');
@@ -179,6 +178,60 @@ const addToSidebarList = (sculpt, order) => {
   const div = createSidebarEntry(sculpt, order);
   attachSidebarClick(div, sculpt);
   sideBarList.appendChild(div);
+};
+
+// ===== TOP LIST =====
+const getTop10 = async user => {
+  const [allSnap, ownSnap] = await Promise.all([
+    db.collectionGroup('favourites').get(),
+    user ? db.collection('users').doc(String(user.uid)).collection('favourites').get() : null,
+  ]);
+
+  // Total likes per item (with names)
+  const counts = {};
+  allSnap.forEach(doc => {
+    const data = doc.data();
+
+    if (!counts[doc.id]) {
+      counts[doc.id] = {
+        count: 0,
+        name_fi: data.name_fi,
+        name_en: data.name_en,
+      };
+    }
+    counts[doc.id].count++;
+  });
+
+  // User's own favourites
+  const own = new Set(ownSnap ? ownSnap.docs.map(d => d.id) : []);
+
+  // Returns the top 10 items as an array of objects, sorted by likes
+  return Object.entries(counts)
+    .sort(
+      (a, b) =>
+        b[1].count - a[1].count || // 1. sort by number of likes, most liked first
+        Number(own.has(b[0])) - Number(own.has(a[0])), // 2. If likes are equal, user's own favourites first
+    )
+    .slice(0, 10)
+    .map(([itemId, {count, name_fi, name_en}]) => ({
+      itemId,
+      count,
+      name_fi,
+      name_en,
+    }));
+};
+
+const addTopListToThePage = async () => {
+  const topContent = document.getElementById('topContent');
+  topContent.replaceChildren();
+
+  const top10 = await getTop10(currentUser);
+
+  for (const item of top10) {
+    const li = document.createElement('li');
+    li.textContent = (fi ? item.name_fi : item.name_en) + ' ( ' + item.count + ' ♡ )';
+    topContent.appendChild(li);
+  }
 };
 
 // ===== SCULPTURE ORGANIZING =====
@@ -263,8 +316,8 @@ const sortSculptAlphabetically = (sculptures, order) => {
     const enNameA = a.name_en?.replace(/^[^/]*\/\s*/, '');
     const enNameB = b.name_en?.replace(/^[^/]*\/\s*/, '');
 
-    const nimiA = language === 'fi' ? a.name_fi : enNameA || '';
-    const nimiB = language === 'fi' ? b.name_fi : enNameB || '';
+    const nimiA = fi ? a.name_fi : enNameA || '';
+    const nimiB = fi ? b.name_fi : enNameB || '';
 
     return order === 'desc'
       ? nimiB.localeCompare(nimiA) // Z → A

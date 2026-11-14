@@ -5,13 +5,13 @@ const createPopUp = sculpt => {
   const shortened = shortnCaptOrFindArtist(sculpt, false);
 
   const link = document.createElement('div');
-  link.textContent = language === 'fi' ? 'Lisää...' : 'More...';
+  link.textContent = fi ? 'Lisää...' : 'More...';
   link.classList.add('popupLink');
   link.onclick = () => goToDetailPage(sculpt);
 
   const popupContent = document.createElement('div');
   const title = document.createElement('b');
-  title.textContent = language === 'fi' ? sculpt.name_fi : sculpt.name_en || '';
+  title.textContent = fi ? sculpt.name_fi : sculpt.name_en || '';
   title.classList.add('popupTitle');
   const caption = document.createElement('div');
   caption.textContent = shortened;
@@ -163,10 +163,9 @@ const findArtist = (capt, sculpt) => {
 // ===== USER REDIRECT =====
 // Send the user to the detail page when a sculpture is selected.
 const goToDetailPage = sculpt => {
-  const finnish = language === 'fi';
-  localStorage.setItem('caption', finnish ? sculpt.picture_caption_fi : sculpt.picture_caption_en);
-  localStorage.setItem('description', finnish ? sculpt.desc_fi : sculpt.desc_en);
-  localStorage.setItem('name', finnish ? sculpt.name_fi : sculpt.name_en);
+  localStorage.setItem('caption', fi ? sculpt.picture_caption_fi : sculpt.picture_caption_en);
+  localStorage.setItem('description', fi ? sculpt.desc_fi : sculpt.desc_en);
+  localStorage.setItem('name', fi ? sculpt.name_fi : sculpt.name_en);
   localStorage.setItem('url', sculpt.picture_url);
   localStorage.setItem('sculptId', sculpt.id);
   window.location.href = '../Detailpage/Detailpage.html';

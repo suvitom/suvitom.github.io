@@ -1,5 +1,6 @@
 // ===== GENERAL VARIABLES AND MAP INITIALIZATION =====
 let language = localStorage.getItem('language') || 'fi';
+let fi = language == 'fi';
 let sculptureData = null;
 let creatYearData = null;
 const sideBarList = document.getElementById('list');

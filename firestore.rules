@@ -5,9 +5,14 @@ service cloud.firestore {
 
     match /users/{userId} {
       allow delete: if request.auth != null && request.auth.uid == userId;
- 		}
+    }
+
     match /users/{userId}/favourites/{sculptId} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    match /{path=**}/favourites/{sculptId} {
+      allow read: if true;
     }
   }
 }
