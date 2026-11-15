@@ -42,4 +42,5 @@ document.addEventListener('DOMContentLoaded', function () {
   loadInitialMarkers();
   addTextToThePage();
   setOpacitySliderVal();
+  addTopListToThePage();
 });

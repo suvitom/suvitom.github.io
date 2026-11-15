@@ -229,9 +229,25 @@ const addTopListToThePage = async () => {
 
   for (const item of top10) {
     const li = document.createElement('li');
-    li.textContent = (fi ? item.name_fi : item.name_en) + ' ( ' + item.count + ' ♡ )';
+
+    const heartIcon = document.createElement('span');
+    heartIcon.classList.add('material-symbols-outlined');
+    heartIcon.textContent = 'favorite';
+
+    const locIcon = document.createElement('span');
+    locIcon.style.marginLeft = '10px';
+    locIcon.style.color = 'rgb(160, 160, 160)';
+    locIcon.textContent = '➜';
+    locIcon.onclick = () => stupidFunction();
+
+    li.append((fi ? item.name_fi : item.name_en) + ' (' + item.count + ' ', heartIcon, ')', locIcon);
+
     topContent.appendChild(li);
   }
+};
+
+const stupidFunction = () => {
+  console.log('moi');
 };
 
 // ===== SCULPTURE ORGANIZING =====

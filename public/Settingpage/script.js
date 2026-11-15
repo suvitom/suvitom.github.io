@@ -72,10 +72,10 @@ const deleteAccount = async () => {
     const {authTime} = await currentUser.getIdTokenResult();
     const ageMs = Date.now() - new Date(authTime).getTime();
 
-    if (ageMs > 4 * 60 * 1000) {
-      await requireNewLogin();
-      return;
-    }
+    // if (ageMs > 4 * 60 * 1000) {
+    //   await requireNewLogin();
+    //   return;
+    // }
 
     const userDocRef = fbdb.collection('users').doc(String(currentUser.uid));
 
@@ -93,17 +93,18 @@ const deleteAccount = async () => {
 
     goBack();
   } catch (error) {
-    if (error.code === 'auth/requires-recent-login') {
-      // Fallback in case the pre-check missed it
-      await requireNewLogin();
-    } else {
-      console.error('Error in deleting user:', error);
-      alert(
-        fi
-          ? 'Käyttäjätilin poisto epäonnistui. Yritä uudelleen.'
-          : 'Deleting the account failed. Please try again.',
-      );
-    }
+    console.log(error.code);
+    // if (error.code === 'auth/requires-recent-login') {
+    //   // Fallback in case the pre-check missed it
+    //   await requireNewLogin();
+    // } else {
+    //   console.error('Error in deleting user:', error);
+    //   alert(
+    //     fi
+    //       ? 'Käyttäjätilin poisto epäonnistui. Yritä uudelleen.'
+    //       : 'Deleting the account failed. Please try again.',
+    //   );
+    // }
   }
 };
 
